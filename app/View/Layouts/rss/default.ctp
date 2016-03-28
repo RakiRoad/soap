@@ -23,7 +23,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		TCNJ SOAP | <?php echo $title_for_layout; ?>
+		TCNJ SOAP | <?php echo $title_for_layout; ?> //Label of site
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
@@ -34,44 +34,44 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	?>
     <style type='text/css'>
         html, body {
-            height: 100%;
+            height: 100%; //height of body element
         }
         footer {
-            color: black;
-            background: #D9EDF7;
-            padding: 17px 0 18px 0;
+            color: black; //color of footer
+            background: #D9EDF7; //background color
+            padding: 17px 0 18px 0; //change padding attribute of footer
             <!--border-top: 2px solid #3A87AD;-->
         }
         footer a {
         }
         footer a:hover {
-            color: #999;
+            color: #999; //add hover event, when footer is hovered over color changes
         }
         .wrapper {
-            min-height: 95%;
-            height: auto !important;
-            height: 100%;
+            min-height: 95%;// set min height to 95% of height
+            height: auto !important; 
+            height: 100%; //change height to 100%
             margin: 0 auto -63px;
         }
         .push {
-            height: 63px;
+            height: 63px; //change height to 63 pixels
         }
         .wrapper > .container {
-            padding-top: 60px;
+            padding-top: 60px; // change padding to 60 pixels
         }
         ul.footer {
 			list-style-type: none;
 			float: left;
 		}
 		ul.footer li {
-			list-style-type: none;
-			float: left;
-			padding-right: 16px;
+			list-style-type: none; //set no list-style-type
+			float: left; 
+			padding-right: 16px; //change padding on right to 16 pixels
 		}
     </style>
     <style type='text/css'>
     .social {
-        font-family: 'JustVector';
+        font-family: 'JustVector'; // choose justvector of font family 
     }
     </style>
 
