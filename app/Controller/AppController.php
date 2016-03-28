@@ -51,6 +51,7 @@ public $components = array(
     'Facebook.Connect' => array('model' => 'User')
 );
 
+//Checks to see if user is Admin
 public function isAuthorized($user) {
 if (isset($user['role']) && $user['role'] === 'admin') {
 return true; //Admin can access every action
