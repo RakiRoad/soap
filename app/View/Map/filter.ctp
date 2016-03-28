@@ -7,19 +7,19 @@
 		
 		switch ($facility[0]['dangerous_state']) {
 			case '1':
-				$imgType = "GreenFactoryIcon.png";
+				$imgType = "GreenFactoryIcon.png"; //switches to green factory icon
 				break;
 			case '2':
-				$imgType = "YellowFactoryIcon.png";
+				$imgType = "YellowFactoryIcon.png"; // switches to yellow factory icon
 				break;
 			case '3':
-				$imgType = "OrangeFactoryIcon.png";
+				$imgType = "OrangeFactoryIcon.png"; // switches to orange factory icon
 				break;
 			case '4':
-				$imgType = "Red2FactoryIcon.png";
+				$imgType = "Red2FactoryIcon.png"; //switches to red factory icon
 				break;
 			case '5':
-				$imgType = "RedFactoryIcon.png";
+				$imgType = "RedFactoryIcon.png"; //switches to red factory icon 
 				break;
 		}
 		
