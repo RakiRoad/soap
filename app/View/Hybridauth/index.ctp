@@ -1,4 +1,5 @@
 <!-- This page was a joint effort by Kevin and Derek D to try to fix Hybridauth, we had no success. - Kevin Bohinski 12/1/14-->
+<!-- Page was used in debugging Hybridauth still not working progress will try to be made this semester maybe try different login system -->
 <div id="myModal" class="modal" style="border:0px;">
 <div class="modal-header" style="text-align: center; border-radius: 3px 3px 0 0;
 border-bottom: 0px">
