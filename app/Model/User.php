@@ -1,22 +1,22 @@
 <?php
 App::uses('AuthComponent', 'Controller/Component');
 class User extends AppModel {
-    public $name = 'User';
-    public $validate = array(
+    public $name = 'User'; //user variable
+    public $validate = array(   //validated through array
         'username' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
                 'message' => 'A username is required'
             )
         ),
-        'password' => array(
+        'password' => array(    //PW is validated through array
             'required' => array(
                 'rule' => array('notEmpty'),
                 'message' => 'A password is required'
             )
         ),
-        'role' => array(
-            'valid' => array(
+        'role' => array(    
+            'valid' => array(   //role is validated through array
                 'rule' => array('inList', array('admin', 'user')),
                 'message' => 'Please enter a valid role',
                 'allowEmpty' => false
@@ -25,7 +25,7 @@ class User extends AppModel {
     );
     public function beforeSave($options = array()) {
         if (isset($this->data[$this->alias]['password'])) {
-            $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
+            $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']); //checks to see if credentials are correct
         }
         return true;
     }
