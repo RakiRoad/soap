@@ -156,10 +156,10 @@ class GoogleMapV3Helper extends AppHelper {
 		            });
 		            
 		        } else if (google.gears) { // Try Google Gears Geolocation
-		            browserSupportFlag = true;
-		            var geo = google.gears.factory.create('beta.geolocation');
+		            browserSupportFlag = true; //set browserSupportFlag to true
+		            var geo = google.gears.factory.create('beta.geolocation'); 
 		            geo.getCurrentPosition(function(position) {
-		              initialLocation = new google.maps.LatLng(position.latitude,position.longitude);
+		              initialLocation = new google.maps.LatLng(position.latitude,position.longitude); 
 		              map.setCenter(initialLocation);";
 					  if($marker) $map .= "setMarker(initialLocation);";         
 		        
@@ -168,18 +168,18 @@ class GoogleMapV3Helper extends AppHelper {
 		            });
 		        } else {
 		            // Browser doesn't support Geolocation
-		            browserSupportFlag = false;
-		            handleNoGeolocation(browserSupportFlag);
+		            browserSupportFlag = false; // set browserSupport flag to false
+		            handleNoGeolocation(browserSupportFlag); 
 		        }
 		    }
-		    
+		    //function to handle with no Geographic location is entered
 		    function handleNoGeolocation(errorFlag) {
 		        if (errorFlag == true) {
 		          initialLocation = noLocation;
-		          contentString = \"Error: The Geolocation service failed.\";
+		          contentString = \"Error: The Geolocation service failed.\"; 
 		        } else {
 		          initialLocation = noLocation;
-		          contentString = \"Error: Your browser doesn't support geolocation.\";
+		          contentString = \"Error: Your browser doesn't support geolocation.\"; //Their browser is not geo-location compatiable 
 		        }
 		        map.setCenter(initialLocation);
 		        map.setZoom(3);
@@ -199,7 +199,7 @@ class GoogleMapV3Helper extends AppHelper {
 		            title:\"My Position\"
 		        });";
 		     if($infoWindow){   
-		     	$map .= "google.maps.event.addListener(marker, 'click', function() {
+		     	$map .= "google.maps.event.addListener(marker, 'click', function() { //add a listener to open up the marker when clicked
 								infowindow.open(map,marker);
 		        			});";
 		     }
