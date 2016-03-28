@@ -99,6 +99,7 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
         if (!empty($user_profile)) {
             $user = $this->User->find('first', array('conditions' => array(
                 'OR'=>array('User.username' => $user_profile->identifier, 'User.email'=>$user_profile->email))));
+            //When there is no user found he/she will have the option to create a profile
             if (!$user) {
                 $this->User->create();
                 $this->User->set(array(
@@ -135,7 +136,7 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
 	}
 	
     public function logout() {
-        $this->Connect->FB->destroysession();
+        $this->Connect->FB->destroysession();	//stops FB session
         $this->Session->destroy();
         $this->Auth->logout();
         $this->redirect('/');
@@ -161,7 +162,7 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
 	       // Registered users can view the dashboard
 	        return true;
 	    }
-	    else if ($this->action === 'delete' && $user['role'] === 'admin')
+	    else if ($this->action === 'delete' && $user['role'] === 'admin') //Admin has the power to delete
 	    	return true;
 	    	
 	    else
