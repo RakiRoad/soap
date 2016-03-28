@@ -6,10 +6,11 @@
 	</div>
 	<div class="modal-body" style="border-radius: 0 0 3px 3px;">	
 		<?php echo $this->Session->flash('flash', array('element' => 'errorMessage')); ?>	<!-- Placeholder for error messages -->
+		<!--Creates form for logging in-->
 		<?php 
 			echo $this->Form->create('User', array('id' => 'usersform', 'type' => 'post',
 			'url' => array('controller' => 'users', 'action' => 'login'))); 
-	   	?>
+	   	?>	
 
 		<div class="usersform row-fluid">
 			<!--<div class="span6">
@@ -22,6 +23,7 @@
 					<label style="color:#013435;" for="UserPassword">Password</label>
 					<input name="data[User][password]" type="password" id="UserPassword"/>
 				</div>
+				<!--Submit button for the login page-->
 				<?php 
 					echo $this->Form->button('Log In', array('type' => 'submit', 'class' => 'btn btn-primary'));
 					//echo $this->Form->end();
@@ -30,6 +32,7 @@
 			</div>-->
 			<div class="span12" style="text-align:center;"> 
 			
+			<!--Window for logging in that tells user to login via HybridAuth-->
 			<a href="/SOAP/index.php/users/login2/facebook"><button type="button" class="btn btn-primary">Login Via HybridAuth</button></a>
 				
 				<!--
