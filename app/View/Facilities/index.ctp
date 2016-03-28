@@ -1,9 +1,12 @@
 <!doctype html>
 <html>
+    <!-- accesses userQuery.js file -->
     <head>
             <?php $this->Html->script('jquery'); ?>
             <script type="text/javascript" src="<?php echo $this->webroot; ?>/js/userQuery.js"></script>
     </head>
+    
+    
     <body>
         <div class="span2">
             <?php echo $this->element('sidebar'); ?>
@@ -15,6 +18,8 @@
 You can search any facility name to find the facility. The facility will list the its address, the county it's in, its parent company, its danger level, and if it's a brownfield. Clicking on any facility will pull up further details on its location, the chemicals found on that site and their amounts, and will show the Google maps view of its location.
 </h3><br>
         </div>
+        
+        <!-- shows the categories that you can pick from -->
         <div class="span10" style="margin-left:20%;">
             <div style="text-align:center;"><input style="width:70%; padding-left:18px; background: white no-repeat scroll left center url('<?php echo $this->webroot; ?>img/icon_search.png');" id="mainSearchBar" type="text" placeholder="Search by facility name or click 'options' for more advanced searching."><a title="Options" id="select_cog" href="#"><img style="position:relative; z-index:100; margin-left:-60px; margin-top:-7px;" src="<?php echo $this->webroot; ?>img/icon_cog.png"></a></div>
             <div id="options" style="display:none; color:white; margin-bottom:20px;">
@@ -26,6 +31,8 @@ You can search any facility name to find the facility. The facility will list th
                 <label class="filterLabel">Danger Level</label><input class="filter" type="input"><br>
                 <label class="filterLabel">Brownfield</label><input class="filter" type="input"><br>
             </div>
+            
+            <!-- organizes the table -->
             <table class="table table-striped" style="border-top: 0px;">
                 <thead>
                     <tr>
