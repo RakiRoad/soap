@@ -1,7 +1,7 @@
 <!-- File: /app/View/Posts/add.ctp -->
 
 <div class="span2">
-    <!-- creates sidebar --!> 
+    <!-- creates sidebar !--> 
     <?php echo $this->element('sidebar'); ?>
 </div>
 <div class="span9">
