@@ -28,6 +28,8 @@
         }
     </style>
     <h1 style="text-align:center;"><?php echo $facility_info[0][0]['facility_name']; ?></h1>
+    
+    <!-- when you click on facility name, this is where the details are posted -->
     <div class="details">
         <h1>Facility Details:</h1>
         <hr />
