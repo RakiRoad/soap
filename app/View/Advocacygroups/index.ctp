@@ -17,6 +17,8 @@
  <h3>Click on the Names Below to Learn More about these Advocacy Groups</h3>
 </div>
 <!-- styles the flex box items and container --> 
+<!-- flex container to make the page and pictures look nice. Puts the images and information in rows and columns and provides
+a background for each picture -->
 <style>
 .flex-container {
   padding: 0;
