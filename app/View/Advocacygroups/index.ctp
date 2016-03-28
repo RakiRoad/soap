@@ -18,7 +18,7 @@
 </div>
 <!-- styles the flex box items and container --> 
 <!-- flex container to make the page and pictures look nice. Puts the images and information in rows and columns and provides
-a background for each picture -->
+a background for each picture. The flex container also helps to adjust the pictures based on different screen sizes -->
 <style>
 .flex-container {
   padding: 0;
@@ -62,12 +62,16 @@ a background for each picture -->
 		<a href= "http://www.anjee.net/" target="_blank"><h3 style="color:#F5F3DC;">Alliance for New Jersey</h3>
 		<h3 style="color:#F5F3DC;"> Environmental Education</h3>
 <!--This selects the color that the name of the group is going to be in-->
+<!-- Below are teh actual flex items, the pictures or jpgs -->
 		<br>
 </a>
 	</li>
   <li class="flex-item">
+  	<!--The specific image-->
                 <img src="<?php echo $this->webroot; ?>img/image4.jpg">
+        <!-- Aligning the text -->
                 <div class="caption" style="text-align:center;">
+        <!-- Providing the link >>
                 <a href= "http://www.littoralsociety.org/" target="_blank"><h3 style="color:#F5F3DC;">American Littoral<br>Society</h3>
 </a>
 	</li>
