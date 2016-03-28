@@ -8,6 +8,7 @@ class FacilitiesController extends AppController {
 	public function index() {
 	}
     
+    
     public function view($facility_id) {
         $facility_sql = 'SELECT facility_name, owner_name, dangerous_state, is_brownfield, location_id, county, municipality, latitude, longitude, x_coor, y_coor
                         FROM "newsoap"."facilities"
@@ -24,6 +25,7 @@ class FacilitiesController extends AppController {
 		$chem_info = $this->Facility->query($chem_sql);
         $this->set('chem_info', $chem_info);
     }
+    
     
     public function loadTable(){
         $this->autoRender = false;
