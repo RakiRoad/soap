@@ -50,6 +50,9 @@
     -->
    
     <!-- Facebook comment section -->
+    
+    <!-- Regardless we can fix the facebook comment section but it might be better to just remove it and allow comments in the reader.
+    We can look into this more later. -->
     <div class="facebook" width="100%">
     <?php echo $this->Facebook->comments(
             $options = array(
