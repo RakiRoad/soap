@@ -14,15 +14,18 @@ class EPA
 		@ssx=ssx
 		@ssy=ssy
 	end
+	#initializes variables
 	
 	def outputfile
 		File.open("epaformat.sql", 'a') { |file| file.puts("INSERT INTO brownfields VALUES ('"+String(@county)+"','"+String(@owner)+"','"+(String(@add).delete "\'")+"','"+(String(@muni).delete "\'")+"','"+(String(@pname).delete "\'")+ "','"+String(@pnum)+"','"+String(@py)+"','"+String(@sid)+"','"+String(@ssx)+"','"+(String(@ssy).delete "\n")+"');")}
 	end
 	
+	#prints out brownfield values to the file
+	
 	def display
 		puts @sid #+ "\t" + pname + "\t" + muni + "\t" + owner + "\t" + add
 	end
-	
+	#prints out @sid variable
 end
 
 Net::HTTP.start("nj.gov") { |http|
@@ -31,6 +34,8 @@ Net::HTTP.start("nj.gov") { |http|
     file.write(resp.body)
    }
 }
+
+#requesting nj.gov's page pertaining to known contaminated sites, writes information into text file
 
 File.open("kcsnj.txt", "r") do |infile|
 	count=1
@@ -45,3 +50,5 @@ File.open("kcsnj.txt", "r") do |infile|
 	end
 	puts 'done'
 end
+# the first line gathered from the file gets disregarded due to the if portion of the if else statement
+# every other iteration except the first one pulls a line from the file and processes it until there are no more unscanned lines left
