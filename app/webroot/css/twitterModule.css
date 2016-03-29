@@ -1,3 +1,4 @@
+/* Sets the background color of various elements */
 .thm-dark, .thm-dark .p-author .profile .p-name, .thm-dark .cards-base p, .thm-dark .cards-base p a, .thm-dark .timeline-header .summary, .thm-dark .timeline-header .list-description, .thm-dark .timeline-header a:link, .thm-dark .timeline-header a:visited, .thm-dark .byline, .thm-dark .p-author a.profile:hover .p-name, .thm-dark .p-author a.profile:focus .p-name .thm-dark .custom-timeline-owner-profile .p-name:hover, .thm-dark .custom-timeline-owner-profile .p-name:focus {
     color: #CFCFCF;
 }
