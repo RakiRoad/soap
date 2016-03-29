@@ -1,5 +1,7 @@
 <?php
 App::uses('AuthComponent', 'Controller/Component');
+//User class that validates the user and password for them to log in and their role as admin or user. We might use this or work with 
+// the group with login permissions to handle that
 class User extends AppModel {
     public $name = 'User';
     public $validate = array(
