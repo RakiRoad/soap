@@ -9,15 +9,18 @@ class EPA
 		@fix=fix
 		@comment=comment
 	end
+	#initializing variables
 	
 	def outputfile
 		File.open(epaformat.sql, 'a') { |file| file.write("INSERT INTO Brownfields VALUES("+ snum +"," sname+"," + stat + "," + fix + "," + own+");")}
 	end
 	
+	# writing these values into a .csv file 
+	
 	def display
 		puts snum + "\t" + sname + "\t" + stat + "\t" + fix + "\t" + own
 	end
-	
+	# prints variables
 end
 
 File.open("brown.csv", "r") do |infile|
@@ -39,3 +42,5 @@ File.open("brown.csv", "r") do |infile|
 		end
 	end
 end
+
+#reads csv and putting into array and then prints out content of array
