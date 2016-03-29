@@ -5,6 +5,8 @@ App::uses('AppModel', 'Model');
 *
 * @property Post $Post
 */
+
+//Comments for the blog page. We might use these with our RSS reader or import our own comments in there.
 class Comment extends AppModel {
 /**
 * Display field
