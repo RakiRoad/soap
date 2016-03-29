@@ -19,6 +19,8 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+ 
+ // We plan to use Ruby mainly for our project not entirely sure as of yet if we'll use php for the reader. 
 class BlogsController extends AppController {
 /*
 	This controller class was created by the Blog team 
@@ -31,7 +33,8 @@ class BlogsController extends AppController {
 */
 
 	public function index() {
-	// PHPCAKE Function to List all BLog post from the DB
+	// PHPCAKE Function to List all BLog post from the DB4
+	//This will get all the blog posts from the database.
 		$this->set('blog_info', $this->Blog->find('all'));
 	}
 	//view function 
