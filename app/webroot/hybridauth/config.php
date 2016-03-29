@@ -9,6 +9,8 @@
 //	HybridAuth Config file: http://hybridauth.sourceforge.net/userguide/Configuration.html
 // ----------------------------------------------------------------------------------------
 
+//allows users to log in using the various providers by way of hybridauth an open source social sign on
+
 return 
 	array(
 		"base_url" => "http://localhost/hybridauth-git/hybridauth/", 
