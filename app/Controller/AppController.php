@@ -25,7 +25,7 @@ App::uses('Controller', 'Controller');
 App::uses('Controller', 'Controller');
 App::uses('FB', 'Facebook.Lib');
 App::uses('FacebookInfo', 'Facebook.Lib');
-App::uses('Facebook', 'Facebook.Lib');
+App::uses('Facebook', 'Facebook.Lib'); //Facebook module
 
 
 /**
@@ -51,11 +51,12 @@ public $components = array(
     'Facebook.Connect' => array('model' => 'User')
 );
 
+//check if the user is authorized for use
 public function isAuthorized($user) {
 if (isset($user['role']) && $user['role'] === 'admin') {
 return true; //Admin can access every action
 }
-return false; // The rest don't
+return false; // If not an admin they are not authorized
 }
 
 public function beforeFacebookSave() {
