@@ -1,7 +1,7 @@
 <!-- File: /app/View/Blog/view.ctp -->
 <!-- This file was made in the Fall 2014 Semester of CSC 415 (Software Engineering) for the Blogging in the Deep Group (12/1/14) -->
 <!-- View post -->
-
+<!-- This file allows us to view posts, we might use this to reference if we have to resort to cakePHP to opening our RSS feed reader likely.-->
 <!-- Displays sidebar -->
 <div class="sideView">
 <div id="sidebarView" class="span2">
