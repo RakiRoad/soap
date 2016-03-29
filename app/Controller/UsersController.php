@@ -14,6 +14,9 @@ class UsersController extends AppController {
         //$this->Auth->autoRedirect = false;	//Manual redirect set.
 		//$this->Auth->flashElement = "invalidCredentials";	//Choose element to call for flash
     }
+    
+    //This handles the log-in system however we might not use this or could learn from what the group before did and try to implement 
+    // that into our module. 
 
 	public function login2($provider) {
 //http://bakery.cakephp.org/articles/thehanx/2012/07/27/social_login_with_hybridauth
