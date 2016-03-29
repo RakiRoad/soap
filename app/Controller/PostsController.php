@@ -2,9 +2,10 @@
 
 class PostsController extends AppController {
     public function index() {
-         $this->set('posts', $this->Post->find('all'));
+         $this->set('posts', $this->Post->find('all')); //find all posts
     }
 
+    // View to see posts
     public function view($id = null) {
         $this->Post->id = $id;
         $this->set('post', $this->Post->read());
@@ -18,19 +19,22 @@ class PostsController extends AppController {
 	        }
 	    }
 	}
+	
+	//Editing posts
     public function edit($id = null) {
 	    $this->Post->id = $id;
 	    if ($this->request->is('get')) {
 	        $this->request->data = $this->Post->read();
 	    } else {
 	        if ($this->Post->save($this->request->data)) {
-	            $this->Session->setFlash('Your post has been updated.');
+	            $this->Session->setFlash('Your post has been updated.'); //send message to let user know post has been updated
 	            $this->redirect(array('action' => 'index'));
 	        } else {
 	            $this->Session->setFlash('Unable to update your post.');
 	        }
 	    }
 	}
+	//delete a post
 	public function delete($id) {
 	    if ($this->request->is('get')) {
 	        throw new MethodNotAllowedException();
@@ -40,6 +44,9 @@ class PostsController extends AppController {
 	        $this->redirect(array('action' => 'index'));
 	    }
 	}
+	
+	
+	//search for a post
 	function search(){
 	    if (!empty($this->data)) {
 	        $searchstr = $this->data['Post']['search'];
