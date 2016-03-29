@@ -1,5 +1,5 @@
 <?php
-
+// Blog class that will extend the AppModel class
 class Blog extends AppModel {
  
 // Name of the Blog model
