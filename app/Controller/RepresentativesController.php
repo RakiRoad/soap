@@ -1,16 +1,17 @@
 <?php
 
 App::uses('FB', 'Facebook.Lib');
-
+//The AppController class sets the structural framework for the Representatives webpage. 
 class RepresentativesController extends AppController {
-
+//Creates arrays that call from another location. 
     public $helpers = array('GoogleMapV3', 'Js');
     
     public $components = array('RequestHandler');
-
+//This index function currently does not seem to be doing anything.
     public function index() {
     }
-    
+//The function returns name, party, date elected and district number data from the newsoap and politicians table. Only data in which
+//the representative's chamber is lower will be returned. 
     public function loadTable(){
         $this->autoRender = false;
         $data = $this->request->data;
@@ -26,6 +27,8 @@ class RepresentativesController extends AppController {
         $sql = 'SELECT image_link, name, party, date_elected, district_no 
                 FROM "newsoap"."politicians"
                 WHERE chamber=\'lower\' AND ';
+        //The below iterative code concatenates words such as "CAST", "ILIKE" and "AND" to the data returned from the search query.
+        //However, this does not seem to be a valuable addition to the code. 
         for($i = 0; $i < 4; $i++){
             $sql .= '(';
             for($j = 0; $j < count($filters[$i]); $j++){
@@ -41,6 +44,7 @@ class RepresentativesController extends AppController {
                 $sql.= ' AND ';
             }
         }
+        //The output is simply ordered by the order in which each representative's entry is presently in the database. 
         $sql .= ' ORDER BY ' . $order;
         $count = count($this->Representative->query($sql));
         $sql .=' LIMIT ' . $limit . ' OFFSET ' . $offset . ';';
