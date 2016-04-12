@@ -161,6 +161,20 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
         $this->User->recursive = 0;
         $this->set('users', $this->paginate());
     }	
+    public function login() {			//method from online
+    if ($this->request->is('post')) {
+        if ($this->Auth->login()) {
+            return $this->redirect($this->Auth->redirectUrl());
+        }
+        $this->Flash->error(__('Invalid username or password, try again'));
+    }
+}
+
+public function logout() {			//method from online
+    return $this->redirect($this->Auth->logout());
+}
+    
+    
     						//this is different than online
     public function isAuthorized($user) {	//Checks to see if a user is logged in. If not, access is denied.
     
