@@ -4,17 +4,17 @@
 // app/Controller/UsersController.php
 
 //For HybridAuth
-session_start();
+//session_start();	REMOVING HYBRIDAUTH
 
 class UsersController extends AppController {
 	
     public function beforeFilter() {
-        //parent::beforeFilter();	Allows anyone to call index, view, and display.
-        //$this->Auth->allow('add', 'logout');	Allows anyone to call add and logout.
+        parent::beforeFilter();	Allows anyone to call index, view, and display. 	//formerly commented out;
+        $this->Auth->allow('add', 'logout');	Allows anyone to call add and logout.	//uncommented to match online
         //$this->Auth->autoRedirect = false;	//Manual redirect set.
 		//$this->Auth->flashElement = "invalidCredentials";	//Choose element to call for flash
     }
-
+/* REMOVING HYBRID AUTH
 	public function login2($provider) {
 //http://bakery.cakephp.org/articles/thehanx/2012/07/27/social_login_with_hybridauth
 		 require_once( WWW_ROOT . 'hybridauth/Hybrid/Auth.php' );
@@ -155,7 +155,13 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
         }
 
     }
-   /* 
+    */ //END OF HYBRID AUTH REMOVAL
+    
+    public function index() {  			//copied this method from inside hybridauth; present in online source
+        $this->User->recursive = 0;
+        $this->set('users', $this->paginate());
+    }	
+    						//this is different than online
     public function isAuthorized($user) {	//Checks to see if a user is logged in. If not, access is denied.
     
 	    if ($this->action === 'dashboard' && $this->Auth->user('id') !== null) {
