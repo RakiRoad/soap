@@ -40,10 +40,10 @@ App::uses('Facebook', 'Facebook.Lib');
 class AppController extends Controller {
 
 // In your Controller
-$this->Flash->set('The user has been saved.', array(      //this nonsense is Greg trying to turn water into wine #youngChrist
+/*$this->Flash->set('The user has been saved.', array(      //this nonsense is Greg trying to turn water into wine #youngChrist
     'element' => 'success'
 ));
-
+*/
 public $helpers = array('Html', 'Form', 'Facebook.Facebook', 'Session');
 
 public $components = array(
