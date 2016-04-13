@@ -1,6 +1,6 @@
 <?php
 
-App::uses('AppHelper', 'View/Helper')
+App::uses('AppHelper', 'View/Helper', 'Flash Component')
 
 class FlashHelper extends AppHelper {
 
