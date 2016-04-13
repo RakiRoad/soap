@@ -14,4 +14,4 @@ class FlashHelper extends AppHelper {
 ));
 
 }
-
+?>
