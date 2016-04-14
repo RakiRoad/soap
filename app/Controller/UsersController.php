@@ -165,6 +165,7 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
     if ($this->request->is('post')) {		//not sure what post is; this condition is satisfied though
     	var_dump($var);		//trying to debug, see what happens here
         if ($this->Auth->login()) {		//this line currently is not functioning; need to satisfy Auth.
+        	$this->Session->setFlash(__('Login Success? '));  ///just trying something
             return $this->redirect($this->Auth->redirectUrl());
         }
         $this->Session->setFlash(__('Invalid Username or Password. Please try again.'));//display this if credentials are incorrect
