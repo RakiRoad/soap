@@ -163,7 +163,7 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
     }	
     public function login() {			//method from online
     if ($this->request->is('post')) {		//not sure what post is; this condition is satisfied though
-    	var_dump($var);		//trying to debug, see what happens here
+    	$this-Session->setFlash(__('post went through.'));	//trying to debug, see what happens here
         if ($this->Auth->login()) {		//this line currently is not functioning; need to satisfy Auth.
         	$this->Session->setFlash(__('Login Success? '));  ///just trying something
             return $this->redirect($this->Auth->redirectUrl());
