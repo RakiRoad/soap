@@ -1,4 +1,79 @@
 <?php
+
+App::uses('AppController', 'Controller');
+
+class UsersController extends AppController {
+
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('add');
+    }
+
+    public function index() {
+        $this->User->recursive = 0;
+        $this->set('users', $this->paginate());
+    }
+
+    public function view($id = null) {
+        $this->User->id = $id;
+        if (!$this->User->exists()) {
+            throw new NotFoundException(__('Invalid user'));
+        }
+        $this->set('user', $this->User->findById($id));
+    }
+
+    public function add() {
+        if ($this->request->is('post')) {
+            $this->User->create();
+            if ($this->User->save($this->request->data)) {
+                $this->Flash->success(__('The user has been saved'));
+                return $this->redirect(array('action' => 'index'));
+            }
+            $this->Flash->error(
+                __('The user could not be saved. Please, try again.')
+            );
+        }
+    }
+
+    public function edit($id = null) {
+        $this->User->id = $id;
+        if (!$this->User->exists()) {
+            throw new NotFoundException(__('Invalid user'));
+        }
+        if ($this->request->is('post') || $this->request->is('put')) {
+            if ($this->User->save($this->request->data)) {
+                $this->Flash->success(__('The user has been saved'));
+                return $this->redirect(array('action' => 'index'));
+            }
+            $this->Flash->error(
+                __('The user could not be saved. Please, try again.')
+            );
+        } else {
+            $this->request->data = $this->User->findById($id);
+            unset($this->request->data['User']['password']);
+        }
+    }
+
+    public function delete($id = null) {
+        // Prior to 2.5 use
+        // $this->request->onlyAllow('post');
+
+        $this->request->allowMethod('post');
+
+        $this->User->id = $id;
+        if (!$this->User->exists()) {
+            throw new NotFoundException(__('Invalid user'));
+        }
+        if ($this->User->delete()) {
+            $this->Flash->success(__('User deleted'));
+            return $this->redirect(array('action' => 'index'));
+        }
+        $this->Flash->error(__('User was not deleted'));
+        return $this->redirect(array('action' => 'index'));
+    }
+
+}
+
 /* This file was the controller for the prior user auth system, we modified it based on a CakePHP bakery post to try to work with Hybridauth. The comment block at the bottom is the prior implimentation. If you wish to work on this and have questions contact Kevin Bohinski or Derek D. - Kevin Bohinski 12/1/14*/
 
 // app/Controller/UsersController.php
@@ -6,6 +81,7 @@
 //For HybridAuth
 //session_start();	REMOVING HYBRIDAUTH
 
+/*
 class UsersController extends AppController {
 	
     public function beforeFilter() {
@@ -157,6 +233,7 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
     }
     */ //END OF HYBRID AUTH REMOVAL
     
+    /*
     public function index() {  			//copied this method from inside hybridauth; present in online source
         $this->User->recursive = 0;
         $this->set('users', $this->paginate());
@@ -251,5 +328,5 @@ public function logout() {			//method from online
         $this->redirect(array('action' => 'index'));
     }
 //*/
-}
+//}
 ?>
