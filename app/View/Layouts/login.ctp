@@ -45,7 +45,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<script language='javascript' src='<?=$this->webroot?>js/bootstrap-alert.js'></script>
 </head>
 <body>
-	<div class="wrapper" style="padding-bottom: 0px;">
+	<div class="wrapper" style="padding-bottom: 0px;" style="padding-left: 100px;">
 		<?php echo $this->fetch('content'); ?>
 	</div>
 </body>
