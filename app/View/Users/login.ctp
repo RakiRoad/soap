@@ -21,4 +21,5 @@
 <?php echo $this->Form->end(__('Login')); ?>
 <!--added this button-->
 <?php echo $this->Form->end(__('Create User')); ?>
+<?php echo $this->Form->end(__('Click here for Mental Breakdown')); ?>
 </div>
