@@ -11,7 +11,7 @@ class UsersController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();	//Allows anyone to call index, view, and display. 	//formerly commented out;
         $this->Auth->allow('add', 'logout');	//Allows anyone to call add and logout.	//uncommented to match online
-        //$this->Auth->autoRedirect = false;	//Manual redirect set.
+        $this->Auth->autoRedirect = false;	//Manual redirect set. CURRENT CHANGE
 		//$this->Auth->flashElement = "invalidCredentials";	//Choose element to call for flash
     }
 /* REMOVING HYBRID AUTH
