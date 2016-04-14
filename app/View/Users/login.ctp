@@ -9,12 +9,13 @@
 <div class="users form">
     
 
-<?php echo $this->Form->create('User'); ?>
+<?php echo $this->Form->create('User');
+<form action="check_user-pass.php" method="POST">
     <fieldset>
         <legend>
-            <?php echo __('Please enter your username and password'); ?>
+            echo __('Please enter your username and password');
         </legend>
-        <?php echo $this->Form->input('username');
+        echo $this->Form->input('username');
         echo $this->Form->input('password');
     ?>
     </fieldset>
