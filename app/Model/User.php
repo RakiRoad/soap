@@ -23,13 +23,13 @@ class User extends AppModel {
             )
         )
     );
-    /* //commented out to match online version, entered below
+     //commented out to match online version, entered below
     public function beforeSave($options = array()) {            //not in online source
         if (isset($this->data[$this->alias]['password'])) {
             $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']); //checks to see if credentials are correct
         }
         return true;
-    }*/
+    }
     /* public function beforeSave($options = array()) {
     if (isset($this->data[$this->alias]['password'])) {
         $passwordHasher = new BlowfishPasswordHasher();
