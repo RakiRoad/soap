@@ -162,7 +162,7 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
         $this->set('users', $this->paginate());
     }	
     public function login() {			//method from online
-    debug($this->Auth->login());
+    //debug($this->Auth->login());
     if ($this->request->is('post')) {		//not sure what post is; this condition is satisfied though
     	//$this->Session->setFlash(__('Invalid Username or Password. Please try again.'));	//trying to debug, see what happens here
     	//debug($this->Auth->login()); //still trying to debug
