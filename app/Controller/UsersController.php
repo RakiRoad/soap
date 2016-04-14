@@ -166,9 +166,10 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
     	//$this->Session->setFlash(__('Invalid Username or Password. Please try again.'));	//trying to debug, see what happens here
     	//debug($this->Auth->login()); //still trying to debug
         //if ($this->Auth->login()) {		//this line currently is not functioning; need to satisfy Auth.
-        	
+        	if($this->Auth->allow("*")){
         	$this->Session->setFlash(__('Login Success? '));  ///just trying something
             return $this->redirect($this->Auth->redirectUrl());
+        	}
         //}
         else{
         
