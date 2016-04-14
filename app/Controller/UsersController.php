@@ -168,7 +168,7 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
         //if ($this->Auth->login()) {		//this line currently is not functioning; need to satisfy Auth.
         	$this->Auth->allow("*");
         	$this->Session->setFlash(__('Login Success? '));  ///just trying something
-            return $this->redirect($this->Auth->redirectUrl());
+            //return $this->redirect($this->Auth->redirectUrl());
         	
         //}
         //else{
