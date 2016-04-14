@@ -10,7 +10,6 @@
     
 
 <?php echo $this->Form->create('User'); ?>
-<form action="check_user-pass.php" method="POST">
     <fieldset>
         <legend>
            <?php echo __('Please enter your username and password'); ?>
