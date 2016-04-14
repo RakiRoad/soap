@@ -21,7 +21,46 @@ class FlashHelper extends AppHelper {
 		return $this->render($types);
 	}
 	public function render(array $types = []){
-		$this->Flash->render('other');
+	// Get the messages from the session
+		$messages = (array)$this->request->session()->read('FlashMessage');
+		$cMessages = (array)Configure::read('FlashMessage');
+		if (!empty($cMessages)) {
+			$messages = (array)Hash::merge($messages, $cMessages);
+		}
+		$html = '';
+		if (!empty($messages)) {
+			$html = '<div class="flash-messages">';
+			if ($types) {
+				foreach ($types as $type) {
+					// Add a div for each message using the type as the class.
+					foreach ($messages as $messageType => $msgs) {
+						if ($messageType !== $type) {
+							continue;
+						}
+						foreach ((array)$msgs as $msg) {
+							$html .= $this->_message($msg, $messageType);
+						}
+					}
+				}
+			} else {
+				foreach ($messages as $messageType => $msgs) {
+					foreach ((array)$msgs as $msg) {
+						$html .= $this->_message($msg, $messageType);
+					}
+				}
+			}
+			$html .= '</div>';
+			if ($types) {
+				foreach ($types as $type) {
+					$this->request->session()->delete('FlashMessage.' . $type);
+					Configure::delete('FlashMessage.' . $type);
+				}
+			} else {
+				$this->request->session()->delete('FlashMessage');
+				Configure::delete('FlashMessage');
+			}
+		}
+		return $html;
 	}
 
 
