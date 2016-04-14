@@ -19,4 +19,6 @@
     ?>
     </fieldset>
 <?php echo $this->Form->end(__('Login')); ?>
+<!--added this button-->
+<?php echo $this->Form->end(__('Create User')); ?>
 </div>
