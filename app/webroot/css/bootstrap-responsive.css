@@ -481,7 +481,7 @@
 
 @media (min-width: 1200px) {
   .row {
-    margin-left: -30px;                      //shift to 0; was -30
+    margin-left: 315px;                      //shift to 0; was -30
     *zoom: 1;
   }
   .row:before,
