@@ -166,7 +166,8 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
         if ($this->Auth->login()) {
             return $this->redirect($this->Auth->redirectUrl());
         }
-        $this->Flash->error(__('Invalid username or password, try again'));
+        $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+        //$this->Flash->error(__('Invalid username or password, try again'));
     }
 }
 
