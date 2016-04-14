@@ -163,7 +163,7 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
     }	
     public function login() {			//method from online
     if ($this->request->is('post')) {		//not sure what post is; this condition is satisfied though
-    	$this->Session->setFlash(__(debug($this->Auth->login())		//trying to debug, see what happens here
+    	var_dump($var);		//trying to debug, see what happens here
         if ($this->Auth->login()) {		//this line currently is not functioning; need to satisfy Auth.
             return $this->redirect($this->Auth->redirectUrl());
         }
