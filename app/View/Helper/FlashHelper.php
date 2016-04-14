@@ -9,7 +9,7 @@ use Tools\Controller\Component\FlashComponent;
  *
  * @author Mark Scherer
  */
-class FlashHelper extends Helper {
+class FlashHelper extends AppHelper {
 	/**
 	 * Display all flash messages.
 	 *
