@@ -1,7 +1,7 @@
 <?php
-//class FlashHelper extends AppHelper {
+class FlashHelper extends AppHelper {
   
 $this->Flash->render();
-//}
+}
 
 ?>
