@@ -169,7 +169,7 @@
   }
   .row,
   .thumbnails {
-    margin-left: -25%;                  //shifting to 0; was -25%
+    margin-left: 0%;                  //shifting to 0; was -25%
   }
   [class*="span"],
   .row-fluid [class*="span"] {
