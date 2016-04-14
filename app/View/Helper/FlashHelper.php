@@ -1,5 +1,5 @@
 <?php
-namespace Tools\View\Helper;
+/*namespace Tools\View\Helper;
 use Cake\Core\Configure;
 use Cake\Utility\Hash;
 use Cake\View\Helper;
