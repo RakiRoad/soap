@@ -165,16 +165,16 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
     if ($this->request->is('post')) {		//not sure what post is; this condition is satisfied though
     	//$this->Session->setFlash(__('Invalid Username or Password. Please try again.'));	//trying to debug, see what happens here
     	//debug($this->Auth->login()); //still trying to debug
-        //if ($this->Auth->login()) {		//this line currently is not functioning; need to satisfy Auth.
-        	$this->Auth->allow("*");
-        	$this->Session->setFlash(__('Login Success? '));  ///just trying something
+    	$this->Auth->allow("*");
+        if ($this->Auth->login()) {		//this line currently is not functioning; need to satisfy Auth.
+        	$this->Session->setFlash(__('Login Success! '));  ///just trying something
             //return $this->redirect($this->Auth->redirectUrl());
         	
-        //}
-        //else{
+        }
+        else{
         
-       //$this->Session->setFlash(__('Invalid Username or Password. Please try again.')); //display this if credentials are incorrect
-        //}
+       $this->Session->setFlash(__('Invalid Username or Password. Please try again.')); //display this if credentials are incorrect
+        }
        //$this->Flash->error(__('Invalid username or password, try again')); 		//this resulted in error; the error() method was not found
   }
 }
