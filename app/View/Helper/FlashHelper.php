@@ -1,8 +1,8 @@
 <?php
 
 class FlashHelper extends AppHelper {
-
-echo $this->Flash->render();
+//<!-- adding public funciton -->
+public function echo $this->Flash->render();
 
 }
 ?>
