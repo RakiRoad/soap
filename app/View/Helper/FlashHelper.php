@@ -21,7 +21,7 @@ class FlashHelper extends AppHelper {
 		return $this->render($types);
 	}
 	public function render(array $types = []){
-		return $this->Flash->render();
+		echo $this->Flash->render($types);
 	}
 
 
