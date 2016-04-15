@@ -342,7 +342,7 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
 
 
 
-        if ($this->Auth) {		//this line currently is not functioning; need to satisfy Auth. //removing ->login()
+        if ($this->Auth->login()) {		//this line currently is not functioning; need to satisfy Auth. //removing ->login()
 
         	$this->Session->setFlash(__('Login Success! '));  ///just trying something
 
