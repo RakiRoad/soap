@@ -82,7 +82,8 @@ public function login() {
         if ($this->Auth->login()) {
             return $this->redirect($this->Auth->redirectUrl());
         }
-        $this->Flash->error(__('Invalid username or password, try again'));
+        $this->Session->setFlash('This sucks butt');
+        //$this->Flash->error(__('Invalid username or password, try again'));
     }
 }
 
