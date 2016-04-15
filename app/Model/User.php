@@ -74,8 +74,8 @@ class User extends AppModel {
     return true;
     }*/
     public function beforeSave($options = array()) {
-    if (isset($this->data['User']['password'])) {
-        $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
+    if (isset($this->data['username']['password'])) {
+        $this->data['username']['password'] = AuthComponent::password($this->data['username']['password']);  //changed User to username
     }
     return true;
     }
