@@ -369,7 +369,7 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
         	}
         	else
         	{
-        	$this->Session->setFlash(__(UserUsername)); //display this if credentials are incorrect
+        	$this->Session->setFlash(__($UserUsername)); //display this if credentials are incorrect
         	}
     	}
 
