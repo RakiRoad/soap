@@ -331,7 +331,28 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
 
         $this->set('users', $this->paginate());
 
-    }	
+    }
+    
+    public function authenticate(){
+        if($this->request->is('post')){
+            $this->request->data['User']['password'] = $this->hashPassword($this->data['User']);
+            if($this->Auth->login()){
+                return $this->redirect($this->Auth->redirect());
+            }
+            $this->Session->setFlash('Invalid username or password.');
+            return $this->redirect('users');
+        }
+    }
+    
+    private function hashPassword($login){
+        // Get the salt of the user.
+        $salt = $this->Login->find('first', array(
+            'fields' => array(
+                'Salt'),
+            'conditions' => array(
+                'Login.UserID' => $login['username'])));
+        return md5(md5($login['password']) . $salt['User']['Salt']);
+    }
 
     public function login() {			//method from online
 
