@@ -48,7 +48,8 @@ public $components = array(
         'loginAction' => array('controller' => 'Users', 'login' => 'action', 'login'), //added this because its going to work
         'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),
         'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),
-        'authorize' => array('Controller'), // Added this line
+        //'authorize' => array('Controller'), // Added this line
+        'authenticate' => array('Form' => array('userModel' => 'Login', 'fields' => array('username' => 'username', 'password' => 'password'))))
     ),
     'Facebook.Connect' => array('model' => 'User')
 );
