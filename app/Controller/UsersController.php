@@ -27,7 +27,7 @@ class UsersController extends AppController {
         
             	//$this->Auth->allow("*"); //remove eventually; allows any log in
 
-        $this->Auth->allow('add', 'logout');	//Allows anyone to call add and logout.	//uncommented to match online
+        $this->Auth->allow('add');	//Allows anyone to call add and logout.	//uncommented to match online
 
         //$this->Auth->autoRedirect = false;	//Manual redirect set. CURRENT CHANGE
 
