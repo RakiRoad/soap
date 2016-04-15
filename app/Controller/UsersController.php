@@ -468,8 +468,8 @@ public function logout() {			//method from online
 
             } else {
 
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
-
+                //$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+		$this->Session->setFlash(__('message'));
             }
 
         } else {
