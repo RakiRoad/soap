@@ -357,7 +357,7 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
         
 
        //$this->Session->setFlash(__('Invalid Username or Password. Please try again.')); //display this if credentials are incorrect
-		$this->Session->setFlash(__('message'));
+		$this->Session->setFlash(__(message));
         }
 
        //$this->Flash->error(__('Invalid username or password, try again')); 		//this resulted in error; the error() method was not found
