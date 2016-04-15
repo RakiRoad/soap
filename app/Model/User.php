@@ -43,6 +43,7 @@ class User extends AppModel {
 App::uses('AppModel', 'Model');
 
 class User extends AppModel {
+    public $name = 'User'; ///just trying out
     public $validate = array(
         'username' => array(
             'required' => array(
@@ -74,8 +75,8 @@ class User extends AppModel {
     return true;
     }*/
     public function beforeSave($options = array()) {
-    if (isset($this->data['username']['password'])) {
-        $this->data['username']['password'] = AuthComponent::password($this->data['username']['password']);  //changed User to username
+    if (isset($this->data['User']['password'])) {
+        $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);  
     }
     return true;
     }
