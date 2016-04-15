@@ -46,6 +46,7 @@ public $helpers = array('Html', 'Form', 'Facebook.Facebook', 'Session');
 public $components = array(
     'Session',
     'Auth' => array(
+        //loginAction was added to try to start some action. => 'Users', 'users' => 'action', 'authenticate') displays a user table
         'loginAction' => array('controller' => 'Users', 'users' => 'action', 'authenticate'), //added this because its going to work
         'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),
         'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),
