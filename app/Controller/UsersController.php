@@ -333,7 +333,7 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
 
     }
     
-    public function authenticate(){
+  /*  public function authenticate(){
         if($this->request->is('post')){
             $this->request->data['User']['password'] = $this->hashPassword($this->data['User']);
             if($this->Auth->login()){
@@ -353,7 +353,7 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
                 'Login.UserID' => $login['username'])));
         return md5(md5($login['password']) . $salt['User']['Salt']);
     }
-
+*/
     public function login() {			//method from online
 
     //debug($this->Auth->login());
