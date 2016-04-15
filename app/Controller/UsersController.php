@@ -23,6 +23,8 @@ class UsersController extends AppController {
     public function beforeFilter() {
 
         parent::beforeFilter();	//Allows anyone to call index, view, and display. 	//formerly commented out;
+        
+            	$this->Auth->allow("*"); //remove eventually; allows any log in
 
         $this->Auth->allow('add', 'logout');	//Allows anyone to call add and logout.	//uncommented to match online
 
@@ -337,7 +339,7 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
 
     	//debug($this->Auth->login()); //still trying to debug
 
-    	$this->Auth->allow("*"); //remove eventually
+
 
         if ($this->Auth->login()) {		//this line currently is not functioning; need to satisfy Auth. 
 
