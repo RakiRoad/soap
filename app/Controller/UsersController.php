@@ -15,6 +15,7 @@
 
 
 
+App::uses('AuthComponent', 'Controller/Component');
 
 class UsersController extends AppController {
 
