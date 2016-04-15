@@ -24,7 +24,7 @@ class UsersController extends AppController {
 
         parent::beforeFilter();	//Allows anyone to call index, view, and display. 	//formerly commented out;
         
-            	$this->Auth->allow("*"); //remove eventually; allows any log in
+            	//$this->Auth->allow("*"); //remove eventually; allows any log in
 
         $this->Auth->allow('add', 'logout');	//Allows anyone to call add and logout.	//uncommented to match online
 
