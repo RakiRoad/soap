@@ -1,18 +1,22 @@
 
 <html>
 <style>
+
+<!-- attributes for section tag -->
 section{
     float:left;
     position : relative;
     left : 300px;
 
 }
-
+<!-- Attributes for nav -->
 nav{
     float:right;
     position : relative;
     right: 100px;
 }
+
+<!-- CSS style tag -->
 
 #slideshow{
 
@@ -36,6 +40,7 @@ nav{
 </style>
 
 
+<!-- Has animation for pictures to show up later will be used to match mockup -->
 <script src ="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script>
         $(function() {
@@ -70,7 +75,7 @@ nav{
 
     <div id= "slideshow">
         <div>
-            <img src = "http://farm6.static.flickr.com/5224/5658667829_2bb7d42a9c_m.jpg">
+            <img src = "http://farm6.static.flickr.com/5224/5658667829_2bb7d42a9c_m.jpg"> 
         </div>
         <div>
             <img src = "http://farm6.static.flickr.com/5230/5638093881_a791e4f819_m.jpg">
@@ -112,7 +117,7 @@ nav{
             $entries = array_merge($entries, $xml->xpath("//item"));
         }
         
-        //Sort feed entries by pubDate
+        //Sort feed entries by the date they were posted
         usort($entries, function ($feed1, $feed2) {
             return strtotime($feed2->pubDate) - strtotime($feed1->pubDate);
         });
@@ -121,6 +126,7 @@ nav{
         
         <nav>
         <p> SOAP RSS Feed Reader </p>
+        <!-- wrapper for the RSS feed reader (makes rectangle around it) -->
         <div style="height:1000px; width:500px; border:8px solid #ccc; font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
         <ul><?php
         //Print all the entries
