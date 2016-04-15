@@ -357,7 +357,8 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
     public function login() 
     {			//method from online
     	if ($this->request->is('post')) 
-    	{		
+    	{	
+    		echo 'post';
     	//not sure what post is; this condition is satisfied though
     	//$this->Session->setFlash(__('Invalid Username or Password. Please try again.'));	//trying to debug, see what happens here
         	if ($this->Auth->login()) 
