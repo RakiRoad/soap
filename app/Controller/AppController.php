@@ -23,6 +23,7 @@ app/Controller/AppController.php
  */
 App::uses('Controller', 'Controller');
 
+App::uses('Controller', 'Controller');
 App::uses('FB', 'Facebook.Lib');
 App::uses('FacebookInfo', 'Facebook.Lib');
 App::uses('Facebook', 'Facebook.Lib');
@@ -39,16 +40,17 @@ App::uses('Facebook', 'Facebook.Lib');
  */
 class AppController extends Controller {
 
-public $helpers = array('Html', 'Form', 'Facebook.Facebook', 'Session');
+//public $helpers = array('Html', 'Form', 'Facebook.Facebook', 'Session');
+public $helpers = array('App', 'Html', 'Form', 'Session');
 
 public $components = array(
     'Session',
     'Auth' => array(
-        'loginAction' => array('controller' => 'Users', 'action' => 'login'), //added this because its going to work
+        'loginAction' => array('controller' => 'Users', 'users' => 'action', 'authenticate'), //added this because its going to work
         'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),
         'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),
         //'authorize' => array('Controller'), // Added this line
-        //'authenticate' => array('Form' => array('User' => 'login', 'fields' => array('username' => 'username', 'password' => 'password'))))
+       // 'authenticate' => array('Form' => array('User' => 'login', 'fields' => array('username' => 'username', 'password' => 'password'))))
     ),
     'Facebook.Connect' => array('model' => 'User')
 );
