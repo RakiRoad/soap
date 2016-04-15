@@ -36,7 +36,7 @@ class BlogsController extends AppController {
 	}
 	//view function 
 	// Uses an sqll query 
-	public function view($blog_id) 
+	public function view($blog_id) 			//USE THIS TYPE OF METHOD TO PULL DATA FROM DATABASE (SQL, AS SEEN BELOW)
 	{
 		$blog_sql = 'SELECT id, title, body FROM "newsoap"."blogs" WHERE "newsoap"."blogs".id = \'' . $blog_id . '\';';
 		$blog_info = $this->Blog->query($blog_sql);
