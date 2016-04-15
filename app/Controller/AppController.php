@@ -45,7 +45,7 @@ public $helpers = array('Html', 'Form', 'Facebook.Facebook', 'Session');
 public $components = array(
     'Session',
     'Auth' => array(
-        'loginAction' => array('controller' => 'Users', 'login' => 'login', 'login'), //added this because its going to work
+        'loginAction' => array('controller' => 'login', 'login' => 'login', 'login'), //added this because its going to work
         'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),
         'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),
         'authorize' => array('Controller'), // Added this line
