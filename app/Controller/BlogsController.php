@@ -8,7 +8,7 @@ class BlogsController extends AppController {
 	
 	}
 	//view function 
-	// Uses an sqll query 
+	// Uses an sqll query at least we hope it will grab the feed values and we use in index.ctp of Blogs
 	public function view($blog_id) 
 	{
 		$feed_sql = 'SELECT feeds FROM "newsoap"."feeds"';
