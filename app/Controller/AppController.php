@@ -23,7 +23,6 @@ app/Controller/AppController.php
  */
 App::uses('Controller', 'Controller');
 
-App::uses('Controller', 'Controller');
 App::uses('FB', 'Facebook.Lib');
 App::uses('FacebookInfo', 'Facebook.Lib');
 App::uses('Facebook', 'Facebook.Lib');
@@ -49,7 +48,7 @@ public $components = array(
         'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),
         'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),
         //'authorize' => array('Controller'), // Added this line
-       // 'authenticate' => array('Form' => array('User' => 'login', 'fields' => array('username' => 'username', 'password' => 'password'))))
+        'authenticate' => array('Form' => array('User' => 'login', 'fields' => array('username' => 'username', 'password' => 'password'))))
     ),
     'Facebook.Connect' => array('model' => 'User')
 );
