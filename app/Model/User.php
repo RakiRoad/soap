@@ -58,7 +58,7 @@ class User extends AppModel {
         ),
         'role' => array(
             'valid' => array(
-                'rule' => array('inList', array('admin', 'author')),
+                'rule' => array('inList', array('admin', 'author')),            //need to add journalist type role here
                 'message' => 'Please enter a valid role',
                 'allowEmpty' => false
             )
@@ -66,7 +66,7 @@ class User extends AppModel {
     );
     public function beforeSave($options = array()) {
         if (isset($this->data[$this->alias]['password'])) {
-            //$passwordHasher = new BlowfishPasswordHasher();
+            //$passwordHasher = new BlowfishPasswordHasher();                   //commented out to avoid hashing
             //$this->data[$this->alias]['password'] = $passwordHasher->hash(
             //$this->data[$this->alias]['password']
             //);
