@@ -22,7 +22,9 @@
 				<div class="input password required">
 					<label style="color:#013435;" for="UserPassword">Password</label>
 					<input name="data[User][password]" type="password" id="UserPassword"/>
-					//USE THIS METHOD TO INTAKE DATA^^^ NEED TO RENAME [USER][PASSWORD] TO [ROW][COLUMN] OR //SOMETHING SIMILAR TO THAT. THESE REPRESENT INDEX VALUES.
+					//USE THIS METHOD TO INTAKE DATA^^^ NEED TO RENAME [USER][PASSWORD] TO [ROW][COLUMN] OR
+					//SOMETHING SIMILAR TO THAT. THESE REPRESENT INDEX VALUES.
+					//THIS NEEDS TO BE IMPLEMENTED IN OUR LOGIN.CTP FILE
 					
 				</div>
 				<!--Submit button for the login page-->
