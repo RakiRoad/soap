@@ -326,8 +326,8 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
 
 
     public function index() {  			//copied this method from inside hybridauth; present in online source
-
-        $this->User->recursive = 0;
+    
+        //$this->User->recursive = 0;
 
         $this->set('users', $this->paginate());
 
