@@ -40,8 +40,8 @@ App::uses('Facebook', 'Facebook.Lib');
  */
 class AppController extends Controller {
 
-//public $helpers = array('Html', 'Form', 'Facebook.Facebook', 'Session');
-public $helpers = array('App', 'Html', 'Form', 'Session');
+public $helpers = array('Html', 'Form', 'Facebook.Facebook', 'Session');
+//public $helpers = array('App', 'Html', 'Form', 'Session');
 
 public $components = array(
     'Session',
