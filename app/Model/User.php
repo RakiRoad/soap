@@ -64,13 +64,19 @@ class User extends AppModel {
             )
         )
     );
-    public function beforeSave($options = array()) {
+    /*public function beforeSave($options = array()) {
         if (isset($this->data[$this->alias]['password'])) {
             //$passwordHasher = new BlowfishPasswordHasher();                   //commented out to avoid hashing
             //$this->data[$this->alias]['password'] = $passwordHasher->hash(
             //$this->data[$this->alias]['password']
             //);
         }
+    return true;
+    }*/
+    function beforeSave($options = array()) {
+    if (isset($this->data['User']['password'])) {
+        $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
+    }
     return true;
     }
 }
