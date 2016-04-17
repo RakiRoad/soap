@@ -41,6 +41,15 @@ Our pollution data comes directly from the<a href="http://www.epa.gov/"> US Envi
 	</div>
 	<!-- <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script> -->
 	<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4fe8fc260b784686"></script>
+
+<!-- the following is test -->
+	$form = newt_form();
+
+$ok_button = newt_button(200, 400, "Update Information");
+    
+newt_form_add_component($form, $ok_button);
+
+
 <!-- 
 <br>
 <br>
