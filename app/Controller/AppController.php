@@ -1,4 +1,3 @@
-app/Controller/AppController.php
 <?php
 /**
  * Application level Controller
