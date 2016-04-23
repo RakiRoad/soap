@@ -63,7 +63,8 @@ class UsersController extends AppController {
         	}
         	else
         	{
-        	$this->Session->setFlash(__($UserUsername)); //display this if credentials are incorrect
+        	$this->Session->setFlash(__('Invalid Username or Password. Please try again.'));
+        	//$this->Session->setFlash(__($UserUsername)); //display this if credentials are incorrect
         	}
     	}
 
