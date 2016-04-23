@@ -1,4 +1,4 @@
-<!-- Edited Spring 2016 - Andrew, Greg, Jon, Sean, Kim, Kevin - The Young and the Reckless +
+<!-- Edited Spring 2016 - Andrew, Greg, Jon, Sean, Kim, Kevin - The Young and the Restless
      This file, displays the page reached by clicking login in the top right corner of the SOAP homepage.
      This file organizes the layout of the login page.
 -->
