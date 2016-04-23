@@ -1,4 +1,8 @@
-<!-- Edited Spring 2016 - Andrew, Greg, Jon, Sean, Kim, Kevin - The Young and the Restless -->
+<!-- Edited Spring 2016 - Andrew, Greg, Jon, Sean, Kim, Kevin - The Young and the Reckless +
+     This file, displays the page reached by clicking login in the top right corner of the SOAP homepage.
+     This file organizes the layout of the login page.
+-->
+
 <!-- Display Sidebar -->
 <div class="span2">
 	 <?php echo $this->element('sidebar'); ?>
@@ -15,6 +19,6 @@
         <?php echo $this->Form->input('password'); ?>
     </fieldset>
      <?php echo $this->Form->end(__('Login')); ?>
-<!--added this button-->
+<!--added this button, which will allow for the creation of new users-->
 <?php echo $this->Form->end(__('Create User')); ?>
 </div>
