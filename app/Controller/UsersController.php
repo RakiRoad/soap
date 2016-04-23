@@ -142,7 +142,7 @@ class UsersController extends AppController {
         $this->redirect(array('action' => 'index'));
     }
 }
-?>
+
 
 /* REMOVING HYBRID AUTH
 	public function login2($provider) {
@@ -272,3 +272,4 @@ private function _findOrCreateUser($user_profile = array(), $provider=null) {
         }
     }
     */ //END OF HYBRID AUTH REMOVAL
+?>
