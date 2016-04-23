@@ -1,4 +1,4 @@
-<!-- Edited Spring 2016 - Andrew, Greg, Jon, Sean, Kim, Kevin - The Young and the Reckless -->
+<!-- Edited Spring 2016 - Andrew, Greg, Jon, Sean, Kim, Kevin - The Young and the Restless -->
 <!-- Display Sidebar -->
 <div class="span2">
 	 <?php echo $this->element('sidebar'); ?>
