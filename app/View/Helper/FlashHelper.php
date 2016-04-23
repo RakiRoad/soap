@@ -1,4 +1,7 @@
 <?php
+/*Edited Spring 2016 - Andrew, Greg, Jon, Sean, Kim, Kevin - The Young and the Restless
+  This file was missing previously; the setFlash method in UsersController was previously throwing an error.
+  */
 /*namespace Tools\View\Helper;
 use Cake\Core\Configure;
 use Cake\Utility\Hash;
