@@ -57,8 +57,8 @@ class UsersController extends AppController {
         	if ($this->Auth->login()) 
         	{
         		//this line currently is not functioning; need to satisfy Auth. //removing ->login()
+        		$this->Session->setFlash(__('Login Success! '));  ///just trying something
         		return $this->redirect($this->Auth->redirect());
-        		//$this->Session->setFlash(__('Login Success! '));  ///just trying something
             		//return $this->redirect($this->Auth->redirectUrl());
         	}
         	else
