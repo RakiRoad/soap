@@ -9,7 +9,7 @@
 
 
 
-//App::uses('AuthComponent', 'Controller');
+App::uses('AuthComponentTwo', 'Controller');  //AuthComponentTwo was AuthComponent
 App::uses('Controller', 'Controller');
 
 class UsersController extends Controller { //extends Controller instead of AppController
