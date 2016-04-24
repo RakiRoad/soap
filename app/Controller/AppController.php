@@ -47,8 +47,8 @@ public $components = array(
     'Auth' => array(
         //loginAction was added to try to start some action. => 'Users', 'users' => 'action', 'authenticate') displays a user table
         'loginAction' => array('controller' => 'Users', 'users'  => 'action', 'authenticate'), //added this because its going to work
-        'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),
-        'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),
+        //'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),
+        //'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),
         //'authorize' => array('Controller'), // Added this line
        // 'authenticate' => array('Form' => array('User' => 'login', 'fields' => array('username' => 'username', 'password' => 'password'))))
     ),
