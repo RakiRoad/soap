@@ -26,8 +26,6 @@
 <!--added this button, which will allow for the creation of new users-->
 <?php echo $this->Form->end(__('Create User')); ?>
 <fieldset>
-	<legend>
 		        <?php echo $this->Form->input('username'); ?>
-	</legend>
 </fieldset>
 </div>
