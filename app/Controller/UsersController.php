@@ -9,8 +9,8 @@
 
 
 
-//App::uses('AuthComponent', 'Controller');
-class UsersController { //no longer extends AppController
+App::uses('AuthComponent', 'Controller');
+class UsersController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();	//Allows anyone to call index, view, and display. 	//formerly commented out;
