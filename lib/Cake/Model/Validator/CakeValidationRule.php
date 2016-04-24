@@ -273,7 +273,7 @@ class CakeValidationRule {
 		} elseif (class_exists('Validation') && method_exists('Validation', $this->_rule)) {
 			$this->_valid = call_user_func_array(array('Validation', $this->_rule), $this->_ruleParams);
 		} elseif (is_string($validator['rule'])) {              	  //yoooooo
-			$this->_valid = preg_match("/", $this->_rule, $data[$field]);  //yoooooo
+			$this->_valid = preg_match("/ /", $this->_rule, $data[$field]);  //yoooooo
 	//	elseif (is_string($validator['rule'])) {
 	//		$this->_valid = preg_match($this->_rule, $data[$field]);
 		} elseif (Configure::read('debug') > 0) {
