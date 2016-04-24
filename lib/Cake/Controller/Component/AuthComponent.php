@@ -605,7 +605,7 @@ class AuthComponent extends Component {
  */
  
  
- /**
+ 
 	public function redirect($url = null) {
 		if (!is_null($url)) {
 			$redir = $url;
@@ -622,7 +622,7 @@ class AuthComponent extends Component {
 		}
 		return Router::normalize($redir);
 	}
-	**/
+
 
 /**
  * Use the configured authentication adapters, and attempt to identify the user
