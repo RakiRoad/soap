@@ -3,8 +3,8 @@
 /* This file was the controller for the prior user auth system, we modified it based on a CakePHP bakery post to try to work with Hybridauth. The comment block at the bottom is the prior implimentation. If you wish to work on this and have questions contact Kevin Bohinski or Derek D. - Kevin Bohinski 12/1/14*/
 //Edited Spring 2016 - Andrew, Greg, Jon, Sean, Kim, Kevin - The Young and the Reckless
 
-//For HybridAuth
-//session_start();	REMOVING HYBRIDAUTH
+//For HybridAuth REMOVING HYBRIDAUTH
+session_start();	
 
 
 
