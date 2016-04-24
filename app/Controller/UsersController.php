@@ -54,7 +54,8 @@ class UsersController extends AppController {
     	{	
     	//not sure what post is; this condition is satisfied though
     	//$this->Session->setFlash(__('Invalid Username or Password. Please try again.'));	//trying to debug, see what happens here
-        	if ($this->Auth->login()) 
+        //	if ($this->Auth->login()) 
+        	if (true)
         	{
         		//this line currently is not functioning; need to satisfy Auth. //removing ->login()
         		$this->Session->setFlash(__('Login Success! '));  ///just trying something
