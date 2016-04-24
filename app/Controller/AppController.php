@@ -27,6 +27,7 @@
 //App::uses('Controller', 'Controller');
 
 App::uses('Controller', 'Controller');
+//Removing these; unnecessary
 //App::uses('FB', 'Facebook.Lib');
 //App::uses('FacebookInfo', 'Facebook.Lib');
 //App::uses('Facebook', 'Facebook.Lib');
@@ -50,9 +51,9 @@ public $components = array(
     'Session',
     'Auth' => array(
         //loginAction was added to try to start some action. => 'Users', 'users' => 'action', 'authenticate') displays a user table
-        //'loginAction' => array('controller' => 'Users', 'users'  => 'action', 'authenticate'), //added this because its going to work
-        'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),     //this was initially not commented.
-        'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),    //this was initially not commented.
+        'loginAction' => array('controller' => 'Users', 'users'  => 'action', 'authenticate'), //added this because its going to work
+        //'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),     //this was initially not commented.
+        //'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),    //this was initially not commented.
         //'authorize' => array('Controller'), // Added this line
        // 'authenticate' => array('Form' => array('User' => 'login', 'fields' => array('username' => 'username', 'password' => 'password'))))
     )
