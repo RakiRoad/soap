@@ -19,6 +19,10 @@
         <?php echo $this->Form->input('password'); ?>
     </fieldset>
      <?php echo $this->Form->end(__('Login')); ?>
+</div>
+
+<!-- adding a new div class to create users.-->
+<div class="create user form">
 <!--added this button, which will allow for the creation of new users-->
 <?php echo $this->Form->end(__('Create User')); ?>
 </div>
