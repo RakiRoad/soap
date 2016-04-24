@@ -603,6 +603,9 @@ class AuthComponent extends Component {
  * @param string|array $url Optional URL to write as the login redirect URL.
  * @return string Redirect URL
  */
+ 
+ 
+ /**
 	public function redirect($url = null) {
 		if (!is_null($url)) {
 			$redir = $url;
@@ -619,6 +622,7 @@ class AuthComponent extends Component {
 		}
 		return Router::normalize($redir);
 	}
+	**/
 
 /**
  * Use the configured authentication adapters, and attempt to identify the user
