@@ -50,7 +50,8 @@ public $helpers = array('Html', 'Form', 'Facebook.Facebook', 'Session');
 public $components = array(
     'Session',
     'Auth' => array(
-        //loginAction was added to try to start some action. => 'Users', 'users' => 'action', 'authenticate') displays a user table
+        //loginAction was added to try to start some action. => 'Users', 'users' => 'action', 'authenticate') displays a user table.
+        //this table is displayed in index.ctp, under view/users.  Therefore, the loginAction displayed below references index.ctp somehow.
         //'loginAction' => array('controller' => 'Users', 'users'  => 'action', 'authenticate'), //added this because its going to work
         'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),     //this was initially not commented.
         'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),    //this was initially not commented.
