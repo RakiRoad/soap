@@ -57,7 +57,7 @@ public $components = array(
         'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),    //this was initially not commented.
        // 'authorize' => array('Controller'), // Added this line
        //'authenticate' => array('Form' => array('User' => 'login', 'fields' => array('username' => 'username', 'password' => 'password')))) //was commented out
-       'authenticate' => array('Form') //just testing
+       //'authenticate' => array('Form') //just testing
     )
     //'Facebook.Connect' => array('model' => 'User')
 );
