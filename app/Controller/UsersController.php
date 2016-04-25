@@ -121,13 +121,38 @@ class UsersController extends AppController {
     public function add() {
 	$this->layout = 'login';
         if ($this->request->is('post')) {
-            $this->User->create();
+        	
+        	//more nonsense
+    		//$this->User->create();
+    		//$id = 8009;
+            	$username = $this->request->data['User']['username'];
+            	$password = $this->request->data['User']['password']; 
+    		$date = date('m/d/Y h:i:s a', time());
+    		
+    		
+    		
+    		// this nonsense works to hardcode an entry into the database  (remove // infront of result and var dump, replace hardcode with variable)
+    		
+    		$dbconn = pg_connect("host=localhost port= 5432 dbname=soap user=postgres password=cabect")
+    			or die('Count not connect: ' . pg_last_error());
+    			
+    			
+    		$result = pg_query($dbconn, "INSERT INTO newsoap.users(username, password, created, modified) VALUES('$username', '$password', '$date', '$date');");
+    		
+    		var_dump($result);
+    		
+    		pg_close($dbconn);
+        	
+        	
+        	
+	//was there is now removed 	
+            /*$this->User->create();
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash('Account has been created. Welcome to SOAP!', 'uploadSuccess');
                 $this->redirect(array('controller' => 'pages', 'action' => 'main'));
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
-            }
+            }*/
         }
     }
     public function edit($id = null) {
