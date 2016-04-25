@@ -61,6 +61,10 @@ class UsersController extends AppController {
             	$result = pg_query($dbconn, "SELECT password FROM newsoap.users WHERE username = $username");
             	$this->Session->setFlash($username);
             	
+            	var_dump($result);
+    		
+    		pg_close($dbconn);
+            	
             	
     		//$date = date('m/d/Y h:i:s a', time());
     		
