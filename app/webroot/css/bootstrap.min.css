@@ -153,7 +153,7 @@ pre code{padding:0;color:inherit;background-color:transparent;border:0;}
 .pre-scrollable{max-height:340px;overflow-y:scroll;}
 form{margin:0 0 21px;}
 fieldset{padding:0;margin:0;border:0;}
-legend{display:block;width:100%;padding:0;margin-bottom:31.5px;font-size:21px;line-height:42px;color:#333333;border:0;border-bottom:1px solid #e5e5e5;}legend small{font-size:15.75px;color:#999999;}
+legend{display:block;width:100%;padding-left:250px;margin-bottom:31.5px;font-size:21px;line-height:42px;color:#333333;border:0;border-bottom:1px solid #e5e5e5;}legend small{font-size:15.75px;color:#999999;}
 label,input,button,select,textarea{font-size:14px;font-weight:normal;line-height:21px;}
 input,button,select,textarea{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;}
 label{display:block;margin-bottom:5px;}
