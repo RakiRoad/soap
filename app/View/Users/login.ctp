@@ -15,8 +15,8 @@
         <legend>
            <?php echo __('Please enter your username and password'); ?>
         </legend>
-        <?php echo $this->Form->input('username', array('name' => 'data[User][username]'); ?>
-        <?php echo $this->Form->input('password', array('name' => 'data[User][password]'); ?>
+        <?php echo $this->Form->input('username', array('name' => 'data[User][username]') ?>
+        <?php echo $this->Form->input('password', array('name' => 'data[User][password]') ?>
     </fieldset>
      <?php echo $this->Form->end(__('Login')); ?>
 </div>
