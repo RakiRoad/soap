@@ -43,7 +43,7 @@ class User extends AppModel {
 App::uses('AppModel', 'Model');
 
 class User extends AppModel {
-    public $name = 'User'; ///just trying out
+    //public $name = 'User'; ///just committed out
     public $validate = array(
         'username' => array(
             'required' => array(
