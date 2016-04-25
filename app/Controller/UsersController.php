@@ -32,7 +32,7 @@ class UsersController extends AppController {
     
   /*  public function authenticate(){
         if($this->request->is('post')){
-            $this->request->data['User']['password'] = $this->hashPassword($this->data['User']);
+            $this->request->data['User']['password'] = $this->hashPassword($this->data['User']);  //im goin nuts
             if($this->Auth->login()){
                 return $this->redirect($this->Auth->redirect());
             }
@@ -41,7 +41,7 @@ class UsersController extends AppController {
         }
     }
     
-    private function hashPassword($login){
+      private function hashPassword($login){
         // Get the salt of the user.
         $salt = $this->Login->find('first', array(
             'fields' => array(
@@ -99,8 +99,8 @@ class UsersController extends AppController {
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
-       //$this->set('user', $this->User->read(null, $id)); trying in place of line below
-       $this->set('user', $this->User->findById($id));
+       $this->set('user', $this->User->read(null, $id)); 
+       //$this->set('user', $this->User->findById($id)); was tried in place of line above
     }
 
     public function add() {
@@ -130,8 +130,8 @@ class UsersController extends AppController {
             }
         } 
         else {
-        	$this->request->data = $this->User->findById($id); 
-            //$this->request->data = $this->User->read(null, $id); //was tried in place of line above
+        	//$this->request->data = $this->User->findById($id); //was tried in place of line below
+            $this->request->data = $this->User->read(null, $id);
             unset($this->request->data['User']['password']);
         }
     }
