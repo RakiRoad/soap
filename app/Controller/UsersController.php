@@ -119,7 +119,7 @@ class UsersController extends AppController {
        //$this->set('user', $this->User->findById($id)); was tried in place of line above
     }
     public function add() {
-	$this->layout = 'add';  //changed from login to add
+	$this->layout = 'login';  //changed from login to add
         if ($this->request->is('post')) {
         	
         	//more nonsense
