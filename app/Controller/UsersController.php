@@ -46,7 +46,7 @@ class UsersController extends AppController {
     {			//method from online
     	if ($this->request->is('post')) 
     	{	
-    		echo "hello world"; //just testing login function override
+    		echo "hi!"; //just testing login function override
     	//not sure what post is; this condition is satisfied though
     	//$this->Session->setFlash(__('Invalid Username or Password. Please try again.'));	//trying to debug, see what happens here
         	if ($this->Auth->login())
@@ -90,7 +90,6 @@ class UsersController extends AppController {
        //$this->set('user', $this->User->findById($id)); was tried in place of line above
     }
     public function add() {
-    	$this->Session->setFlash(__('Add method is called.')); //remove after, using to debug
 	$this->layout = 'login';
         if ($this->request->is('post')) {
             $this->User->create();
