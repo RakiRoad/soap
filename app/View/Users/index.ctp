@@ -1,3 +1,4 @@
+
 <div class="span4">
 	<h3>Users</h3>
 	<!-- Here's where we loop through our $posts array -->
@@ -13,4 +14,3 @@
 	</table>
 	</ul>
 </div>
-
