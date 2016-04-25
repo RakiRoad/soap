@@ -44,8 +44,9 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
+public $helpers = array('Html', 'Form', 'Session');  //woah nelly
 //public $helpers = array('Html', 'Form', 'Facebook.Facebook', 'Session');   //hold your horses
-public $helpers = array('App', 'Html', 'Form', 'Session');
+//public $helpers = array('App', 'Html', 'Form', 'Session');
 
 public $components = array(
     'Session',
@@ -55,7 +56,7 @@ public $components = array(
         //'loginAction' => array('controller' => 'Users', 'users'  => 'action', 'authenticate'), //added this because its going to work
         'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),     //this was initially not commented.
         'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),    //this was initially not commented.
-       //'authorize' => array('Controller'), // Added this line
+       'authorize' => array('Controller'), // Added this line
        //'authenticate' => array('Form' => array('User' => 'login', 'fields' => array('username' => 'username', 'password' => 'password')))) //was commented out
        'authenticate' => array('Form') //just testing
     )
