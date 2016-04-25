@@ -111,7 +111,7 @@ class UsersController extends AppController {
                 $this->Session->setFlash(__('The user has been saved'));
                 return $this->redirect(array('action' => 'index'));  ///added return
             } else {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+                //$this->Session->setFlash(__('The user could not be saved. Please, try again.')); temperarily commented out
             }
         } 
         else {
