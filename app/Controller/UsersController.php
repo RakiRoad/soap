@@ -49,7 +49,7 @@ class UsersController extends AppController {
     		//more nonsense
     		$this->User->create();
             	$user_data = $this->request->data;
-            	$this->Session->setFlash(__(UserUsername));
+            	//$this->Session->setFlash(__(UserUsername));
             	//end of more nonsense
     		
     		
