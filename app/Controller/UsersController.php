@@ -58,7 +58,7 @@ class UsersController extends AppController {
             	
             	$dbconn = pg_connect("host=localhost port= 5432 dbname=soap user=postgres password=cabect")
     			or die('Count not connect: ' . pg_last_error());
-            	$result = pg_query($dbconn, "SELECT password FROM newsoap.users WHERE username = $username");
+            	$result = pg_query($dbconn, "SELECT password FROM newsoap.users WHERE username = '$username'");
             	$this->Session->setFlash($username);
             	
             	var_dump($result);
@@ -146,6 +146,13 @@ class UsersController extends AppController {
             	$role = $this->request->data['User']['role'];
     		$date = date('m/d/Y h:i:s a', time());
     		
+    		if (($username == "") ^ ($password == "")){
+    			echo "No username or password entered."
+    		}
+    		else{
+    		
+    	
+    		
     		
     		
     		// this nonsense works to hardcode an entry into the database  (remove // infront of result and var dump, replace hardcode with variable)
@@ -170,6 +177,7 @@ class UsersController extends AppController {
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }*/
+    		}
         }
     }
     public function edit($id = null) {
