@@ -1,3 +1,8 @@
+<!-- Display Sidebar -->
+<div class="span2">
+	 <?php echo $this->element('sidebar'); ?>
+</div>
+
 <div class="users form">
 <?php echo $this->Form->create('User'); ?>
     <fieldset>
