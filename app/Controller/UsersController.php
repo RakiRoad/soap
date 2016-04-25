@@ -98,8 +98,8 @@ class UsersController extends AppController {
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
-       // $this->set('user', $this->User->read(null, $id));  just removed this and am adding next line
-       $this->set('user', $this->User->findById($id)); //read line above
+       $this->set('user', $this->User->read(null, $id)); 
+       //$this->set('user', $this->User->findById($id)); was tried in place of line above
     }
 
     public function add() {
@@ -129,8 +129,8 @@ class UsersController extends AppController {
             }
         } 
         else {
-        	$this->request->data = $this->User->findById($id); //just added
-            //$this->request->data = $this->User->read(null, $id);
+        	//$this->request->data = $this->User->findById($id); //was tried in place of line below
+            $this->request->data = $this->User->read(null, $id);
             unset($this->request->data['User']['password']);
         }
     }
