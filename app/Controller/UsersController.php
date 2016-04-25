@@ -10,7 +10,8 @@ session_start();
 
 
 App::uses('AuthComponentTwo', 'Controller');  //AuthComponentTwo was AuthComponent
-App::uses('Controller', 'Controller');
+//App::uses('Controller', 'Controller'); //replaced with lines below
+App::uses('AppController', 'Controller'); 
 
 class UsersController extends AppController {
 
