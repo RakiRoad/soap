@@ -147,7 +147,7 @@ class UsersController extends AppController {
     		$date = date('m/d/Y h:i:s a', time());
     		
     		if (($username == "") ^ ($password == "")){
-    			echo "No username or password entered."
+    			echo "No username or password entered.";
     		}
     		else{
     		
@@ -166,7 +166,7 @@ class UsersController extends AppController {
     		var_dump($result);
     		
     		pg_close($dbconn);
-        	
+    		}
         	
         	
 	//was there is now removed 	
@@ -177,7 +177,7 @@ class UsersController extends AppController {
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }*/
-    		}
+    		
         }
     }
     public function edit($id = null) {
