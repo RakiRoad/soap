@@ -45,7 +45,7 @@ class UsersController extends AppController {
     public function login() 
     {			//method from online
     	if ($this->request->is('post')) 
-    	{	
+    	{	$this->Session->setFlash(__('Login method is called.')); //remove after, using to debug
     		echo "hi!"; //just testing login function override
     	//not sure what post is; this condition is satisfied though
     	//$this->Session->setFlash(__('Invalid Username or Password. Please try again.'));	//trying to debug, see what happens here
