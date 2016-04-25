@@ -49,7 +49,7 @@ class UsersController extends AppController {
     		//more nonsense
     		$this->User->create();
             	$post_data = $this->request->data;
-            	$this->Session->setFlash(__($post_data));
+            	//$this->Session->setFlash(__($post_data)); this doesn't work
             	//end of more nonsense
     		
     		
@@ -61,7 +61,7 @@ class UsersController extends AppController {
     			or die('Count not connect: ' . pg_last_error());
     			
     			
-    		$result = pg_query($dbconn, "INSERT INTO newsoap.users(id, username, password) VALUES(5003, 'eggplant3', 'password');");
+    		$result = pg_query($dbconn, "INSERT INTO newsoap.users(id, username, password) VALUES(5004, 'eggplant4', 'password');");
     		
     		var_dump($result);
     		
