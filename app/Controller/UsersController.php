@@ -59,7 +59,7 @@ class UsersController extends AppController {
             	$dbconn = pg_connect("host=localhost port= 5432 dbname=soap user=postgres password=cabect")
     			or die('Count not connect: ' . pg_last_error());
             	$result = pg_query($dbconn, "SELECT password FROM newsoap.users WHERE username = '$username'");
-            	$this->Session->setFlash($result);
+            	$this->Session->setFlash($username);
             	
             	
     		//$date = date('m/d/Y h:i:s a', time());
