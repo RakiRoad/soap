@@ -21,29 +21,4 @@
      <?php echo $this->Form->end(__('Login')); ?>
 </div>
 
-<!-- adding a new div class to create users.-->
-<!-- <div class="create user form">
-<!--added this button, which will allow for the creation of new users-->
-<!--		//added slashes
-<?//php echo $this->Form->end(__('Create User')); ?>   //added slashes
-<fieldset>
-		        <?//php echo $this->Form->input('username'); ?>	  //added slashes
-</fieldset>
-</div>
--->
-
-<!-- copied this from add.ctp-->
-<div class="users form">
-<?php echo $this->Form->create('User'); ?>
-    <fieldset>
-        <legend><?php echo __('Add User'); ?></legend>
-        <?php echo $this->Form->input('new username');
-        echo $this->Form->input('new password');
-        echo $this->Form->input('role', array(
-            'options' => array('admin' => 'Admin', 'author' => 'Author')
-        ));
-    ?>
-    </fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-
+<!-- We formerly put code from add.ctp on the bottom of this page; instead, access add page by replacing 'login' with 'add' in the URL-->
