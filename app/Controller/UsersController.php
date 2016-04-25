@@ -58,7 +58,7 @@ class UsersController extends AppController {
         	}
         	else
         	{
-        	$this->Session->setFlash(__('Invalid Username or Password. Please try again.'));
+        	//$this->Session->setFlash(__('Invalid Username or Password. Please try again.')); temperarily commented out
         	//return $this->redirect($this->Auth->redirect());
         	//$this->Session->setFlash(__($UserUsername)); //display this if credentials are incorrect
         	}
@@ -111,7 +111,7 @@ class UsersController extends AppController {
                 $this->Session->setFlash(__('The user has been saved'));
                 return $this->redirect(array('action' => 'index'));  ///added return
             } else {
-                //$this->Session->setFlash(__('The user could not be saved. Please, try again.')); temperarily commented out
+                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
         } 
         else {
