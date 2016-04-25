@@ -1,57 +1,53 @@
-#Name: Team Shampoo
-#Course: CSC415
-#Semester: Spring 2016
-#Instructor: Dr. Pulimood
-#Project Name: Web Scrape and Update
-#Description: Our team will write scripts to update the chemicals, facilities, and politicians for SOAP. This will be avaliable to the admin and will provide SOAP with the most up to date data.
-#Filename: ScrapeTest.rb
-#Description: This file is used to scrape the information for the website that supplies the politicians based on districts in New Jersey. The data collected is sent to a text file. -- It will be imporoved upon to parse the data and update the database for the second round of implementation.
-#Last modified date: April 14, 2016
-
 require 'nokogiri'
 require 'open-uri'
 
 $district_links = Array.new
-$rep_info = Array.new
+$rep_info = [[]]
 
 class Scrape_az
   URL = 'http://www.njleg.state.nj.us/districts/districtnumbers.asp'
-  SEARCH_DISTRICTS_URL = "//a[contains(@href,'DistrictLegislators')]/@href"
-  SEARCH_REP_INFO = "//img[contains(@src, 'member')]/@title"
+  DISTRICTS_URL = "//a[contains(@href,'DistrictLegislators')]/@href"
+  DISTRICT_NUM = "//td[contains(@colspan, '3') and contains(@align, 'left')]//text()"  
+  REP_INFO = "//td[contains(@align, 'center') and contains(@valign, 'top')]//b//text()"
 
   html = Nokogiri::HTML(open(URL))
-  $district_links = html.xpath(SEARCH_DISTRICTS_URL).collect { |node| node.text.strip }
+  $district_links = html.xpath(DISTRICTS_URL).collect { |node| node.text.strip }
 
   $district_links.map! { |i| "http://www.njleg.state.nj.us/members/#{i}" }
 
   $district_links.each do |i|
     begin
       district = Nokogiri::HTML(open(i))
-      temp_rep_info = district.xpath(SEARCH_REP_INFO).collect { |node| node.text.strip }
-      $rep_info.insert(-1, temp_rep_info)
+      
+      temp_rep_info = district.xpath(REP_INFO).collect { |node| node.text.strip }
+      temp_rep_info.each_slice(3) do | party, position, name |
+        temp_data = [4]
+        temp_data[0] = district.xpath(DISTRICT_NUM).text.strip
+
+        if party.include? "D"
+          temp_data[1] = "Democrat"
+        else
+          temp_data[1] = "Republican"
+        end
+        temp_data[2] = position
+        temp_data[3] = name
+        
+        $rep_info.push(temp_data)
+      end
     end
   end
 
-  test = File.open('testtestTEST.txt', 'w')
-
-  $district_links.each do |i|
-    begin
-      test.write("#{i}\n")
-    end
-  end
-
-  # $rep_links.each do |i|
-  #   begin
-  #     test.write("#{i}\n")
-  #   end
-  # end
+  # Switch
+  #politicians = File.open('politicians.sql', 'w')
+  politicians = File.open('politicians.txt', 'w')
 
   $rep_info.each do |i|
     begin
-      test.write("#{i}\n")
+      # Will generate SQL insert into commands for each person
+      # string = "INSERT INTO table (District, Party, Position, Name) VALUES ('#{i[0]}', '#{i[1]}', '#{i[2]}', '#{i[3]}')"
+      # politicians.write(string)
+      politicians.write("#{i}\n")
     end
   end
-
-  test.close()
-
+  politicians.close()
 end
