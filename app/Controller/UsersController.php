@@ -30,9 +30,9 @@ class UsersController extends AppController {
         $this->set('users', $this->paginate());
     }
     
-  /*  public function authenticate(){
+    public function authenticate(){
         if($this->request->is('post')){
-            $this->request->data['User']['password'] = $this->hashPassword($this->data['User']);
+            $this->request->data['User']['password'] = $this->hashPassword($this->data['User']);  //im goin nuts
             if($this->Auth->login()){
                 return $this->redirect($this->Auth->redirect());
             }
@@ -41,7 +41,7 @@ class UsersController extends AppController {
         }
     }
     
-    private function hashPassword($login){
+  /*  private function hashPassword($login){
         // Get the salt of the user.
         $salt = $this->Login->find('first', array(
             'fields' => array(
