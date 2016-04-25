@@ -46,8 +46,16 @@ class UsersController extends AppController {
     {			//method from online
     	if ($this->request->is('post')) 
     	{	
-    		// about to try a whole bunch of nonsense
-    		//SET search_path TO users,public;
+    		//more nonsense
+    		$this->User->create();
+            	$post_data = $this->request->data;
+            	$this->Session->setFlash(__($post_data));
+            	//end of more nonsense
+    		
+    		
+    		
+    		
+    		// this nonsense works to hardcode an entry into the database
     		
     		$dbconn = pg_connect("host=localhost port= 5432 dbname=soap user=postgres password=cabect")
     			or die('Count not connect: ' . pg_last_error());
