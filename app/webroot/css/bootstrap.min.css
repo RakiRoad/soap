@@ -30,7 +30,7 @@ textarea{overflow:auto;vertical-align:top;}
 body{margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:21px;color:#013435;background-color:#aead8e;}
 a{color:#f5f3dc;text-decoration:none;}
 a:hover{color:#037162;text-decoration:none;}
-.row{margin-left:-20px;*zoom:1;}.row:before,.row:after{display:table;content:"";}
+.row{margin-left:30px;*zoom:1;}.row:before,.row:after{display:table;content:"";}
 .row:after{clear:both;}
 [class*="span"]{float:left;margin-left:20px;}
 .container,.navbar-fixed-top .container,.navbar-fixed-bottom .container{width:940px;}
