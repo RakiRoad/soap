@@ -47,11 +47,11 @@ public $components = array(
         //loginAction was added to try to start some action. => 'Users', 'users' => 'action', 'authenticate') displays a user table.
         //this table is displayed in index.ctp, under view/users.  Therefore, the loginAction displayed below references index.ctp somehow.
         //'loginAction' => array('controller' => 'Users', 'users'  => 'action', 'authenticate'), //added this because its going to work
-        'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),     //this was initially not commented.
-        'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'main'),    //this was initially not commented.
+        'loginRedirect' => array('controller' => 'users', 'action' => 'main'),     //this was initially not commented.
+        'logoutRedirect' => array('controller' => 'users', 'action' => 'main'),    //this was initially not commented.
        //'authorize' => array('Controller'), // Added this line
        //'authenticate' => array('Form' => array('User' => 'login', 'fields' => array('username' => 'username', 'password' => 'password')))) //was commented out
-       'authenticate' => array('Form') //just testing
+       'authenticate' => array('Controller') //just testing
     )
     //'Facebook.Connect' => array('model' => 'User')
 );
