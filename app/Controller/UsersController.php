@@ -47,8 +47,9 @@ class UsersController extends AppController {
     	if ($this->request->is('post')) 
     	{	
     		//more nonsense
-    		$this->User->create();
-            	$user_data = $this->request->data;
+    		//$this->User->create();
+            	$username = $this->request->data[User][username];
+            	$password = $this->request->data[User][password];
             	//$username =
             	//$password =
             	//$this->Session->setFlash(__(UserUsername));
