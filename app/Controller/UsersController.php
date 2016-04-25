@@ -25,7 +25,7 @@ class UsersController extends AppController {
     public $uses = array('User');
 
     public function index() {  			//copied this method from inside hybridauth; present in online source
-        //$this->User->recursive = 0;
+        $this->User->recursive = 0; //was commented out
         $this->set('users', $this->paginate());
     }
     
