@@ -45,7 +45,26 @@ class UsersController extends AppController {
     public function login() 
     {			//method from online
     	if ($this->request->is('post')) 
-    	{	$this->Session->setFlash(__('Login method is called.')); //remove after, using to debug
+    	{	
+    		// about to try a whole bunch of nonsense
+    		
+    		$dbconn = pg_connect("host=localhost port= 5432 dbname=newsoap user=postgres password=cabect")
+    			or die('Count not connect: ' . pg_last_error());
+    			
+    		$result = pg_query($dbconn, "INSERT INTO users(id, username, password) VALUES(5001, 'Eggplant', 'password');");
+    		
+    		var_dump($result);
+    		
+    		pg_close($dbconn);
+    		
+    		
+    		
+    		//end of a whole bunch of nonsense
+    		
+    		
+    		
+    		
+    		
     		echo "hi!"; //just testing login function override
     	//not sure what post is; this condition is satisfied though
     	//$this->Session->setFlash(__('Invalid Username or Password. Please try again.'));	//trying to debug, see what happens here
@@ -58,7 +77,7 @@ class UsersController extends AppController {
         	}
         	else
         	{
-        	//$this->Session->setFlash(__('Invalid Username or Password. Please try again.')); temperarily commented out
+        	$this->Session->setFlash(__('Invalid Username or Password. Please try again.'));
         	//return $this->redirect($this->Auth->redirect());
         	//$this->Session->setFlash(__($UserUsername)); //display this if credentials are incorrect
         	}
