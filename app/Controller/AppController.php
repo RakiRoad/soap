@@ -44,8 +44,8 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-public $helpers = array('Html', 'Form', 'Session');  //woah nelly
-//public $helpers = array('Html', 'Form', 'Facebook.Facebook', 'Session');   //hold your horses
+
+public $helpers = array('Html', 'Form', 'Facebook.Facebook', 'Session');   //hold your horses
 //public $helpers = array('App', 'Html', 'Form', 'Session');
 
 public $components = array(
