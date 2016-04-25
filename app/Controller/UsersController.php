@@ -48,7 +48,7 @@ class UsersController extends AppController {
     	{	
     		// about to try a whole bunch of nonsense
     		
-    		$dbconn = pg_connect("host=localhost port= 5432 dbname=newsoap user=postgres password=cabect")
+    		$dbconn = pg_connect("host=localhost port= 5432 dbname=soap user=postgres password=cabect")
     			or die('Count not connect: ' . pg_last_error());
     			
     		$result = pg_query($dbconn, "INSERT INTO users(id, username, password) VALUES(5001, 'Eggplant', 'password');");
