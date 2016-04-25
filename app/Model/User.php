@@ -1,48 +1,83 @@
 <?php
-class User extends AppModel{
-    public $name = 'User';
-    
-    public $validate = array(
-        'username'=>array(
-            'The username must be between 5 and 15 characters'=>array(
-                'rule'=>array('between', 5, 15),
-                'message'=>'The username must be between 5 and 15 characters'
-                ),
-            'That username has already been taken'=>array(
-                'rule'=>'isUnique',
-                'message'=>'That username has already been taken'
-                )
-            ),
-        'password'=>array(
-            'Not empty'=>array(
-                'rule'=>'notEmpty',
-                'message'=>'Please enter your password'
-            ),
-            'Match passwords'=>array(
-                'rule'=>'matchPasswords',
-                'message'=>'Your passwords do not match'
+/*App::uses('AuthComponent', 'Controller/Component');
+class User extends AppModel {
+    public $name = 'User'; //user variable; not present in online source
+    public $validate = array(   //validated through array
+        'username' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'A username is required'
             )
         ),
-        'password confirmation'=>array(
-            'Not empty'=>array(
-                'rule'=>'notEmpty',
-                'message'=>'Please confirm your password'
-                )
+        'password' => array(    //PW is validated through array
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'A password is required'
             )
+        ),
+        'role' => array(    
+            'valid' => array(   //role is validated through array
+                'rule' => array('inList', array('admin', 'user')),      //add journalist
+                'message' => 'Please enter a valid role',
+                'allowEmpty' => false
+            )
+        )
+    );
+     //commented out to match online version, entered below
+    public function beforeSave($options = array()) {            //not in online source
+        if (isset($this->data[$this->alias]['password'])) {
+            $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']); //checks to see if credentials are correct
+        }
+        return true;
+    }
+    /* public function beforeSave($options = array()) {
+    if (isset($this->data[$this->alias]['password'])) {
+        $passwordHasher = new BlowfishPasswordHasher();
+        $this->data[$this->alias]['password'] = $passwordHasher->hash(
+            $this->data[$this->alias]['password']
         );
-        
-        public function matchPasswords($data){
-            if ($data['password'] == $this->data['User']['password_confirmation']){
-                return true;
-            }
-            $this->invalidate('password_confirmation', 'Your passwords do not match');
-            return false;
+    }
+    return true;
+} */
+App::uses('AppModel', 'Model');
+class User extends AppModel {
+    //public $name = 'User'; ///just committed out
+    public $validate = array(
+        'username' => array(
+            'required' => array(
+                'rule' => 'notBlank',
+                'message' => 'A username is required'
+            )
+        ),
+        'password' => array(
+            'required' => array(
+                'rule' => 'notBlank',
+                'message' => 'A password is required'
+            )
+        ),
+        'role' => array(
+            'valid' => array(
+                'rule' => array('inList', array('admin', 'author')),            //need to add journalist type role here
+                'message' => 'Please enter a valid role',
+                'allowEmpty' => false
+            )
+        )
+    );
+    /*public function beforeSave($options = array()) {
+        if (isset($this->data[$this->alias]['password'])) {
+            //$passwordHasher = new BlowfishPasswordHasher();                   //commented out to avoid hashing
+            //$this->data[$this->alias]['password'] = $passwordHasher->hash(
+            //$this->data[$this->alias]['password']
+            //);
         }
-        
-        public function beforeSave(){
-            if(isset($this->data['User']['password'])){
-                $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
-            }
-            return true;
-        }
+    return true;
+    }*/
+    /*   /////just commented this out
+    public function beforeSave($options = array()) {
+    if (isset($this->data['User']['password'])) {
+        $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);  
+    }
+    return true;
+    }
+    */
 }
