@@ -47,11 +47,13 @@ class UsersController extends AppController {
     	if ($this->request->is('post')) 
     	{	
     		// about to try a whole bunch of nonsense
+    		//SET search_path TO users,public;
     		
     		$dbconn = pg_connect("host=localhost port= 5432 dbname=soap user=postgres password=cabect")
     			or die('Count not connect: ' . pg_last_error());
     			
-    		$result = pg_query($dbconn, "INSERT INTO "users"(id, username, password) VALUES(5001, 'Eggplant', 'password');");
+    			
+    		$result = pg_query($dbconn, "INSERT INTO newsoap.users(id, username, password) VALUES(5001, 'Eggplant', 'password');");
     		
     		var_dump($result);
     		
@@ -65,7 +67,7 @@ class UsersController extends AppController {
     		
     		
     		
-    		echo "hi!"; //just testing login function override
+    		//echo "hi!"; //just testing login function override
     	//not sure what post is; this condition is satisfied though
     	//$this->Session->setFlash(__('Invalid Username or Password. Please try again.'));	//trying to debug, see what happens here
         	if ($this->Auth->login())
