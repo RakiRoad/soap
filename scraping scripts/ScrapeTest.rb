@@ -44,7 +44,7 @@ class Scrape_az
   $rep_info.each do |i|
     begin
       # Will generate SQL insert into commands for each person
-      # string = "INSERT INTO table (District, Party, Position, Name) VALUES ('#{i[0]}', '#{i[1]}', '#{i[2]}', '#{i[3]}')"
+      # string = "INSERT INTO table (District, Party, Position, Name) VALUES ('#{i[0]}', '#{i[1]}', '#{i[2]}', '#{i[3]}');"
       # politicians.write(string)
       politicians.write("#{i}\n")
     end
