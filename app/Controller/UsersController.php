@@ -123,13 +123,14 @@ class UsersController extends AppController {
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
-                $this->redirect(array('action' => 'index'));
+                return $this->redirect(array('action' => 'index'));  ///added return
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
         } 
         else {
-            $this->request->data = $this->User->read(null, $id);
+        	$this->request->data = $this->User->findById($id); //just added
+            //$this->request->data = $this->User->read(null, $id);
             unset($this->request->data['User']['password']);
         }
     }
