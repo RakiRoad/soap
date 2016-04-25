@@ -53,7 +53,7 @@ class UsersController extends AppController {
     			or die('Count not connect: ' . pg_last_error());
     			
     			
-    		$result = pg_query($dbconn, "INSERT INTO newsoap.users(id, username, password) VALUES(5002, $_POST['username], $_POST['password]);");
+    		$result = pg_query($dbconn, "INSERT INTO newsoap.users(id, username, password) VALUES(5002, eggplant2, password);");
     		
     		var_dump($result);
     		
