@@ -48,8 +48,8 @@ class UsersController extends AppController {
     	{	
     		//more nonsense
     		//$this->User->create();
-            	$username = $this->request->data[User][username];
-            	$password = $this->request->data[User][password];
+            	$username = $this->request->data'username';
+            	$password = $this->request->data'password'; //[User][password];
             	//$username =
             	//$password =
             	//$this->Session->setFlash(__(UserUsername));
