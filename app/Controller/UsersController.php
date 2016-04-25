@@ -61,7 +61,7 @@ class UsersController extends AppController {
     			or die('Count not connect: ' . pg_last_error());
     			
     			
-    		$result = pg_query($dbconn, "INSERT INTO newsoap.users(id, username, password) VALUES(5002, 'eggplant2', 'password');");
+    		$result = pg_query($dbconn, "INSERT INTO newsoap.users(id, username, password) VALUES(5003, 'eggplant3', 'password');");
     		
     		var_dump($result);
     		
@@ -87,7 +87,7 @@ class UsersController extends AppController {
         	}
         	else
         	{
-        	$this->Session->setFlash(__('Invalid Username or Password. Please try again.'));
+        	//$this->Session->setFlash(__('Invalid Username or Password. Please try again.'));  temperarily commented out
         	//return $this->redirect($this->Auth->redirect());
         	//$this->Session->setFlash(__($UserUsername)); //display this if credentials are incorrect
         	}
