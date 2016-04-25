@@ -126,7 +126,8 @@ class UsersController extends AppController {
     		//$this->User->create();
     		//$id = 8009;
             	$username = $this->request->data['User']['username'];
-            	$password = $this->request->data['User']['password']; 
+            	$password = $this->request->data['User']['password'];
+            	$role = $this->request->data['User']['role'];
     		$date = date('m/d/Y h:i:s a', time());
     		
     		
@@ -137,7 +138,7 @@ class UsersController extends AppController {
     			or die('Count not connect: ' . pg_last_error());
     			
     			
-    		$result = pg_query($dbconn, "INSERT INTO newsoap.users(username, password, created, modified) VALUES('$username', '$password', '$date', '$date');");
+    		$result = pg_query($dbconn, "INSERT INTO newsoap.users(username, password, created, modified, role) VALUES('$username', '$password', '$date', '$date', '$role');");
     		
     		var_dump($result);
     		
