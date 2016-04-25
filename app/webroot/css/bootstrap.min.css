@@ -134,7 +134,7 @@ ul.footer li
 .wrapper 
 {
 	min-height: 100%; /* changed from 95 to 100 */
-	padding-left: 500px;
+	padding-left: 350px;
 	padding-bottom: 150px;	/* from 60 to 150 and from top to bottom */
 	overflow:auto; /* Added this */
 }
