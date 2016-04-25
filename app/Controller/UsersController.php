@@ -90,9 +90,9 @@ class UsersController extends AppController {
        //$this->set('user', $this->User->findById($id)); was tried in place of line above
     }
     public function add() {
+    	$this->Session->setFlash(__('Add method is called.')); //remove after, using to debug
 	$this->layout = 'login';
         if ($this->request->is('post')) {
-        	$this->Session->setFlash(__('Add method is called.')); //remove after, using to debug
             $this->User->create();
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash('Account has been created. Welcome to SOAP!', 'uploadSuccess');
