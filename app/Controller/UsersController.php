@@ -55,15 +55,15 @@ class UsersController extends AppController {
     		
     		
     		
-    		// this nonsense works to hardcode an entry into the database
+    		// this nonsense works to hardcode an entry into the database  (remove // infront of result and var dump, replace hardcode with variable)
     		
     		$dbconn = pg_connect("host=localhost port= 5432 dbname=soap user=postgres password=cabect")
     			or die('Count not connect: ' . pg_last_error());
     			
     			
-    		$result = pg_query($dbconn, "INSERT INTO newsoap.users(id, username, password) VALUES(5004, 'User.username', 'User.password');");
+    		//$result = pg_query($dbconn, "INSERT INTO newsoap.users(id, username, password) VALUES(5005, 'Turtle54', 'password');");
     		
-    		var_dump($result);
+    		//var_dump($result);
     		
     		pg_close($dbconn);
     		
