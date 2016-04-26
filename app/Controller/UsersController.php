@@ -60,7 +60,9 @@ class UsersController extends AppController {
     			or die('Count not connect: ' . pg_last_error());
             	$result = pg_query($dbconn, "SELECT password FROM newsoap.users WHERE username = '$username'");
             	$found_password = pg_fetch_result($result, password);
-            	$this->Session->setFlash($found_password);
+            	$result2 = pg_query($dbconn, "SELECT id FROM newsoap.users WHERE username = '$username'");
+            	$found_id = pg_fetch_result($result2, id);
+            	$this->Session->setFlash($found_id);
             	
             	var_dump($result);
     		
