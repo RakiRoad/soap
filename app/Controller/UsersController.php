@@ -145,8 +145,13 @@ class UsersController extends AppController {
     		//$id = 8009;
             	$username = $this->request->data['User']['username'];
             	$password = $this->request->data['User']['password'];   //sets variables to pull from user forms to put into database
+            	$passwordconfirm = $this->request->data['User']['passwordconfirm']
             	$role = $this->request->data['User']['role'];
     		$date = date('m/d/Y h:i:s a', time());
+    		
+    		if ($password != $passwordconfirm){
+    			echo 'Passwords do not match';
+    		}
     		
     		if (($username == "") || ($password == "")){					//checks if fields are left empty
     			echo 'Username or password was not entered.';
