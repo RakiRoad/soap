@@ -1,4 +1,7 @@
 <?php
+// Edited Spring 2016 - Andrew, Greg, Jon, Sean, Kim, Kevin - The Young and the Reckless
+// User.php: class to create users. This file is not used, as we are directly referencing the database in our view/controller classes.
+
 /*App::uses('AuthComponent', 'Controller/Component');
 class User extends AppModel {
     public $name = 'User'; //user variable; not present in online source
