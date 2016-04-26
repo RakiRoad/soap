@@ -72,6 +72,7 @@ class UsersController extends AppController {
             	
             	if(($password == $found_password) && (!($password == ""))){
             		$this->Session->setFlash(__('Username and password match! ')); //checks to see if password is valid
+            		$this->Session->setFlash(__($found_role));
             		///more trial
             		session_name($found_role);
             		session_start();
