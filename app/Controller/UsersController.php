@@ -165,7 +165,7 @@ class UsersController extends AppController {
     		pg_close($dbconn); 
     		
 
-    		if(!($result == FALSE)){ //created if and else statement, contents in if are new
+    		if($result == FALSE){ //created if and else statement, contents in if are new
     			$this->Session->setFlash(__('Account not created, user might already exist.'));
     			
     		}
