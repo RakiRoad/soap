@@ -72,8 +72,7 @@ class UsersController extends AppController {
             	
             	if(($password == $found_password) && (!($password == ""))){
             		$this->Session->setFlash(__('Username and password match! ')); //checks to see if password is valid
-            		$this->Session->setFlash(__($found_role));
-            		///more trial
+            		///more trial   session hasn't been tried yet, but doesn't seem to cause harm yet
             		session_name($found_role);
             		session_start();
             		$_Session['login_id'] = $found_id;
@@ -113,8 +112,9 @@ class UsersController extends AppController {
        //$this->Flash->error(__('Invalid username or password, try again')); 		//this resulted in error; the error() method was not found
   }
   
-  public function logout() {			//method from online
-    return $this->redirect($this->Auth->logout());
+  public function logout() {			//hasn't been tested or provided a button yet
+    session_destroy();  ///if this logs out everyone, look into if(isset($_SESSION['login_id']))unset($_SESSION['login_id'])
+    return $this->redirect($this->Auth->logout());  //didn't try out yet
   	
   }
     						//this is different than online
