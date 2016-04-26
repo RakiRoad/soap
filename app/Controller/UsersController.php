@@ -147,7 +147,7 @@ class UsersController extends AppController {
     		$date = date('m/d/Y h:i:s a', time());
     		
     		if (($username == "") ^ ($password == "")){
-    			$this->Session->setFlash(__('Username or password was not entered.'));
+    			echo 'Username or password was not entered.';
     		}
     		else{
     		
