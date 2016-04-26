@@ -19,6 +19,8 @@
         <?php echo $this->Form->input('password')?>
     </fieldset>
      <?php echo $this->Form->end(__('Login')); ?>
+     
+    <?php echo "   echo '<a href="http://csc415-team03.tcnj.edu/cabect/SOAP/index.php/users/add">Click here to create a new account!</a>'; ?>
 </div>
 
 <!-- We formerly put code from add.ctp on the bottom of this page; instead, access add page by replacing 'login' with 'add' in the URL-->
