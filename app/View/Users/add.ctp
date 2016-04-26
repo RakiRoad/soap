@@ -13,7 +13,7 @@
         <?php echo $this->Form->input('username');			// text field for username
         echo $this->Form->input('password');				// text field for password
         echo $this->Form->input('role', array(				// dropdown menu for role
-            'options' => array('admin' => 'Admin', 'author' => 'Author')
+            'options' => array('admin' => 'Admin', 'author' => 'Author', 'SOAP user' => 'SOAP User')
         ));
     ?>
     </fieldset>
