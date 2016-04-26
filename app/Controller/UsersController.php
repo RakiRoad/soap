@@ -62,6 +62,8 @@ class UsersController extends AppController {
             	$found_password = pg_fetch_result($result, 'password'); //getting password from location
             	$result2 = pg_query($dbconn, "SELECT id FROM newsoap.users WHERE username = '$username'"); //finding location of user id associated with user
             	$found_id = pg_fetch_result($result2, 'id'); //getting id from location
+            	$result3 = pg_query($dbconn, "SELECT role FROM newsoap.users WHERE username = '$username'"); //finding role of user
+            	$found_role = pg_fetch_result($result3, 'role'); //getting role from location
          
                 var_dump($result);
     		
@@ -71,6 +73,7 @@ class UsersController extends AppController {
             	if(($password == $found_password) && (!($password == ""))){
             		$this->Session->setFlash(__('Username and password match! ')); //checks to see if password is valid
             		///more trial
+            		session_name($found_role);
             		session_start();
             		$_Session['login_id'] = $found_id;
             		//end trial
