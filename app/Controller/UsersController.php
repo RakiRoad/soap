@@ -69,7 +69,7 @@ class UsersController extends AppController {
     		pg_close($dbconn);
             	
             	
-            	if($password == $found_password){
+            	if(($password == $found_password) && (!($password == ""))){
             		$this->Session->setFlash(__('Username and password match! ')); 
         		return $this->redirect($this->Auth->redirect());
             		//echo "Username and Password match.";
