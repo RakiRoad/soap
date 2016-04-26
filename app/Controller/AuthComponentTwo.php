@@ -1,4 +1,11 @@
 <?php
+/*
+    Edited Spring 2016 - Andrew, Greg, Jon, Sean, Kim, Kevin - The Young and the Reckless
+    AuthComponentTwo: this file was directly copied from AuthComponent in lib/Cake/Controller/Component.
+    We origninally intended on changing the login() method here; instead, we redefined our method in UsersController.
+    This method is no longer referenced in UsersController.
+*/
+
 /**
  * Authentication component
  *
