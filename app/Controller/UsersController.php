@@ -63,16 +63,26 @@ class UsersController extends AppController {
             	$result2 = pg_query($dbconn, "SELECT id FROM newsoap.users WHERE username = '$username'");
             	$found_id = pg_fetch_result($result2, 'id');
             	//$this->Session->setFlash($found_password); //tests to see what password is found when username is added
-            	if($password == $found_password){
-            		echo "Username and Password match.";
-            	}
-            	else{
-            		echo "Username and Password don't match.";
-            	}
             	
-            	var_dump($result);
+                var_dump($result);
     		
     		pg_close($dbconn);
+            	
+            	
+            	if($password == $found_password){
+            		$this->Session->setFlash(__('Username and password match! ')); 
+        		return $this->redirect($this->Auth->redirect());
+            		//echo "Username and Password match.";
+            	}
+            	else{
+            		$this->Session->setFlash(__('Username and password don not match! ')); 
+      
+            		//echo "Username and Password don't match.";
+            	}
+            	
+            	//var_dump($result);
+    		
+    		//pg_close($dbconn);
             	
             	
     		//$date = date('m/d/Y h:i:s a', time());
