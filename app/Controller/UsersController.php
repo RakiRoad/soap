@@ -166,7 +166,7 @@ class UsersController extends AppController {
     		
 
     		
-    		$this->Session->setFlash(__($result)); //remove 'Account created!', replaced with $result
+    		$this->Session->setFlash(__(var_dump($result))); //remove 'Account created!', replaced with $result
         		return $this->redirect('http://csc415-team03.tcnj.edu/cabect/SOAP/index.php/users/login'); //were getting wacky
     		
     		}
