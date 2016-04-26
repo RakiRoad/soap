@@ -75,7 +75,7 @@ class UsersController extends AppController {
             		//echo "Username and Password match.";
             	}
             	else{
-            		$this->Session->setFlash(__('Username and password don not match! ')); 
+            		$this->Session->setFlash(__('Username and password do not match! ')); 
       
             		//echo "Username and Password don't match.";
             	}
