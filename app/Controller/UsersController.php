@@ -162,7 +162,7 @@ class UsersController extends AppController {
     		//^ queries the pg_database and inputs various variables from user fields and input ^
     		
     		//var_dump($result); commented this out
-    		pg_close($dbconn); 
+    		//pg_close($dbconn); moved this down
     		
 
     		if($result == FALSE){ //created if and else statement, contents in if are new
@@ -173,6 +173,7 @@ class UsersController extends AppController {
     		$this->Session->setFlash(__('Account created!')); //remove 'Account created!', replaced with $result
         		return $this->redirect('http://csc415-team03.tcnj.edu/cabect/SOAP/index.php/users/login'); //were getting wacky
     		}
+    		pg_close($dbconn); 
     		
     		}
         	
