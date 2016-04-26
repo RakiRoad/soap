@@ -161,8 +161,7 @@ class UsersController extends AppController {
     			or die('Count not connect: ' . pg_last_error());
     			
     			
-    		$result = pg_query($dbconn, "INSERT INTO newsoap.users(username, password, created, modified, role) VALUES('$username', '$password', '$date', '$date', '$role');")
-    		       or die('Username may already be in user: ' . pg_last_error());
+    		$result = pg_query($dbconn, "INSERT INTO newsoap.users(username, password, created, modified, role) VALUES('$username', '$password', '$date', '$date', '$role');");
     		
     		var_dump($result);
     		
