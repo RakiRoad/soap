@@ -48,66 +48,39 @@ class UsersController extends AppController {
     	{	
     		
     		
-    		
+    		//Kim's epiphany
     		
     		//more nonsense
     		//$this->User->create();
     		//$id = 8009;
-            	$username = $this->request->data['User']['username'];
-            	$password = $this->request->data['User']['password']; 
+            	$username = $this->request->data['User']['username'];      //pulling username and password from the User form in app/view/Users/login.ctp
+            	$password = $this->request->data['User']['password'];      
             	
-            	$dbconn = pg_connect("host=localhost port= 5432 dbname=soap user=postgres password=cabect")
+            	$dbconn = pg_connect("host=localhost port= 5432 dbname=soap user=postgres password=cabect") //connecting to pg_database
     			or die('Count not connect: ' . pg_last_error());
-            	$result = pg_query($dbconn, "SELECT password FROM newsoap.users WHERE username = '$username'");
-            	$found_password = pg_fetch_result($result, 'password');
-            	$result2 = pg_query($dbconn, "SELECT id FROM newsoap.users WHERE username = '$username'");
-            	$found_id = pg_fetch_result($result2, 'id');
-            	//$this->Session->setFlash($found_password); //tests to see what password is found when username is added
-            	
+            	$result = pg_query($dbconn, "SELECT password FROM newsoap.users WHERE username = '$username'"); //finding location of password associated with user
+            	$found_password = pg_fetch_result($result, 'password'); //getting password from location
+            	$result2 = pg_query($dbconn, "SELECT id FROM newsoap.users WHERE username = '$username'"); //finding location of user id associated with user
+            	$found_id = pg_fetch_result($result2, 'id'); //getting id from location
+         
                 var_dump($result);
     		
-    		pg_close($dbconn);
+    		pg_close($dbconn); //closes connection to pg_database
             	
             	
             	if(($password == $found_password) && (!($password == ""))){
-            		$this->Session->setFlash(__('Username and password match! ')); 
+            		$this->Session->setFlash(__('Username and password match! ')); //checks to see if password is valid
         		return $this->redirect($this->Auth->redirect());
-            		//echo "Username and Password match.";
             	}
             	else{
-            		$this->Session->setFlash(__('Username and password do not match! ')); 
-      
-            		//echo "Username and Password don't match.";
+            		$this->Session->setFlash(__('Username and password do not match! '));
             	}
-            	
-            	//var_dump($result);
-    		
-    		//pg_close($dbconn);
-            	
-            	
-    		//$date = date('m/d/Y h:i:s a', time());
-    		
-    		
-    		/*
-    		// this nonsense works to hardcode an entry into the database  (remove // infront of result and var dump, replace hardcode with variable)
-    		
-    		$dbconn = pg_connect("host=localhost port= 5432 dbname=soap user=postgres password=cabect")
-    			or die('Count not connect: ' . pg_last_error());
-    			
-    			
-    		$result = pg_query($dbconn, "INSERT INTO newsoap.users(username, password, created, modified) VALUES('$username', '$password', '$date', '$date');");
-    		
-    		var_dump($result);
-    		
-    		pg_close($dbconn);
+     
+    		//end of Kim's epiphany
     		
     		
     		
-    		//end of a whole bunch of nonsense
-    		
-    		
-    		
-    		
+    	/*	
     		
     		//echo "hi!"; //just testing login function override
     	//not sure what post is; this condition is satisfied though
