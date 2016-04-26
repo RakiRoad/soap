@@ -181,8 +181,8 @@ class UsersController extends AppController {
     		
     		pg_close($dbconn);
     		
-    		$this->Session->setFlash(__('Bleuabedlf')); 
-        		return $this->redirect(array('controller' => 'pages', 'action' => 'display', 'login')); //were getting wacky
+    		$this->Session->setFlash(__('Account created!')); 
+        		return $this->redirect('http://csc415-team03.tcnj.edu/cabect/SOAP/index.php/users/login'); //were getting wacky
     		}
         	
         	
