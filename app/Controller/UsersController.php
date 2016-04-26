@@ -64,10 +64,10 @@ class UsersController extends AppController {
             	$found_id = pg_fetch_result($result2, 'id');
             	//$this->Session->setFlash($found_password); //tests to see what password is found when username is added
             	if($password == $found_password){
-            		echo "Username and Password match."
+            		echo "Username and Password match.";
             	}
             	else{
-            		echo "Username and Password don't match."
+            		echo "Username and Password don't match.";
             	}
             	
             	var_dump($result);
