@@ -1,4 +1,9 @@
-
+<!-- Edited Spring 2016 - Andrew, Greg, Jon, Sean, Kim, Kevin - The Young and the Reckless
+     index.ctp: this is the index file for users view. 
+     This currently is not referenced anywhere; we discovered this file's functionality in AppController, experimenting with loginAction.
+     This line is currently commented out in AppController (line 52).
+     The current functionality of this file: display a table which prints out each user's ID and username.
+-->
 <div class="span4">
 	<h3>Users</h3>
 	<!-- Here's where we loop through our $posts array -->
