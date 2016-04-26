@@ -1,6 +1,9 @@
 <?php
 /*  Edited Spring 2016 - Andrew, Greg, Jon, Sean, Kim, Kevin - The Young and the Reckless
-    Currently focusing ~line 54.
+    AppController.php: all controllers utilize this file.
+    We tested under the $components array, establishing method calls between files.
+    The loginRedirect and logoutRedirect return users to the main SOAP homepage.
+    These redirect methods can be seen in UsersController in the login() and add functions, accessed through Auth->redirect()).
 */
 /**
  * Application level Controller
