@@ -165,7 +165,7 @@ class UsersController extends AppController {
             	$role = $this->request->data['User']['role'];
     		$date = date('m/d/Y h:i:s a', time());
     		
-    		if (($username == "") ^ ($password == "")){
+    		if (($username == "") || ($password == "")){
     			echo 'Username or password was not entered.';
     		}
     		else{
