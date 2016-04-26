@@ -169,11 +169,6 @@ class UsersController extends AppController {
     			echo 'Username or password was not entered.';
     		}
     		else{
-    		
-    	
-    		
-    		
-    		
     		// this nonsense works to hardcode an entry into the database  (remove // infront of result and var dump, replace hardcode with variable)
     		
     		$dbconn = pg_connect("host=localhost port= 5432 dbname=soap user=postgres password=cabect")
@@ -185,6 +180,9 @@ class UsersController extends AppController {
     		var_dump($result);
     		
     		pg_close($dbconn);
+    		
+    		$this->Session->setFlash(__('Bleuabedlf')); 
+        		return $this->redirect(array('controller' => 'pages', 'action' => 'display', 'login')); //were getting wacky
     		}
         	
         	
