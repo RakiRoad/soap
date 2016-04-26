@@ -24,4 +24,4 @@
     <?php echo '<a href="http://csc415-team03.tcnj.edu/cabect/SOAP/index.php/users/add">Click here to create a new account!</a>'; ?>
 </div>
 
-<!-- We formerly put code from add.ctp on the bottom of this page; instead, access add page by replacing 'login' with 'add' in the URL-->
+<!-- We formerly put code from add.ctp on the bottom of this page; this is now located at add.ctp. The link to the add page was added above.-->
