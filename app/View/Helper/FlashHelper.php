@@ -1,6 +1,7 @@
 <?php
 /*Edited Spring 2016 - Andrew, Greg, Jon, Sean, Kim, Kevin - The Young and the Restless
   This file was missing previously; the setFlash method in UsersController was previously throwing an error.
+  Accessed from the following link: https://github.com/dereuromark/cakephp-tools/blob/master/src/View/Helper/FlashHelper.php
   */
 /*namespace Tools\View\Helper;
 use Cake\Core\Configure;
