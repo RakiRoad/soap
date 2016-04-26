@@ -3,7 +3,7 @@
 -->
 <!-- Display Sidebar -->
 <div class="span2">
-	 <?php echo $this->element('sidebar'); ?>
+	 <?php echo $this->element('sidebar'); ?>			<!-- creates the sidebar-->
 </div>
 
 <div class="users form">
