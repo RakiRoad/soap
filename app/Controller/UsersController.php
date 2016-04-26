@@ -160,12 +160,18 @@ class UsersController extends AppController {
     			
     		$result = pg_query($dbconn, "INSERT INTO newsoap.users(username, password, created, modified, role) VALUES('$username', '$password', '$date', '$date', '$role');");
     		//^ queries the pg_database and inputs various variables from user fields and input ^
-    		var_dump($result);
     		
-    		pg_close($dbconn);
     		
-    		$this->Session->setFlash(__('Account created!')); 
+    		pg_close($dbconn); //changed position of pg and var
+    		
+    		if (!(var_dump($result))){
+    			$this->Session->setFlash(__('Account not created, username may already exist.'));
+    			
+    		}
+    		
+    		else {$this->Session->setFlash(__('Account created!')); 
         		return $this->redirect('http://csc415-team03.tcnj.edu/cabect/SOAP/index.php/users/login'); //were getting wacky
+    		}
     		}
         	
         	
