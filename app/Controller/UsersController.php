@@ -167,6 +167,7 @@ class UsersController extends AppController {
 
     		if(!$result){ //created if and else statement, contents in if are new
     			$this->Session->setFlash(__('Account not created, user might already exist.'));
+    			var_dump($result);
     			
     		}
     		else{
