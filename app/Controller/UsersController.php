@@ -134,22 +134,22 @@ class UsersController extends AppController {
     		//$this->User->create();
     		//$id = 8009;
             	$username = $this->request->data['User']['username'];
-            	$password = $this->request->data['User']['password'];
+            	$password = $this->request->data['User']['password'];   //sets variables to pull from user forms to put into database
             	$role = $this->request->data['User']['role'];
     		$date = date('m/d/Y h:i:s a', time());
     		
-    		if (($username == "") || ($password == "")){
+    		if (($username == "") || ($password == "")){					//checks if fields are left empty
     			echo 'Username or password was not entered.';
     		}
     		else{
     		// this nonsense works to hardcode an entry into the database  (remove // infront of result and var dump, replace hardcode with variable)
     		
-    		$dbconn = pg_connect("host=localhost port= 5432 dbname=soap user=postgres password=cabect")
+    		$dbconn = pg_connect("host=localhost port= 5432 dbname=soap user=postgres password=cabect")  //connects to pg_database
     			or die('Count not connect: ' . pg_last_error());
     			
     			
     		$result = pg_query($dbconn, "INSERT INTO newsoap.users(username, password, created, modified, role) VALUES('$username', '$password', '$date', '$date', '$role');");
-    		
+    		//^ queries the pg_database and inputs various variables from user fields and input ^
     		var_dump($result);
     		
     		pg_close($dbconn);
