@@ -58,8 +58,7 @@ class UsersController extends AppController {
             	
             	$dbconn = pg_connect("host=localhost port= 5432 dbname=soap user=postgres password=cabect")
     			or die('Count not connect: ' . pg_last_error());
-            	$result = pg_query($dbconn, "SELECT password FROM newsoap.users WHERE username = '$username'")
-            	        or die('Username may already be in user: ' . pg_last_error());
+            	$result = pg_query($dbconn, "SELECT password FROM newsoap.users WHERE username = '$username'");
             	$this->Session->setFlash($username);
             	
             	var_dump($result);
@@ -162,7 +161,8 @@ class UsersController extends AppController {
     			or die('Count not connect: ' . pg_last_error());
     			
     			
-    		$result = pg_query($dbconn, "INSERT INTO newsoap.users(username, password, created, modified, role) VALUES('$username', '$password', '$date', '$date', '$role');");
+    		$result = pg_query($dbconn, "INSERT INTO newsoap.users(username, password, created, modified, role) VALUES('$username', '$password', '$date', '$date', '$role');")
+    		       or die('Username may already be in user: ' . pg_last_error());
     		
     		var_dump($result);
     		
