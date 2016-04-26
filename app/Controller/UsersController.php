@@ -62,7 +62,7 @@ class UsersController extends AppController {
             	$found_password = pg_fetch_result($result, password);
             	$result2 = pg_query($dbconn, "SELECT id FROM newsoap.users WHERE username = '$username'");
             	$found_id = pg_fetch_result($result2, id);
-            	$this->Session->setFlash($found_id);
+            	$this->Session->setFlash($found_password);
             	
             	var_dump($result);
     		
