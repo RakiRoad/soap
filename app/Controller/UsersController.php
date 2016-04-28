@@ -112,7 +112,7 @@ class UsersController extends AppController {
         	*/
             	}
             	else{
-            		echo 'Incorrect username or password.'
+            		echo 'Incorrect username or password.';
             	}
     	} 
        //$this->Flash->error(__('Invalid username or password, try again')); 		//this resulted in error; the error() method was not found
