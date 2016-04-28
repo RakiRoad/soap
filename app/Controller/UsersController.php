@@ -198,9 +198,10 @@ class UsersController extends AppController {
     		}
     		
     		else{
+    			$this->Session->setFlash(__('Only numbers and letters can be used in username and password'));
+		 return $this->redirect('http://csc415-team03.tcnj.edu/cabect/SOAP/index.php/users/add');
     			
-    			 $this->redirect('http://csc415-team03.tcnj.edu/cabect/SOAP/index.php/users/add');
-    			echo 'Only numbers and letters can be used in username and password';
+    			
     			
     		}
         }
