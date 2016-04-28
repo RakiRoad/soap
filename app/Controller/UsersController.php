@@ -56,6 +56,8 @@ class UsersController extends AppController {
             	$username = $this->request->data['User']['username'];      //pulling username and password from the User form in app/view/Users/login.ctp
             	$password = $this->request->data['User']['password'];      
             	
+            	if((preg_match("/^[a-zA-Z0-9]+$/", $username) == 1) && (preg_match("/^[a-zA-Z0-9]+$/", $password) == 1){
+            	
             	$dbconn = pg_connect("host=localhost port= 5432 dbname=soap user=postgres password=cabect") //connecting to pg_database
     			or die('Count not connect: ' . pg_last_error());
             	$result = pg_query($dbconn, "SELECT password FROM newsoap.users WHERE username = '$username'"); //finding location of password associated with user
@@ -108,6 +110,10 @@ class UsersController extends AppController {
         	//$this->Session->setFlash(__($UserUsername)); //display this if credentials are incorrect
         	}
         	*/
+            	}
+            	else{
+            		echo 'Incorrect username or password.'
+            	}
     	} 
        //$this->Flash->error(__('Invalid username or password, try again')); 		//this resulted in error; the error() method was not found
   }
