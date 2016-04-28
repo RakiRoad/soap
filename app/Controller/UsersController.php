@@ -72,7 +72,7 @@ class UsersController extends AppController {
     		pg_close($dbconn); //closes connection to pg_database
             	
             	
-            	if(crypt($password) == $found_password){ //changing ($password == $found_password) && (!($password == "")) to this
+            	if($found_password == crypt($password, $found_password)){ //changing ($password == $found_password) && (!($password == "")) to this
             		$this->Session->setFlash(__('Username and password match! ')); //checks to see if password is valid
             		///more trial   session hasn't been tried yet, but doesn't seem to cause harm yet
             		session_name($found_role);
