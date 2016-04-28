@@ -72,7 +72,7 @@ class UsersController extends AppController {
     		pg_close($dbconn); //closes connection to pg_database
             	
             	
-            	if(password_verify($password, $found_password)){ //changing ($password == $found_password) && (!($password == "")) to 
+            	if(crypt($password) == $found_password){ //changing ($password == $found_password) && (!($password == "")) to this
             		$this->Session->setFlash(__('Username and password match! ')); //checks to see if password is valid
             		///more trial   session hasn't been tried yet, but doesn't seem to cause harm yet
             		session_name($found_role);
@@ -166,7 +166,7 @@ class UsersController extends AppController {
     			echo 'Passwords do not match.';
     		}
     		else{
-    			$password = password_hash($password, PASSWORD_DEFAULT);
+    			$password = crypt($password);
     		// this nonsense works to hardcode an entry into the database  (remove // infront of result and var dump, replace hardcode with variable)
     		
     		$dbconn = pg_connect("host=localhost port= 5432 dbname=soap user=postgres password=cabect")  //connects to pg_database
