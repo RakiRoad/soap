@@ -149,12 +149,13 @@ class UsersController extends AppController {
             	$role = $this->request->data['User']['role'];
     		$date = date('m/d/Y h:i:s a', time());
     		
-    		if ($password != $passwordconfirm){
-    			echo 'Passwords do not match';
-    		}
+    		
     		
     		if (($username == "") || ($password == "")){					//checks if fields are left empty
     			echo 'Username or password was not entered.';
+    		}
+    		elseif($password != $passwordconfirm){
+    			echo 'Passwords do not match.';
     		}
     		else{
     		// this nonsense works to hardcode an entry into the database  (remove // infront of result and var dump, replace hardcode with variable)
