@@ -14,7 +14,7 @@
         echo $this->Form->input('password', ['type' => 'password']);				// text field for password
         echo $this->Form->input('password confirm', ['type' => 'password']);			// text field for password confirmation
         echo $this->Form->input('role', array(				// dropdown menu for role
-            'options' => array('admin' => 'Admin', 'author' => 'Author', 'SOAP user' => 'SOAP User')
+            'options' => array('author' => 'Author', 'SOAP user' => 'SOAP User')
         ));
     ?>
     </fieldset>
