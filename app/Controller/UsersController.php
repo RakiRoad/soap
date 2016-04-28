@@ -178,8 +178,9 @@ class UsersController extends AppController {
     			
     		}
     		else{
-		 $this->redirect('http://csc415-team03.tcnj.edu/cabect/SOAP/index.php/users/login'); //were getting wacky
-		 $this->Session->setFlash(__('Account created!'));
+    		$this->Session->setFlash(__('Account created!'));
+		 return $this->redirect('http://csc415-team03.tcnj.edu/cabect/SOAP/index.php/users/login'); //were getting wacky
+		
     		}
     		pg_close($dbconn); 
     		
