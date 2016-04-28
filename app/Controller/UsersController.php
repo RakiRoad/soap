@@ -195,6 +195,12 @@ class UsersController extends AppController {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }*/
     		}
+    		
+    		else{
+    			$this->Session->setFlash(__('Only numbers and letters can be used in username and password'));
+    			return $this->redirect('http://csc415-team03.tcnj.edu/cabect/SOAP/index.php/users/add');
+    			
+    		}
         }
     }
     public function edit($id = null) {
