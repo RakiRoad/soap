@@ -149,6 +149,8 @@ class UsersController extends AppController {
             	$role = $this->request->data['User']['role'];
     		$date = date('m/d/Y h:i:s a', time());
     		
+    		if((preg_match("/^[a-zA-Z0-9]+$/", $username) == 1) && (preg_match("/^[a-zA-Z0-9]+$/", $password) == 1) && (preg_match("/^[a-zA-Z0-9]+$/", $passwordconfirm) == 1)){
+    		
     		
     		
     		if (($username == "") || ($password == "")){					//checks if fields are left empty
@@ -192,7 +194,7 @@ class UsersController extends AppController {
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }*/
-    		
+    		}
         }
     }
     public function edit($id = null) {
