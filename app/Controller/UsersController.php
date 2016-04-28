@@ -145,7 +145,7 @@ class UsersController extends AppController {
     		//$id = 8009;
             	$username = $this->request->data['User']['username'];
             	$password = $this->request->data['User']['password'];   //sets variables to pull from user forms to put into database
-            	$passwordconfirm = $this->request->data['User']['passwordconfirm'];
+            	$passwordconfirm = $this->request->data['User']['password confirm'];
             	$role = $this->request->data['User']['role'];
     		$date = date('m/d/Y h:i:s a', time());
     		
