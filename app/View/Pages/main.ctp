@@ -10,7 +10,7 @@
 					 }
 				</script>
 
-				<?php
+					<?php
 					FUNCTION script(){
 						exec("scripts/Scrapetest.rb");
 					}
