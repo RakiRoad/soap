@@ -26,7 +26,7 @@
                         onclick="return confirm('Are you sure you want to update the chemicals and facilities?')"/>
 				-->
 				
-				<a href="scripts/Scrapetest.rb?">Politicians<a>
+				<a href="scripts/Scrapetest.rb">Politicians<a>
 
 
 
