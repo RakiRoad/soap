@@ -1,54 +1,9 @@
 <!-- Adding functionality to the front page on About Us, Data Sources, and Contribute, linking to different areas of the site. This is the main page of SOAP and how the system works -->
 <div class="container">
-<<<<<<< HEAD
-	<?php echo $this->Session->flash(); ?>
-	<div class="hero-unit" style="text-align: center;" >
-		<h1>Students Organizing Against Pollution
 
-			<input type="button" value="Update Politicians"
-			
-			onclick="runScript1()"/>			
-			
-			<input type="button" value="Update Chemicals and Facilities"
-			onclick="return confirm('Are you sure you want to update the chemicals and facilities?')"/>
-
-
-
-
-		</h1>
-		<script language="javascript" type="text/javascript">
-			function runScript1(){
-				window.alert("I got to step 1");
-			var w = new ActiveXObject("WScript.Shell");
-				window.alert("I got to step 2");
-				w.run('/var/www/html/cabect/SOAP/app/View/Pages/scripts/Scrapetest.rb');		
-				window.alert("i got here");		
-				}
-		</script>
-=======
         <?php echo $this->Session->flash(); ?>
         <div class="hero-unit" style="text-align: center;" >
                 <h1>Students Organizing Against Pollution
-
-                        <input type="button" value="Update Politicians"
-
-                        onclick="callScript()"/>
-
-                        <input type="button" value="Update Chemicals and Facilities"
-                        onclick="return confirm('Are you sure you want to update the chemicals and facilities?')"/>
-
-
-
-
-                </h1>
-                
-                <?php if(isset($_POST['go']){ // button name
-						do_stuff();
-					} else {
-
-					}
-				?>
-
 				<script>
 					function callScript(){
 					 	alert("<?PHP sript(); ?>");
@@ -62,6 +17,20 @@
 					 
 				?>
 
+
+                        <input type="button" value="Update Politicians"
+
+                        onclick="callScript()"/>
+
+                        <input type="button" value="Update Chemicals and Facilities"
+                        onclick="return confirm('Are you sure you want to update the chemicals and facilities?')"/>
+
+
+
+
+                </h1>
+                
+			
                 <!-- <script language="javascript" type="text/javascript">
                 //         function runScript1(){
                 //                 window.alert("I got to step 1");
@@ -79,7 +48,6 @@
 
                 </h1>
                 <script language="javascript" type="text/javascript">
->>>>>>> fec941e484c447ef89a67c88995d71b0e65bfdd5
 
 	</div>
 	<div class="row-fluid">
