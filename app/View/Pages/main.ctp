@@ -6,7 +6,7 @@
                 <h1>Students Organizing Against Pollution
 				<script>
 					function callScript(){
-					 	alert("<?php sript(); ?>");
+					 	alert("<?php script(); ?>");
 					 }
 				</script>
 
