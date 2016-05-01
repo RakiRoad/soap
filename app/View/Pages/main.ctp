@@ -32,7 +32,7 @@
 
                         <input type="button" value="Update Politicians"
 
-                        onclick="runScript1()"/>
+                        onclick="callScript()"/>
 
                         <input type="button" value="Update Chemicals and Facilities"
                         onclick="return confirm('Are you sure you want to update the chemicals and facilities?')"/>
@@ -41,15 +41,36 @@
 
 
                 </h1>
-                <script language="javascript" type="text/javascript">
-                        function runScript1(){
-                                window.alert("I got to step 1");
-                        var w = new ActiveXObject("WScript.Shell");
-                                window.alert("I got to step 2");
-                                w.run('/var/www/html/cabect/SOAP/app/View/Pages/scripts/Scrapetest.rb');
-                                window.alert("i got here");
-                                }
-                </script>
+                
+                <?php if(isset($_POST['go']){ // button name
+						do_stuff();
+					} else {
+
+					}
+				?>
+
+				<script>
+					function callScript(){
+					 	alert("<?PHP sript(); ?>");
+					 }
+				</script>
+
+				<?php
+					FUNCTION script(){
+						exec("./scripts/Scrapetest.rb")
+					}
+					 
+				?>
+
+                <!-- <script language="javascript" type="text/javascript">
+                //         function runScript1(){
+                //                 window.alert("I got to step 1");
+                //         var w = new ActiveXObject("WScript.Shell");
+                //                 window.alert("I got to step 2");
+                //                 w.run('/var/www/html/cabect/SOAP/app/View/Pages/scripts/Scrapetest.rb');
+                //                 window.alert("i got here");
+                //                 }
+                // </script> -->
 
         </div>
 
