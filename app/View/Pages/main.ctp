@@ -1,4 +1,4 @@
-<!-- Adding functionality to the front page on About Us, Data Sources, and Contribute, linking to different areas of the site. This is the main page of SOAP and how th$
+<!-- Adding functionality to the front page on About Us, Data Sources, and Contribute, linking to different areas of the site. This is the main page of SOAP and how the system works -->
 <div class="container">
         <?php echo $this->Session->flash(); ?>
         <div class="hero-unit" style="text-align: center;" >
