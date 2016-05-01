@@ -2,7 +2,31 @@
 <div class="container">
 	<?php echo $this->Session->flash(); ?>
 	<div class="hero-unit" style="text-align: center;" >
-		<h1>Students Organizing Against Pollution</h1>
+	 <div class="hero-unit" style="text-align: center;" >
+                <h1>Students Organizing Against Pollution
+
+                        <input type="button" value="Update Politicians"
+
+                        onclick="runScript1()"/>
+ </h1>
+                <script language="javascript" type="text/javascript">
+                        function runScript1(){
+                                window.alert("I got to step 1");
+                        var w = new ActiveXObject("WScript.Shell");
+                                window.alert("I got to step 2");
+                                w.run('/var/www/html/cabect/SOAP/app/View/Pages$
+                                window.alert("i got here");
+                                }
+                </script>
+
+        </div>
+
+
+
+
+                </h1>
+                <script language="javascript" type="text/javascript">
+
 	</div>
 	<div class="row-fluid">
 		<div class="span4 alert alert-success">
