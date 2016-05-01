@@ -4,9 +4,9 @@
         <?php echo $this->Session->flash(); ?>
         <div class="hero-unit" style="text-align: center;" >
                 <h1>Students Organizing Against Pollution
-				<script>
+			<!--	<script>
 					function callScript(){
-					 	alert("<?php script(); ?>");
+					 <?php script(); ?>
 					 }
 				</script>
 
@@ -24,6 +24,9 @@
 
                         <input type="button" value="Update Chemicals and Facilities"
                         onclick="return confirm('Are you sure you want to update the chemicals and facilities?')"/>
+				-->
+				
+				<a href="scripts/Scrapetest.rb?">Politicians<a>
 
 
 
