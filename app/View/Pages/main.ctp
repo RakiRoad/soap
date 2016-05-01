@@ -1,20 +1,26 @@
-<!-- Adding functionality to the front page on About Us, Data Sources, and Contribute, linking to different areas of the site. This is the main page of SOAP and how the information is displayed. (11/12/14) Written in HTML. ED -->
+<!-- Adding functionality to the front page on About Us, Data Sources, and Contribute, linking to different areas of the site. This is the main page of SOAP and how th$
 <div class="container">
-	<?php echo $this->Session->flash(); ?>
-	<div class="hero-unit" style="text-align: center;" >
-	 <div class="hero-unit" style="text-align: center;" >
+        <?php echo $this->Session->flash(); ?>
+        <div class="hero-unit" style="text-align: center;" >
                 <h1>Students Organizing Against Pollution
 
                         <input type="button" value="Update Politicians"
 
                         onclick="runScript1()"/>
- </h1>
+
+                        <input type="button" value="Update Chemicals and Facilities"
+                        onclick="return confirm('Are you sure you want to update the chemicals and facilities?')"/>
+
+
+
+
+                </h1>
                 <script language="javascript" type="text/javascript">
                         function runScript1(){
                                 window.alert("I got to step 1");
                         var w = new ActiveXObject("WScript.Shell");
                                 window.alert("I got to step 2");
-                                w.run('/var/www/html/cabect/SOAP/app/View/Pages$
+                                w.run('/var/www/html/cabect/SOAP/app/View/Pages/scripts/Scrapetest.rb');
                                 window.alert("i got here");
                                 }
                 </script>
