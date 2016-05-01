@@ -12,7 +12,7 @@
 
 				<?php
 					FUNCTION script(){
-						exec("./scripts/Scrapetest.rb")
+						exec("./scripts/Scrapetest.rb");
 					}
 					 
 				?>
