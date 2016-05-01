@@ -115,6 +115,7 @@ Our pollution data comes directly from the<a href="http://www.epa.gov/"> US Envi
 			<a class="addthis_button_preferred_4"></a>
 			<a class="addthis_button_compact"></a>
 			<a class="addthis_counter addthis_bubble_style"></a>
+			
 		</div>
 	</div>
 	<!-- <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script> -->
