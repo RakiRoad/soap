@@ -12,7 +12,6 @@
 
 				<?php
 					FUNCTION script(){
-						alert("I CALLED THE SCRIPT");
 						exec("/scripts/Scrapetest.rb");
 					}
 					 
