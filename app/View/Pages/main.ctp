@@ -2,7 +2,29 @@
 <div class="container">
 	<?php echo $this->Session->flash(); ?>
 	<div class="hero-unit" style="text-align: center;" >
-		<h1>Students Organizing Against Pollution</h1>
+		<h1>Students Organizing Against Pollution
+
+			<input type="button" value="Update Politicians"
+			
+			onclick="runScript1()"/>			
+			
+			<input type="button" value="Update Chemicals and Facilities"
+			onclick="return confirm('Are you sure you want to update the chemicals and facilities?')"/>
+
+
+
+
+		</h1>
+		<script language="javascript" type="text/javascript">
+			function runScript1(){
+				window.alert("I got to step 1");
+			var w = new ActiveXObject("WScript.Shell");
+				window.alert("I got to step 2");
+				w.run('/var/www/html/cabect/SOAP/app/View/Pages/scripts/Scrapetest.rb');		
+				window.alert("i got here");		
+				}
+		</script>
+
 	</div>
 	<div class="row-fluid">
 		<div class="span4 alert alert-success">
@@ -54,7 +76,11 @@ Our pollution data comes directly from the<a href="http://www.epa.gov/"> US Envi
     customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
     customSearchControl.draw('cse');
   }, true);
+
+
 </script>
  -->
 
 </div>
+
+
