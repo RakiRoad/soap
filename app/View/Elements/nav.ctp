@@ -69,7 +69,7 @@
 			<ul class="nav pull-right">
 				<li class='divider-vertical'></li>
 	          		<?php 
-	          		session_start(); //just added
+	       
 	          		if ($userId === null && $facebook_id === null && !isset($_Session)) //adding && !isset($_Session)
 	          		/*	echo '
 						
