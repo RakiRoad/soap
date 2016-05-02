@@ -1,0 +1,80 @@
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=1
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=2
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=3
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=4
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=5
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=6
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=7
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=8
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=9
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=10
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=11
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=12
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=13
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=14
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=15
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=16
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=17
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=18
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=19
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=20
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=21
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=22
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=23
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=24
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=25
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=26
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=27
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=28
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=29
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=30
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=31
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=32
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=33
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=34
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=35
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=36
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=37
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=38
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=39
+http://www.njleg.state.nj.us/members/../members/DistrictLegislators.asp?District=40
+["Senator Jeff Van Drew (D)", "Assemblyman Bob Andrzejczak (D)", "Assemblyman R. Bruce Land (D)"]
+["Senator Jim Whelan (D)", "Assemblyman Chris A. Brown (R)", "Assemblyman Vincent Mazzeo (D)"]
+["Senator Stephen M. Sweeney (D)", "Assemblyman John J. Burzichelli (D)", "Adam J. Taliaferro (D)"]
+["Senator Fred H. Madden, Jr. (D)", "Assemblyman Paul D. Moriarty (D)", "Assemblywoman Gabriela M. Mosquera (D)"]
+["Senator Nilsa Cruz-Perez (D)", "Assemblyman Arthur Barclay (D)", "Assemblywoman Patricia Egan Jones (D)"]
+["Senator James Beach (D)", "Assemblyman Louis D. Greenwald (D)", "Assemblywoman Pamela R. Lampitt (D)"]
+["Senator Diane B. Allen (R)", "Assemblyman Herb Conaway, MD (D)", "Assemblyman Troy Singleton (D)"]
+["Senator Dawn Marie Addiego (R)", "Assemblyman Joe Howarth (R)", "Assemblywoman Maria Rodriguez-Gregg (R)"]
+["Senator Christopher J. Connors (R)", "Assemblywoman DiAnne Gove (R)", "Assemblyman Brian E. Rumpf (R)"]
+["Senator James W. Holzapfel (R)", "Assemblyman Gregory McGuckin (R)", "Assemblyman David W. Wolfe (R)"]
+["Senator Jennifer Beck (R)", "Assemblywoman Joann Downey (D)", "Assemblyman Eric Houghtaling (D)"]
+["Senator Samuel D. Thompson (R)", "Assemblyman Robert D. Clifton (R)", "Assemblyman Ronald S. Dancer (R)"]
+["Senator Joseph M. Kyrillos, Jr. (R)", "Assemblywoman Amy H. Handlin (R)", "Assemblyman Declan Joseph O'Scanlon, Jr. (R)"]
+["Senator Linda R. Greenstein (D)", "Assemblyman Daniel R. Benson (D)", "Assemblyman Wayne P. DeAngelo (D)"]
+["Senator Shirley K. Turner (D)", "Assemblyman Reed Gusciora (D)", "Assemblywoman Elizabeth Maher Muoio (D)"]
+["Senator Christopher Bateman (R)", "Assemblyman Jack M. Ciattarelli (R)", "Assemblyman Andrew Zwicker (D)"]
+["Senator Bob Smith (D)", "Assemblyman Joe Danielsen (D)", "Assemblyman Joseph V. Egan (D)"]
+["Senator Peter J. Barnes III (D)", "Assemblyman Patrick J. Diegnan, Jr. (D)", "Assemblywoman Nancy Pinkin (D)"]
+["Senator Joseph F. Vitale (D)", "Assemblyman  Craig  J. Coughlin (D)", "Assemblyman John S. Wisniewski (D)"]
+["Senator Raymond J. Lesniak (D)", "Assemblyman Jamel C. Holley (D)", "Assemblywoman Annette Quijano (D)"]
+["Senator Thomas H. Kean Jr. (R)", "Assemblyman Jon M. Bramnick (R)", "Assemblywoman Nancy F. Munoz (R)"]
+["Nicholas P. Scutari (D)", "Assemblyman Jerry Green (D)", "Assemblyman James J. Kennedy (D)"]
+["Senator Michael J. Doherty (R)", "Assemblyman John DiMaio (R)", "Assemblyman Erik Peterson (R)"]
+["Senator Steven V. Oroho (R)", "Assemblywoman Gail Phoebus (R)", "Assemblyman Parker Space (R)"]
+["Senator Anthony R. Bucco (R)", "Assemblyman Anthony M. Bucco (R)", "Assemblyman Michael Patrick Carroll (R)"]
+["Senator Joseph Pennacchio (R)", "Assemblywoman Betty Lou DeCroce (R)", "Assemblyman Jay Webber (R)"]
+["Senator Richard J. Codey (D)", "Assemblywoman Mila M. Jasey (D)", "Assemblyman John F. McKeon (D)"]
+["Senator Ronald  L. Rice (D)", "Assemblyman Ralph R. Caputo (D)", "Assemblywoman Cleopatra G. Tucker (D)"]
+["Senator M. Teresa Ruiz (D)", "Assemblywoman Eliana Pintor Marin (D)", "Assemblywoman L. Grace Spencer (D)"]
+["Senator Robert W. Singer (R)", "Assemblyman Sean T. Kean (R)", "Assemblyman David P. Riible (R)"]
+["Senator Sandra B. Cunningham (D)", "Assemblyman Nicholas Chiaravalloti (D)", "Assemblywoman Angela V. McKnight (D)"]
+["Senator Nicholas J. Sacco (D)", "Assemblywoman Angelica M. Jimenez (D)", "Assemblyman Vincent Prieto (D)"]
+["Senator Brian P. Stack (D)", "Assemblywoman Annette Chaparro (D)", "Assemblyman Raj Mukherji (D)"]
+["Senator Nia H. Gill (D)", "Assemblyman Thomas P. Giblin (D)", "Assemblywoman Sheila Y. Oliver (D)"]
+["Senator Nellie Pou (D)", "Assemblywoman Shavonda E. Sumter (D)", "Assemblyman Benjie E. Wimberly (D)"]
+["Senator Paul A. Sarlo (D)", "Assemblywoman Marlene Caride (D)", "Assemblyman Gary S. Schaer (D)"]
+["Senator Loretta Weinberg (D)", "Assemblyman Gordon M. Johnson (D)", "Assemblywoman Valerie Vainieri Huttle (D)"]
+["Senator Robert M. Gordon (D)", "Assemblyman Tim Eustace (D)", "Assemblyman Joseph Lagana (D)"]
+["Senator Gerald Cardinale (R)", "Assemblyman Robert Auth (R)", "Assemblywoman Holly Schepisi (R)"]
+["Senator Kevin J. O'Toole (R)", "Assemblyman Scott T. Rumana (R)", "Assemblyman David C. Russo (R)"]
