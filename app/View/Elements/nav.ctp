@@ -70,7 +70,7 @@
 				<li class='divider-vertical'></li>
 	          		<?php 
 	       
-	          		if ($userId === null && $facebook_id === null && isset($_SESSION['login_id'])) //adding && !isset($_Session)
+	          		if ($userId === null && $facebook_id === null && !isset($_SESSION['login_id'])) //adding && !isset($_Session)
 	          		/*	echo '
 						
 						<li class="signinModal">
