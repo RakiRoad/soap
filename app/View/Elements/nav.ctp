@@ -69,7 +69,8 @@
 			<ul class="nav pull-right">
 				<li class='divider-vertical'></li>
 	          		<?php 
-	          		if ($userId === null && $facebook_id === null)
+	          		session_start() //just added
+	          		if ($userId === null && $facebook_id === null && !isset($_Session)) //adding && !isset($_Session)
 	          		/*	echo '
 						
 						<li class="signinModal">
@@ -80,7 +81,7 @@
 					echo '
 						
 						<li class="signinModal">
-					'. $this->Html->link('Log In EGGPLANT',array('controller' => 'users', 'action' => 'login', 'full_base' => true)) .'
+					'. $this->Html->link('Log In',array('controller' => 'users', 'action' => 'login', 'full_base' => true)) .'
 						</li>';
 
 				else
