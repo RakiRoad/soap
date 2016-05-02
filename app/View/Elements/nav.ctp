@@ -1,5 +1,9 @@
 <?php $userId = $this->Session->read('Auth.User.username'); ?> <!-- get logged in user -->
 <?php $facebook_id = $this->Session->read('Auth.User.facebook_id'); ?> 
+<?php if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } ?>
 <div class="navbar">
 	<div class="navbar-inner">
 		<div class="container">
