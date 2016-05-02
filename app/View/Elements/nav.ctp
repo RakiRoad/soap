@@ -92,8 +92,8 @@
 				else
 					{
 						echo '
-						<li class="dropdown" id="menu4">
-                            <a href="#menu4" class="dropdown-toggle" data-toggle="dropdown">Hello, '.$_SESSION['role'].'!<b class="caret"></b></a>
+						<li class="dropdown" id="menu5">
+                            <a href="#menu5" class="dropdown-toggle" data-toggle="dropdown">Hello, '.$_SESSION['role'].'!<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>'. $this->Html->link('Dashboard',array('controller' => 'users', 'action' => 'dashboard', 'full_base' => true)).' </li>';
                                 if ($facebook_id === null) echo '
