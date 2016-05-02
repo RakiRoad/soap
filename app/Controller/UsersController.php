@@ -119,7 +119,9 @@ class UsersController extends AppController {
        //$this->Flash->error(__('Invalid username or password, try again')); 		//this resulted in error; the error() method was not found
   }
   
-  public function logout() {			//hasn't been tested or provided a button yet
+  public function logout() {	
+  	//hasn't been tested or provided a button yet
+ $_SESSION = array();
     session_destroy();  ///if this logs out everyone, look into if(isset($_SESSION['login_id']))unset($_SESSION['login_id'])
     unset($_SESSION['login_id']);
     unset($_SESSION['role']);
