@@ -121,6 +121,8 @@ class UsersController extends AppController {
   
   public function logout() {			//hasn't been tested or provided a button yet
     session_destroy();  ///if this logs out everyone, look into if(isset($_SESSION['login_id']))unset($_SESSION['login_id'])
+    unset($_SESSION['login_id']);
+    unset($_SESSION['role']);
     return $this->redirect($this->Auth->logout());  //didn't try out yet
   	
   }
