@@ -4,7 +4,7 @@
     { 
         session_start(); 
     } 
-    $role = $_SESSION['login_id'];
+    $role = $_SESSION['role'];
     ?>
 <div class="navbar">
 	<div class="navbar-inner">
