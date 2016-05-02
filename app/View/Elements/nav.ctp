@@ -80,7 +80,7 @@
 					echo '
 						
 						<li class="signinModal">
-					'. $this->Html->link('Log In',array('controller' => 'users', 'action' => 'login', 'full_base' => true)) .'
+					'. $this->Html->link('Log In EGGPLANT',array('controller' => 'users', 'action' => 'login', 'full_base' => true)) .'
 						</li>';
 
 				else
