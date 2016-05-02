@@ -1,33 +1,23 @@
+<!-- Team 2 Soap Buddies
+     Ricardo, Nate, Ryan, Meghan, Sean 
+     Spring 2016 
+     -->
 
-<?php
-/*$db = new mysqli('localhost','root','','blog') or die('error with connection');
-?>
-<?php
-session_start();
-include('../includes/db_connect.php');
-if(isset($_POST['submit'])){
-        $title = $_POST['title'];
-        $body = $_POST['body'];
-        $category = $_POST['category'];
-        $title = $db->real_escape_string($title);
-        $body = $db->real_escape_string($body);
-        $user_id = $_SESSION['user_id'];
-        $date = data('Y-m-d G:i:s'); 
-        $body = htmlentities($body);
-        if ($title && $body){// && $category) { 
-        $query = $db->query("INSERT INTO posts (user_id, title, body, category_id, posted) VALUES('$user_id','$title', '$body', '$category', '$date')");        
-                if($query){     
-                echo "post added";
-                }else {
-                echo "error";
-                }
-            }else{
-        echo "missing data";
-        }
-}*/
-?>
 <html>
 <head>     
+
+
+<!-- CDN stylesheets to clean up display -->
+            <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+            <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/paper/bootstrap.min.css"/>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+        
+            <!-- Bootstrap's required javascript -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+-->
+<!-- End of Bootstrap --> 
+
    <?php $this->Html->script('jquery'); ?>
         <script type="text/javascript"  src="<?php echo $this->webroot; ?>/js/userQuery.js"></script>
     </head>
@@ -48,14 +38,14 @@ right: 50px;
                     margin: 80px auto;
                     position: relative;
                     width: 800px;
-                    height: 250px;
+                    height: 400px;
                     padding: 10px;
                     box-shadow: 0 0 20px rgba(0,0,0,0.4);
                 }
 
                 #slideshow > div {
                     position: absolute;
-top: 10px;
+                    top: 10px;
                     left: 10px;
                     right: 10px;
                     bottom: 10px;
@@ -68,15 +58,52 @@ width:800px;
 
 }
 
+.hilight h2{
+    font-family: Helvetica, Verdana;
+    color: #FFF;
+    z-index: 200;
+}
+
+.promo {
+    position: relative;
+}
+.promo img {
+    z-index: 1;
+}
+
+.hilight {
+margin: 80px auto;
+ background-color: rgba(0,0,0,0.65);
+ position: absolute;
+ height: 100px;
+ width: 800px;
+  font-family: Verdana, Geneva, sans-serif;
+ color: #FFF;
+ bottom: 0px;
+left:270px;
+top:285px;
+ z-index: 1;
+}
+
+ #hilight > div {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    right: 10px;
+                    bottom: 10px;
+                }
 
 
 </style>
 
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+     <!-- Function that sets the interval of time that a image in the 
+        slideshow stays, fades in, and fades out.  -->
         <script>
                 $(function() {
-$("#slideshow > div:gt(0)").hide();
+
+                        $("#slideshow > div:gt(0)").hide();
 
                         setInterval(function() {
                           $('#slideshow > div:first')
@@ -98,72 +125,96 @@ $("#slideshow > div:gt(0)").hide();
 
         <div class"details">
         <div class"style" style="text-align:center" >
-      <h1 style="font-size:300%"> SOAP Blog Home Page   </h1>
+      <h1 style="font-size:300%"> SOAP News Page   </h1>
 
-
+<!-- The slide show on the blog page. Contains a list of images that have
+     links to relevant external articles. -->
 <div id="slideshow">
            <div>
+                <a href="http://www.habitat.org/magazine/article/anniversary-gifts" target="_blank" >
                 <img src="http://artandarts.com/images/photos/trees/pear_tree_11_23_07/Pear_Tree_Photo.JPG" width=100% height=100%>        </div>
+                </a>
            <div>
+                <a href="http://www.habitat.org/magazine/article/who-does-it-take-build-habitat-house" target="_blank" >
              <img src="https://11111-presscdn-0-2-pagely.netdna-ssl.com/wp-content/uploads/2015/09/Bear-Cubs-Playing-3.jpg" width=100% height=100%>
-           </div>
+                </a>
+        </div>
+        <div>
+          <img src="https://newevolutiondesigns.com/images/freebies/nature-hd-background-9.jpg" width=100% height=100%>
+        </div>
+        <div>
+          <img src="http://www.freedomwallpaper.com/nature-wallpaper/nature-hd-wallpapers-road.jpg" width=100% height=100%>
+        </div>
+        <div>
+          <img src="https://newevolutiondesigns.com/images/freebies/nature-hd-background-20.jpg" width=100% height=100%>
+        </div>
            <div>
+                <a href="http://www.habitat.org/magazine/article/everyone-deserves-decent-place-live" target="_blank">
          <img src="http://wac.450f.edgecastcdn.net/80450F/nj1015.com/files/2012/06/hackelbarney1.jpg" width=100% height=100%>
-           </div>
+                </a>
+         </div>
         </div>
 
+<!--div class="hilight">
+             <h2>The Solution to Pollution</h2>
+             <p>New research indicates that we can fight pollution</p>
+         </div-->
 
+                                                                                                                                                                                                                                                            158,0-1       32%
+
+<?php
+
+ /*             
+
+   Allows a user to input an RSS feed into the database.  If the input is 
+   a valid RSS feed then it will be submitted into the database. Empty string
+   values are still accepted at the moment but soon special permissions will
+   be added to submit a feed.
+
+ */
+         if(isset($_POST['submit'])){
+
+
+
+        if($_POST['submit']){
+        $rss = $_POST["feed"];
+                $dbconn = pg_connect("host=localhost port= 5432 dbname=soap user=postgres password=cabect") //connecting to pg_database
+                or die('Count not connect: ' . pg_last_error());
+
+                // Inserts input into the database in the 'feeds' row 
+                $query  = "INSERT INTO newsoap.feeds (feed) VALUES('$rss')";
+
+                if($query)
+                    echo "RSS feed added to database";
+                else
+                    echo "RSS feed not valid";
+
+
+              $result = pg_query($dbconn, $query);
+
+                var_dump($result); // dump $result
+
+             pg_close($dbconn); //closes connection to pg_database
+                }
+          }
+?>
+
+<!-- Displays a form for user input of an RSS feed -->
+<form action= '<?php echo $_SERVER ['PHP_SELF']?>' method = "post">
+  RSS Feed: <input type = "text" name = "feed" />
+    <input type = "submit" name="submit" value="submit"  />
+
+</form>
 
 <section>
-<!--
-<br>
-<br>
-<p>This is a paragraph</p>
-<p>This is another paragraph</p>
-<img src="http://farm4.staticflickr.com/3130/2836828090_67d4900ab3_o.jpg" alt="Mountain View" style="width:304px;height:228px;">
+<!-- End SOAP Sidebar Code-->
 
-<div id="wrapper">
-
-        <div id="content">
-
-        <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
-
-        <label>Title</label><input type="text" name="title" />  
-
-        <label for="body">Body:</label>
-
-        <textarea name="body" col=50 rows=10></textarea>
-
-        <label> Category:</label>
-
-        <select name="category">
-        
-                <?php
-
-                        /*$query = $this->Blog->query("SELECT * FROM categories");
-                        while($row = $query->fetch_object()){
-                        echo "<option value' ".$row->category_id."'>".$row->category."</option>";
-                        }*/
-                ?>
-        </select>
-        <br />
-        <input type="submit" name="submit" value="submit" />
-
-        </form>
-        </div>
-</div>
-
-<!--<form>
-  First name:<br>
-  <input type="text" name="firstname"><br>
-  Last name:<br>
-<input type="text" name="lastname">
-</form>
-<textarea name="message" rows="10" cols="30">
-
-</textarea>
-
--->
+        <!-- This div displays the twitter sidebar on the right, this code was generated by the twitter -->
+<a class="twitter-timeline" href="https://twitter.com/Habitat_Trenton"
+data-widget-id="726952338825592833">Tweets by @Habitat_Trenton</a>
+<script>!function(d,s,id){var
+js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        <!-- End Twitter Sidebar Code-->
 </section>
 
 
@@ -174,63 +225,43 @@ $("#slideshow > div:gt(0)").hide();
 
 <?php
 
+ /*
+
+   This section takes an array containing the table of  feed strings from 
+   the database. The array then gets imploded into one long string with 
+   each index of the original array separated by commas. The string is then
+   passed through a regular expression function that strips out unnecessary 
+   characters and recretates an array of feed values that can be read by the
+   parser. The feed values are then displayed on the feed reader on the blog 
+   page. 
+
+ */
+        // make array to hold feed string from database
+                                                                                                                                                                                                                                                            233,1-8       61%
+                                                                                                                                                                                                                                                          43,1-8        Top
+
         $feeds = array();
 
+        //grab $feed_info one string of all DB feeds stored
         foreach($feed_info as $f){
 
+        // store in feeds varialbe
         $feeds = $f;
-        
-}
 
-  //  print_r($feeds[0]);
-//      echo count($feeds[0]);
+}
+        // implode based on commas
         $feed_arr = implode(',',$feeds[0]);
 
-/*
-$clean = str_replace('\"', '', $feed_arr);
-$clean = str_replace(')', '', $clean);
-$clean = str_replace('(', '', $clean);
-$clean = str_replace('}', '', $clean);
-$clean = str_replace('{', '', $clean);
-$clean = str_replace(' ', '', $clean);
-//$clean = trim($clean , '"');
-*/
 
+        //keep the necessary items and remove the extra characters from the feed
         preg_match_all('/\b(?:(?:https?):\/\/|www\.)[-A-Z0-9+&@#\/%?=~_|$!:,.;]*[-A-Z0-9+&@#\/%=~_|$]/ix', $feed_arr, $feeds1, PREG_PATTERN_ORDER);
-  //     print_r($feeds1[0]);
-        $feeds2 = $feeds1[0];
+        $feeds2 = $feeds1[0]; //new array with feeds
 
-/*      
-        for($i = 0;$i < 3; $i++){
-         $str = $feeds1[$i];
-        $str = trim($str, '"');
-        $feeds1[$i] = $str;
-}
-*/
-  //     print_r($feeds1);
-//      print_r("\n");
-/*      $feeds = array(
-
-            "http://www.littoralsociety.org/index.php?format=feed&type=rss",
-
-            "http://www.delawareriverkeeper.org/rss.xml",
-
-            "http://www.nj.gov/dep/newsrel/newsrel.rss",    
-
-        );
-*/
-
-//      print_r($feeds);  
-
-//echo $feeds[2];
-//echo "\n";
-//echo $feeds1[2];               
-//echo $check;
         //Read each feed's items
 
         $entries = array();
 
-
+        //pass into parser to parse feeds and merge into entries
         foreach($feeds2 as $feed) {
 
             $xml = simplexml_load_file($feed);
@@ -242,7 +273,7 @@ $clean = str_replace(' ', '', $clean);
 
 
         //Sort feed entries by pubDate
-        
+
         usort($entries, function ($feed1, $feed2) {
 
             return strtotime($feed2->pubDate) - strtotime($feed1->pubDate);
@@ -253,24 +284,38 @@ $clean = str_replace(' ', '', $clean);
 
         ?>
 
-<nav>
+
+<!-- A button containing a link to a survey monkey page for a user to submit
+     a blog page or RSS feed. A second button contains a link to a page of 
+     articles submitted by TCNJ students -->
+<div>
+        <a href="https://www.surveymonkey.com/r/W58T82D" target="_blank" >
+        <button style="color:black; position:center;">Click to submit  your blog and RSS feed!</button>
+</a>
+<a href="http://csc415-team02.tcnj.edu/cabect/SOAP/index.php/blogs/View" target="_blank" >
+        <button style="color:black; position:center;">Read articles by TCNJ authors.</button>
+</a>
+</div>
+<br>
+<br>
 <center>
 <div class="container">
-        <div class="row">
-        <div class="col-md-6">
-<p>RSS READER</p>
-<div style="height:1000px;width:500px;border:8px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+        <!--div class="row"-->
+        <!--div class="col-md-6"-->
+<p style="font-size: 300%" >RSS READER</p>
+<div style="height:600px;width:1000px;border:10px solid #f2f3ec; font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+
         <ul><?php
 
-        //Print all the entries
-        
+        //Print all the entries within the feeds database
+
         foreach($entries as $entry){
 
             ?>
 
             <li><a href="<?= $entry->link ?>"><?= $entry->title ?></a> (<?= parse_url($entry->link)['host'] ?>)
 
-            <p><?= strftime('%m/%d/%Y %I:%M %p', strtotime($entry->pubDate)) ?></p>
+           <p><?= strftime('%m/%d/%Y %I:%M %p', strtotime($entry->pubDate)) ?></p>
 
             <p><?= $entry->description ?></p></li>
             <?php
@@ -283,7 +328,6 @@ $clean = str_replace(' ', '', $clean);
 </div>
 <center>
 </div>
-</nav>
 </div>
 </div>
 </div>
@@ -294,3 +338,4 @@ $clean = str_replace(' ', '', $clean);
  <a href="#0" class="cd-top">TESTTESTTESTTEST <?php echo $this->Html->image('goTop.jpg', array('height' => '60', 'width' => '60')); ?></a>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
+                                                                                                                                                                                                                                                  308,0-1       91%
