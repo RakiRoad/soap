@@ -77,7 +77,7 @@ class UsersController extends AppController {
             		///more trial   session hasn't been tried yet, but doesn't seem to cause harm yet
             		//session_name($found_role);
             		session_start();
-            		$_Session['login_id'] = $found_id;
+            		$_SESSION['login_id'] = $found_id;
             		//end trial
             		
             		
