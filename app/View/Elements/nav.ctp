@@ -3,7 +3,9 @@
 <?php if(!isset($_SESSION)) 
     { 
         session_start(); 
-    } ?>
+    } 
+    $role = $_SESSION['role'];
+    ?>
 <div class="navbar">
 	<div class="navbar-inner">
 		<div class="container">
@@ -92,7 +94,7 @@
 					{
 						echo '
 						<li class="dropdown" id="menu4">
-                            <a href="#menu4" class="dropdown-toggle" data-toggle="dropdown">Hello, '.$_SESSION['role'].'!<b class="caret"></b></a>
+                            <a href="#menu4" class="dropdown-toggle" data-toggle="dropdown">Hello, '.$role.'!<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>'. $this->Html->link('Dashboard',array('controller' => 'users', 'action' => 'dashboard', 'full_base' => true)).' </li>';
                                 if ($facebook_id === null) echo '
