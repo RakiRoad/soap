@@ -1,13 +1,14 @@
-# Team Name: Team 1
-# Course: CSC 415
-# Semester: Spring 2016
-# Instructor: Dr. Pulimood 
-# Project name: SOAP Data Update Module
-# Description: The module uses scraped data to update the data on the SOAP system.
-# Filename: Excel_scraper_csv.rb
-# Description: The Excel scraper file scrapes, processes and outputs data from an EPA Excel file
-# to a .sql file that will update the SOAP system's chemicals, facilities and locations. 
-# Last modified on: 5/1/2016
+#Team Name: Team 1
+#Course: CSC 415
+#Semester: Spring 2016
+#Instructor: Dr. Pulimood 
+#Project name: SOAP Data Update Module
+#Description: The module uses scraped data to update the data on the SOAP system.
+#Filename: Excel_scraper_csv.rb
+#Description: The Excel scraper file scrapes, processes and outputs data from an EPA csv file
+#to an sql file that will update various SOAP tables, including chemicals, facilities, locations,
+#contains, nn_data, owners and owned_by. 
+#Last modified on: 5/2/2016
 
 #The following packages enable the user to scrape from a csv file. 
 
@@ -51,9 +52,10 @@ fugitive_air_position = 0
  
 CSV.foreach("TRI_2014_NJ.csv", {:force_quotes => true, :headers => true}) do |row|
 
-#For each facility entry, an entry array is created. Each index of the array contains a piece
-#of data pertaining to each facility. This process is 0-indexed, meaning that the first
-#column of the csv file is considered index 0. 
+#Each row of the csv file constitutes a facility entry. For each facility entry, an entry 
+#array is created. The first column of the csv file is considered index 0. The csv files
+#contains more data points than what has been stored into the array, but only the extracted
+#data was required by the SOAP system. 
 
 	entry = Array.new
 	
@@ -107,7 +109,7 @@ CSV.foreach("TRI_2014_NJ.csv", {:force_quotes => true, :headers => true}) do |ro
 		pbt_status = "NON_PBT"
 	end
 
-#The variables that store each row of data is pushed into the entry variable. 	
+#The extracted and processed data points are pushed into the entry variable. 	
 
 	entry.push(facility_id, facility_name, street_address, municipality, county, latitude, 
 				longitude, chemical,  clean_air_act, pbt_status, metal, carcinogen,
@@ -120,7 +122,7 @@ CSV.foreach("TRI_2014_NJ.csv", {:force_quotes => true, :headers => true}) do |ro
 	contents.push(entry)
 
 #The following lines are used to record the index positions of each variable in an entry
-#array. This will make it easier to write the sql output code.
+#array. This will make it easier to write the sql output code without hardcoding
  
 facility_id_position = entry.index(facility_id) #0 
 facility_name_position = entry.index(facility_name) #1
@@ -146,11 +148,11 @@ fugitive_air_position = entry.index(fugitive_air) #20
 
 end	
 
-#Establishes the end point for the following for loop. 
+#The final variable establishes the end point employed in for loops throughout this script. 
 
 final = contents.length - 1
 
-#Creates all of the arrays that will have the necessary data to upload to the sql file. 
+#The below code creates all of the arrays that will have the necessary data to upload to the sql file. 
 
 chemicals = Array.new
 facilities = Array.new
@@ -160,8 +162,8 @@ nn_data = Array.new
 owners_id = Array.new
 owned_by = Array.new
 
-#Fills all of the previously created arrays with the necessary data as per the structure
-#of the current SOAP system.  
+#The below process fills all of the previously created arrays with the necessary data as per 
+#the structure of the current SOAP system.  
 
 for i in 0..final
 	chemicals[i] = "#{contents[i][chemical_id_position]}" + "\t" + "#{contents[i][chemical_position]}" +
@@ -191,43 +193,17 @@ for i in 0..final
 					+ "\n"													
 end
  
-sorted_contains = contains.sort
-
-consolidated_contains = Array.new
-
-#new_tracker = Index for consolidated chemicals
-contains_i = 0
-
-#i = Index for sorted chemicals
-for j in 0..final
-	if j == 0
-		consolidated_contains[contains_i] = sorted_contains[j]
-		contains_i = contains_i + 1 
-		j = j + 1
-	elsif sorted_contains[j] == sorted_contains[j-1]
-		j = j + 1	
-	else
-		consolidated_contains[contains_i] = sorted_contains[j]
-		contains_i = contains_i + 1
-		j = j + 1
-	end
-end  
-
- 
 #The current csv file lists unique facility id's, but multiple facility id's can share a 
 #chemical. Therfore, the following process is used to create an array in which each entry 
-#is a unique chemical. The process involves sorting the chemicals array, then determining
-#if a chemical value in an entry matches the chemical value in the previous entry. 
+#is a unique chemical. 
 
 sorted_chemicals = chemicals.sort
 
 consolidated_chemicals = Array.new
 
+# chemical_i = Index for the consolidated_chemicals array.
 
-#New tracker is the index for the consolidated_chemicals array, which will ultimately be
-#used in the sql file. 
-
-new_tracker = 0
+chemical_i = 0
 
 #If an entry matches the previous entry, it is not added to the consolidated_chemicals array.
 #An entry is only added to the consolidated_chemicals array if it is the first entry or 
@@ -235,26 +211,26 @@ new_tracker = 0
 
 for i in 0..final
 	if i == 0
-		consolidated_chemicals[new_tracker] = sorted_chemicals[i]
-		new_tracker = new_tracker + 1 
+		consolidated_chemicals[chemical_i] = sorted_chemicals[i]
+		chemical_i = chemical_i + 1 
 		i = i + 1
 	elsif sorted_chemicals[i] == sorted_chemicals[i-1]
 		i = i + 1	
 	else
-		consolidated_chemicals[new_tracker] = sorted_chemicals[i]
-		new_tracker = new_tracker + 1
+		consolidated_chemicals[chemical_i] = sorted_chemicals[i]
+		chemical_i = chemical_i + 1
 		i = i + 1
 	end
 end
 
-#Similar to the process that consolidated the chemicals, this script consolidates the 
-#facilities from the csv file. 
-
+#The below code sorts and consolidates the facilities from the csv file, as there may be 
+#repeating facility id numbers in the source data.  
 
 sorted_facilities = facilities.sort
 
 consolidated_facilities = Array.new
 
+#facilities_i = Index for consolidated_facilities array.
 
 facilities_i = 0
 
@@ -276,42 +252,82 @@ for j in 0..final
 	end
 end  
 
-
-#Similar to the process that consolidated the chemicals, this script consolidates the 
-#locations from the csv file. 
+#The below code sorts and consolidates the locations from the csv file. 
 
 sorted_locations = locations.sort
 
 consolidated_locations = Array.new
 
-locations_new_tracker = 0
+#locations_i = Index for consolidated_locations array. 
+
+locations_i = 0
 
 #If an entry matches the previous entry, it is not added to the consolidated_locations array.
 #An entry is only added to the consolidated_locations array if it is the first entry or 
 #if it does not match the previous entry. 
 
+#j = Index for sorted_locations array. 
+
 for j in 0..final
 	if j == 0
-		consolidated_locations[locations_new_tracker] = sorted_locations[j]
-		locations_new_tracker = locations_new_tracker + 1 
+		consolidated_locations[locations_i] = sorted_locations[j]
+		locations_i = locations_i + 1 
 		j = j + 1
 	elsif sorted_locations[j] == sorted_locations[j-1]
 		j = j + 1	
 	else
-		consolidated_locations[locations_new_tracker] = sorted_locations[j]
-		locations_new_tracker = locations_new_tracker + 1
+		consolidated_locations[locations_i] = sorted_locations[j]
+		locations_i = locations_i + 1
 		j = j + 1
 	end
 end
+
+#The below process sorts and consolidates the contains array. 
+  
+sorted_contains = contains.sort
+
+consolidated_contains = Array.new
+
+#contains_i = Index for consolidated_contains array. 
+
+contains_i = 0
+
+#If an entry matches the previous entry, it is not added to the consolidated_contains array.
+#An entry is only added to the consolidated_contains array if it is the first entry or 
+#if it does not match the previous entry.
+
+#j = Index for sorted_contains array. 
+
+for j in 0..final
+	if j == 0
+		consolidated_contains[contains_i] = sorted_contains[j]
+		contains_i = contains_i + 1 
+		j = j + 1
+	elsif sorted_contains[j] == sorted_contains[j-1]
+		j = j + 1	
+	else
+		consolidated_contains[contains_i] = sorted_contains[j]
+		contains_i = contains_i + 1
+		j = j + 1
+	end
+end  
+
+#The below code sorts and consolidates nn_data.  
 
 sorted_nn_data = nn_data.sort
 
 consolidated_nn_data = Array.new
 
-#new_tracker = Index for consolidated chemicals
+#nn_data_i = Index for consolidated_nn_data.
+
 nn_data_i = 0
 
-#i = Index for sorted chemicals
+#If an entry matches the previous entry, it is not added to the consolidated_nn_data array.
+#An entry is only added to the consolidated_nn_data array if it is the first entry or 
+#if it does not match the previous entry.
+
+#j = Index for sorted_nn_data.
+
 for j in 0..final
 	if j == 0
 		consolidated_nn_data[nn_data_i] = sorted_nn_data[j]
@@ -326,15 +342,22 @@ for j in 0..final
 	end
 end  
 
+#The below code sorts and consolidates owners.  
 
 sorted_owners_id = owners_id.sort
 
 consolidated_owners_id = Array.new
 
-#new_tracker = Index for consolidated chemicals
+#owners_id_i = Index for consolidated_owners_id. 
+
 owners_id_i = 0
 
-#i = Index for sorted chemicals
+#If an entry matches the previous entry, it is not added to the consolidated_owners_id array.
+#An entry is only added to the consolidated_owners_id array if it is the first entry or 
+#if it does not match the previous entry.
+
+#j = Index for sorted_owners_id. 
+
 for j in 0..final
 	if j == 0
 		consolidated_owners_id[owners_id_i] = sorted_owners_id[j]
@@ -349,6 +372,9 @@ for j in 0..final
 	end
 end  
 
+#As the csv file does not provide an owners id, which is required in the SOAP system, the 
+#below process adds an owners id to each entry based on the the position within the 
+#consolidated_owners array. 
 
 consolidated_owners = Array.new
 for i in 0..(consolidated_owners_id).length-1
@@ -356,10 +382,13 @@ for i in 0..(consolidated_owners_id).length-1
 					+ "\n"
 end	
 
+#The below code creates the necessary consolidated data for the owned_by table, as per
+#the specifications of the SOAP system. If an entry from the large contents array is in the 
+#consolidated_owners_id array, the appropriate id numbers for owners and facilities are 
+#associated with the owned_by entry
 
 for i in 0..final
   temp = contents[i][parent_company_name_position]
-  #for j in 0..(consolidated_owners).length
   value = consolidated_owners_id.include?(temp)
     if value == true
       id = consolidated_owners_id.index(temp)
@@ -369,14 +398,18 @@ for i in 0..final
     end
 end	
 
+#The below code sorts and consolidates the owned_by data. 
+
 sorted_owned_by = owned_by.sort
 
 consolidated_owned_by = Array.new
 
-#new_tracker = Index for consolidated owned_by
+#owned_by_i = Index for consolidated owned_by.
+
 owned_by_i = 0
 
-#i = Index for sorted owned by. 
+#j = Index for sorted owned_by. 
+
 for j in 0..final
 	if j == 0
 		consolidated_owned_by[owned_by_i] = sorted_owned_by[j]
@@ -391,9 +424,11 @@ for j in 0..final
 	end
 end  
 
-#The script creates an sql file that outputs the data from the previously created arrays.
-#The script produces an sql file that deletes all of the contents in the current SOAP
-#system and replaces the chemicals, facilities and locations data with the csv scraped data.
+#The below puts statements test how many data points are in each of the consolidated 
+#arrays. These output statements can be compared to the number of entries in the SOAP
+#tables once the outputted sql file is uploaded to the SOAP database. Any deviations 
+#between the consolidated_arrays and the number of entries in the database tables implies
+#that some or all or the data was not uploaded successfully. 
 
 puts "Chemicals length #{consolidated_chemicals.length}"
 puts "Facilities length #{consolidated_facilities.length}"
@@ -403,10 +438,21 @@ puts "nn_data length #{consolidated_nn_data.length}"
 puts "owners length #{consolidated_owners.length}"
 puts "owned_by length #{consolidated_owned_by.length}"
 
-File.new("updatesoap3.sql", "w+")
-File.open("updatesoap3.sql", "w+") do |f|
+#The script creates an sql file that outputs the data from the previously consolidated arrays.
+#The script drops all of the previously established tables in the current SOAP system
+#and copies new data from the csv file into the following tables: chemicals, facilities, locations 
+#contains, nn_data, owners and owned_by.
+
+File.new("updatesoap.sql", "w+")
+File.open("updatesoap.sql", "w+") do |f|
 	
-#The below code outputs the delete and copy sql commands for chemicals.
+#The below puts statement is responsible for outputting the sql file. Most of the below 
+#content was copied and pasted from the original copy of SOAP's sql. However, 
+#Team Shampoo made two major modifications to the sql file. First, this script includes 
+#DROP TABLE [table name] CASCADE commands, which were necessary to ensure that the new upload 
+#did not encounter errors caused by previously established constraints in the system. 
+#Second, the COPY commands for the tables this script updates utilizes data from the consolidated
+#arrays. 
 
 	f.puts("--
 -- PostgreSQL database dump
