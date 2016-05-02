@@ -78,7 +78,7 @@ class UsersController extends AppController {
             		//session_name($found_role);
             		session_start();
             		$_SESSION['login_id'] = $found_id;
-            		$_SESSION['role'] = "turtle";
+            		$_SESSION['role'] = $found_role;
             		//end trial
             		
             		
