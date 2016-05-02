@@ -1,6 +1,6 @@
 <?php $userId = $this->Session->read('Auth.User.username'); ?> <!-- get logged in user -->
 <?php $facebook_id = $this->Session->read('Auth.User.facebook_id'); ?> 
-<?php if(!isset($_SESSION)) 
+<?php if(!isset($_SESSION['login_id'])) 
     { 
         session_start(); 
     } ?>
