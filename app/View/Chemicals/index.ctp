@@ -63,26 +63,21 @@
                 top: 50%;
                 max-height: 70%;
             }
-            
-            #map {
-                width: 300px;
-                height: 200px;
-                background-color: #CCC;
-            }
 
             table.popupTable {
+                height: 100%;
                 border-collapse: collapse;
                 width: 100%;
+                background-color: #eee;
             }
             
             .popupTable th {
-                background-color: #eee;
+                background-color: darkseagreen;
                 font-weight: bold;
             }
             
             .popupTable th,
             .popupTable td {
-                border: 0.125em solid #333;
                 line-height: 1.5;
                 padding: 0.75em;
                 text-align: left;
@@ -140,7 +135,7 @@
         </style>
 </head>
 
-<body>
+<body onload="populatePopup()">
     <div class="span9" />
     <div class="span2">
         <?php echo $this->element('sidebar'); ?>
@@ -187,7 +182,6 @@
                         <th class="span3" style="width:auto;"><a href="#" rel="tooltip" id="carcinogenic" class="orderButton" style="color: #F5F3DC" title="Any type of substance, pollutant, or contaminant having the potential to cause cancer.">Carcinogenic</a></th>
                         <th class="span3" style="width:auto;"><a href="#" rel="tooltip" id="clean_air_act" class="orderButton" style="color: #F5F3DC" title="The Clean Air Act (CAA) is the federal law that regulates air emissions from stationary and mobile sources.">Clean Air Act</a></th>
                         <th class="span3" style="width:auto;"><a href="#" rel="tooltip" id="metal" class="orderButton" style="color: #F5F3DC" title="A solid material that is typically hard, shiny, malleable, fusible, and ductile, with good electrical and thermal conductivity. Some metals are aluminum, copper, silver, lead, etc.">Metal</a></th>
-
                         <th class="span3" style="width:auto;"><a href="#" rel="tooltip" id="pbt" class="orderButton" style="color: #F5F3DC" title="PBT pollutants are chemicals that are toxic and pose risks to human health and ecosystems.">PBT</a></th>
                     </tr>
                 </thead>
@@ -225,54 +219,28 @@
     </div>
     <div class="popup">
         <div style="float:left; height: 50%;">
-            <button class="btn btn-primary" style="float:right;margin-left: 5px;" name="closePopup">Close</button>
-            <button class="btn btn-primary" style="float:right" onclick="switchDisplay(1)">Location</button>
-            <button class="btn btn-primary" style="float:right;margin-right: 5px;" onclick="switchDisplay(0)">Statistics</button>
-            <h2 id="namename">Unknown Name</h2>
+            <button class="btn btn-primary" style="float:right;" name="closePopup">Close</button>
+            <button class="btn btn-primary" style="float:right; margin: 0 5px;" onclick="switchDisplay(1)">Location</button>
+            <button class="btn btn-primary" style="float:right;" onclick="switchDisplay(0)">Statistics</button>
+            <h2 id="popName">Unknown Name</h2>
             <hr>
             <br>
             <div id="chem-info">
-                <h3 id="car">Carcinogenic: N/A</h3>
-                <h3 id="cleanAir">Clean Air Act: N/A</h3>
-                <h3 id="metall">Metal: N/A</h3>
-                <h3 id="PBBT">PBT: N/A</h3>
+                <h3 id="popCar">Carcinogenic: N/A</h3>
+                <h3 id="popAir">Clean Air Act: N/A</h3>
+                <h3 id="popMet">Metal: N/A</h3>
+                <h3 id="popP">PBT: N/A</h3>
             </div>
-            <div id="chem-map" style="display:none; height: 75%;">
-                <div style="float:left; max-width: 49%; height: 100%;">
-                    <table class="popupTable" style="height: 100%;">
-                        <thead>
-                            <tr>
-                                <th>Facilities that contain this chemical:</th>
-                            </tr>
-                        </thead>
-                        <tbody style="display: block; height: 100%; overflow-y: auto" id="popupTable">
-                        </tbody>
-                    </table>
-                </div>
-
-                <div style="float:right; max-width: 49%;">
-                    <div id="map"></div>
-                    <script>
-                        function initMap() {
-                            var myLatLng = {
-                                lat: 40.886546,
-                                lng: -73.987269
-                            };
-                            var Options = {
-                                zoom: 10,
-                                center: myLatLng,
-                                mapTypeId: google.maps.MapTypeId.ROADMAP
-                            }
-                            var map = new google.maps.Map(document.getElementById('map'), Options);
-                            var marker = new google.maps.Marker({
-                                position: myLatLng,
-                                map: map,
-                                title: "Chem Map"
-                            });
-                        }
-                    </script>
-                    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
-                </div>
+            <div id="fac-list" style="display:none; height: 75%;">
+                <table class="popupTable">
+                    <thead>
+                        <tr>
+                            <th>Facilities that contain this chemical</th>
+                        </tr>
+                    </thead>
+                    <tbody style="display: block; height: 100%; overflow-y: auto" id="popTable">
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -293,7 +261,6 @@
                 n.target == this && $(e).is(":visible") && $(e).hide()
             }),
             $(e).find("button[name=closePopup]").on("click", function () {
-                history.pushState('', document.title, window.location.pathname);
                 $(".formElementError").is(":visible") && $(".formElementError").remove(), $(e).hide()
             })
     }
@@ -311,19 +278,22 @@
             type: 'POST',
             success: function (data) {
                 
+                // Clears hash
+                history.pushState('', document.title, window.location.pathname);
+                
                 // This data variable has ALL THE DATA TO POPULATE THE POPUP.
                 data = JSON.parse(data)
                 
                 //Recommendation: console.log(data) if you want to take a look at the data
                 
-                document.getElementById('namename').innerHTML = data.NAME;
-                document.getElementById('car').innerHTML = "Carcinogenic: " + data.CAR;
-                document.getElementById('cleanAir').innerHTML = "Clean Air Act: " + data.CLEANAIR;
-                document.getElementById('metall').innerHTML = "Metal: " + data.METAL;
-                document.getElementById('PBBT').innerHTML = "PBT: " + data.PBT;
+                document.getElementById('popName').innerHTML = data.NAME;
+                document.getElementById('popCar').innerHTML = "Carcinogenic: " + data.CAR;
+                document.getElementById('popAir').innerHTML = "Clean Air Act: " + data.CLEANAIR;
+                document.getElementById('popMet').innerHTML = "Metal: " + data.METAL;
+                document.getElementById('popP').innerHTML = "PBT: " + data.PBT;
                 
                 //popupTable
-                var temp = ""
+                var temp = ''
                 for (var count = 0, size = data.FACILITY.length; count < size; count++)
                 {
                     temp += '<tr><td>'
@@ -331,7 +301,7 @@
                     temp += '</tr></td>'
                 }
                 
-                document.getElementById('popupTable').innerHTML = temp;
+                document.getElementById('popTable').innerHTML = temp;
             }
         });
     }
@@ -339,16 +309,10 @@
     $(window).on('hashchange', populatePopup);
 
     function switchDisplay(eID) {
-        var id = ['chem-info', 'chem-map']
+        var id = ['chem-info', 'fac-list']
         if (document.getElementById(id[eID]).style.display == 'none') {
             document.getElementById(id[eID]).style.display = 'block'
             document.getElementById(id[Math.abs(eID - 1)]).style.display = 'none'
         }
     }
-
-    window.onload = function () {
-        if (location.hash != '') {
-            populatePopup()
-        }
-    };
 </script>

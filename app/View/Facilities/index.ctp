@@ -74,7 +74,7 @@
         </style>
 </head>
 
-<body>
+<body onload="populatePopup()">
     <div class="span9" />
     <div class="span2">
         <?php echo $this->element('sidebar'); ?>
@@ -159,17 +159,17 @@
     <?php $this->Js->writeBuffer(); ?>
         <div class="popup">
             <div style="float:left; width: 85%;">
-                <button class="btn btn-primary" name="closePopup" style="float:right; margin-left: 5px;">Close</button>
-                <button class="btn btn-primary" style="float:right;" onclick="switchDisplay(1)">Chemicals</button>
-                <button class="btn btn-primary" style="float:right; margin-right: 5px;" onclick="switchDisplay(0)">Location</button>
+                <button class="btn btn-primary" name="closePopup" style="float:right;">Close</button>
+                <button class="btn btn-primary" style="float:right; margin: 0 5px;" onclick="switchDisplay(1)">Chemicals</button>
+                <button class="btn btn-primary" style="float:right;" onclick="switchDisplay(0)">Location</button>
                 <h2 id="facName">Unknown Location</h2>
                 <hr>
                 <br>
                 <div id="build-info">
                     <div style="float:left; width: 49%;">
-                        <h3 id="facParent">Parent Company: Unknown</h3>
-                        <h3 id="facDanger">Danger Level: Unknown</h3>
-                        <h3 id="facBrown">Brownfield: Unknown</h3>
+                        <h3 id="facPar">Parent Company: Unknown</h3>
+                        <h3 id="facDan">Danger Level: Unknown</h3>
+                        <h3 id="facBro">Brownfield: Unknown</h3>
                         <br>
                         <h3 id="facAddr">Street Address: Unknown</h3>
                         <h3 id="facCou">County: Unknown</h3>
@@ -178,29 +178,7 @@
                         <h3 id="facXY">XY: Unknown</h3>
                     </div>
                     <div style="float:right; width: 49%;">
-                        <!--
-                    <div id="map"></div>
-                    <script>
-                        function initMap() {
-                            var myLatLng = {
-                            lat: <?php echo floatval($facility_info[0][0]['x_coor']) ?>,
-                            lng: <?php echo -1*floatval($facility_info[0][0]['y_coor']) ?>
-                        };
-                            var Options = {
-                                zoom: 10,
-                                center: myLatLng,
-                                mapTypeId: google.maps.MapTypeId.ROADMAP
-                            }
-                            var map = new google.maps.Map(document.getElementById('map'), Options);
-                            var marker = new google.maps.Marker({
-                                position: myLatLng,
-                                map: map,
-                                title: "Facilities Map"
-                            });
-                        }
-                    </script>
-                    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
--->
+                        <div id="map"></div>
                     </div>
                 </div>
                 <div id="build-chem" style="display:none;">
@@ -306,7 +284,7 @@
                                                                         chart.draw(data, options);
                                                                     }
                                                                 </script>
-						
+
 
                                                                 <div class="col-md-12" style="float: right; width: 95%; margin-right: 1%; margin-bottom: 0.5em;"></div>
                                                                 <div class="col-rt-12" style="float: right; width: 60%; margin-right: 1%; margin-bottom: 0.5em;">
@@ -337,7 +315,7 @@
                                                                         }
                                                                     </script>
 
-                                        
+
                                                                 </div>
                                                                 <div class="col-rt-12" style="float: left; width: 95%; margin-right: 1%; margin-bottom: 0.5em;">
                                                                 </div>
@@ -368,6 +346,7 @@
 <script src='<?=$this->webroot?>js/bootstrap-modal.js' async></script>
 <script src='<?=$this->webroot?>js/bootstrap-transition.js' async></script>
 <script src='<?=$this->webroot?>js/bootstrap-tooltip.js' async></script>
+<script src="https://maps.googleapis.com/maps/api/js?&sensor=false" async defer></script>
 
 <script>
     function popupOpenClose(e) {
@@ -392,25 +371,30 @@
             url: "/cabect/SOAP/index.php/facilities/view/" + location.hash.split("#")[1],
             type: 'POST',
             success: function (data) {
-                
+
+                // Clears hash
+                history.pushState('', document.title, window.location.pathname);
+
                 // This data variable has ALL THE DATA TO POPULATE THE POPUP.
                 data = JSON.parse(data)
-                
+
                 //Recommendation: console.log(data) if you want to take a look at the data
 
                 document.getElementById('facName').innerHTML = data.NAME;
-                document.getElementById('facParent').innerHTML = "Parent Company: " + data.PARENT;
-                document.getElementById('facDanger').innerHTML = "Danger Level: " + data.DANGER + "/5";
-                document.getElementById('facBrown').innerHTML = "Brownfield: " + data.BROWN;
+                document.getElementById('facPar').innerHTML = "Parent Company: " + data.PARENT;
+                document.getElementById('facDan').innerHTML = "Danger Level: " + data.DANGER + "/5";
+                document.getElementById('facBro').innerHTML = "Brownfield: " + data.BROWN;
                 document.getElementById('facAddr').innerHTML = "Street Address: " + data.ADDR;
                 document.getElementById('facCou').innerHTML = "County: " + data.COUNTY;
                 document.getElementById('facMun').innerHTML = "Municipality: " + data.MUN;
                 document.getElementById('facLATLNG').innerHTML = data.LAT + " | " + data.LNG;
-                document.getElementById('facXY').innerHTML = data.XY;
+                document.getElementById('facXY').innerHTML = "X Coordinate: " + data.X_COORD + ", " + "Y Coordinate: " + data.Y_COORD;
                 
-                
+                // Shows appropriate data for the Google Map
+                initMap(data.X_COORD, data.Y_COORD, data.NAME);
+
                 //popup's list of chemicals
-                var temp = ""
+                var temp = ''
                 for (var count = 0, size = data.CHEMICAL.length; count < size; count++) {
                     temp += '<h3><a class="pageLink" href="/cabect/SOAP/index.php/chemicals#' + data.CHEMICAL[count].id + '">' + data.CHEMICAL[count].name + '</a></h3>'
                     temp += '<h4>Total Amount: ' + data.CHEMICAL[count].totalAmt + '</h4>'
@@ -434,9 +418,19 @@
         }
     }
 
-    window.onload = function () {
-        if (location.hash != '') {
-            populatePopup()
+    function initMap(inputLat, inputLng, inputName) {
+        var myLatLng = new google.maps.LatLng(parseFloat(inputLat), parseFloat(inputLng));
+        var Options = {
+            zoom: 10,
+            center: { myLatLng },
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         }
-    };
+        
+        var map = new google.maps.Map(document.getElementById('map'), Options);
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: inputName
+        });
+    }
 </script>
