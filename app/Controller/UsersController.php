@@ -138,7 +138,7 @@ class UsersController extends AppController {
 
     session_destroy();
     echo 'logged out!';
-    return $this->redirect($this->Auth->logout());  //didn't try out yet
+    //return $this->redirect($this->Auth->logout());  //didn't try out yet
     echo 'logged out!';
     exit();
   	
