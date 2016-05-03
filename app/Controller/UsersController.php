@@ -119,7 +119,7 @@ class UsersController extends AppController {
        //$this->Flash->error(__('Invalid username or password, try again')); 		//this resulted in error; the error() method was not found
   }
   
-  public function logsout() {	
+  public function logout() {	
   	//hasn't been tested or provided a button yet
  
  session_start();
