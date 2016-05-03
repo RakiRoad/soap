@@ -70,18 +70,18 @@
                 background-color: #CCC;
             }
 
-            table {
+            table.popupTable {
                 border-collapse: collapse;
                 width: 100%;
             }
             
-            th {
+            .popupTable th {
                 background-color: #eee;
                 font-weight: bold;
             }
             
-            th,
-            td {
+            .popupTable th,
+            .popupTable td {
                 border: 0.125em solid #333;
                 line-height: 1.5;
                 padding: 0.75em;
@@ -91,32 +91,32 @@
             
             @media (max-width: 30em) {
                 /* Hide column labels */
-                thead tr {
+                .popupTable thead tr {
                     position: absolute;
                     top: -9999em;
                     left: -9999em;
                 }
-                tr {
+                .popupTable tr {
                     border: 0.125em solid #333;
                     border-bottom: 0;
                 }
                 /* Leave a space between table rows */
-                tr + tr {
+                .popupTable tr + tr {
                     margin-top: 1.5em;
                 }
                 /* Get table cells to act like rows */
-                tr,
-                td {
+                .popupTable tr,
+                .popupTable td {
                     display: block;
                 }
-                td {
+                .popupTable td {
                     border: none;
                     border-bottom: 0.125em solid #333;
                     /* Leave a space for data labels */
                     padding-left: 50%;
                 }
                 /* Add data labels */
-                td:before {
+                .popupTable td:before {
                     content: attr(data-label);
                     display: inline-block;
                     font-weight: bold;
@@ -225,9 +225,9 @@
     </div>
     <div class="popup">
         <div style="float:left; height: 50%;">
-            <button name="closePopup" style="float:right">Close</button>
-            <button style="float:right" onclick="switchDisplay(1)">Location</button>
-            <button style="float:right" onclick="switchDisplay(0)">Statistics</button>
+            <button class="btn btn-primary" style="float:right;margin-left: 5px;" name="closePopup">Close</button>
+            <button class="btn btn-primary" style="float:right" onclick="switchDisplay(1)">Location</button>
+            <button class="btn btn-primary" style="float:right;margin-right: 5px;" onclick="switchDisplay(0)">Statistics</button>
             <h2 id="namename">Unknown Name</h2>
             <hr>
             <br>
@@ -239,7 +239,7 @@
             </div>
             <div id="chem-map" style="display:none; height: 75%;">
                 <div style="float:left; max-width: 49%; height: 100%;">
-                    <table style="height: 100%;">
+                    <table class="popupTable" style="height: 100%;">
                         <thead>
                             <tr>
                                 <th>Facilities that contain this chemical:</th>

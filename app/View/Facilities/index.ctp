@@ -71,74 +71,6 @@
                 height: 250px;
                 background-color: #CCC;
             }
-            
-            table {
-                border-collapse: collapse;
-                width: 100%;
-            }
-            
-            th {
-                background-color: #eee;
-                font-weight: bold;
-            }
-            
-            th,
-            td {
-                border: 0.125em solid #333;
-                line-height: 1.5;
-                padding: 0.75em;
-                text-align: left;
-            }
-            /* Stack rows vertically on small screens */
-            
-            @media (max-width: 30em) {
-                /* Hide column labels */
-                thead tr {
-                    position: absolute;
-                    top: -9999em;
-                    left: -9999em;
-                }
-                tr {
-                    border: 0.125em solid #333;
-                    border-bottom: 0;
-                }
-                /* Leave a space between table rows */
-                tr + tr {
-                    margin-top: 1.5em;
-                }
-                /* Get table cells to act like rows */
-                tr,
-                td {
-                    display: block;
-                }
-                td {
-                    border: none;
-                    border-bottom: 0.125em solid #333;
-                    /* Leave a space for data labels */
-                    padding-left: 50%;
-                }
-                /* Add data labels */
-                td:before {
-                    content: attr(data-label);
-                    display: inline-block;
-                    font-weight: bold;
-                    line-height: 1.5;
-                    margin-left: -100%;
-                    width: 100%;
-                }
-            }
-            /* Stack labels vertically on smaller screens */
-            
-            @media (max-width: 20em) {
-                td {
-                    padding-left: 0.75em;
-                }
-                td:before {
-                    display: block;
-                    margin-bottom: 0.75em;
-                    margin-left: 0;
-                }
-            }
         </style>
 </head>
 
@@ -227,9 +159,9 @@
     <?php $this->Js->writeBuffer(); ?>
         <div class="popup">
             <div style="float:left; width: 85%;">
-                <button name="closePopup" style="float:right">Close</button>
-                <button style="float:right" onclick="switchDisplay(1)">Chemicals</button>
-                <button style="float:right" onclick="switchDisplay(0)">Location</button>
+                <button class="btn btn-primary" name="closePopup" style="float:right; margin-left: 5px;">Close</button>
+                <button class="btn btn-primary" style="float:right;" onclick="switchDisplay(1)">Chemicals</button>
+                <button class="btn btn-primary" style="float:right; margin-right: 5px;" onclick="switchDisplay(0)">Location</button>
                 <h2 id="facName">Unknown Location</h2>
                 <hr>
                 <br>
