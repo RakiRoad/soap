@@ -443,8 +443,8 @@ puts "owned_by length #{consolidated_owned_by.length}"
 #and copies new data from the csv file into the following tables: chemicals, facilities, locations 
 #contains, nn_data, owners and owned_by.
 
-File.new("updatesoap.sql", "w+")
-File.open("updatesoap.sql", "w+") do |f|
+File.new("updatesoap.sql", "a+")
+File.open("updatesoap.sql", "a+") do |f|
 	
 #The below puts statement is responsible for outputting the sql file. Most of the below 
 #content was copied and pasted from the original copy of SOAP's sql. However, 
