@@ -138,6 +138,7 @@ class UsersController extends AppController {
 
     session_destroy();
     return $this->redirect($this->Auth->logout());  //didn't try out yet
+    echo 'logged out!';
   	
   }
     						//this is different than online
