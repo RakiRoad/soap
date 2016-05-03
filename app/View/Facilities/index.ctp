@@ -74,7 +74,7 @@
         </style>
 </head>
 
-<body onload="populatePopup()">
+<body>
     <div class="span9" />
     <div class="span2">
         <?php echo $this->element('sidebar'); ?>
@@ -391,7 +391,7 @@
                 document.getElementById('facMun').innerHTML = "Municipality: " + data.MUN;
                 document.getElementById('facLATLNG').innerHTML = data.LAT + " | " + data.LNG;
                 document.getElementById('facXY').innerHTML = "X Coordinate: " + data.X_COORD + ", " + "Y Coordinate: " + data.Y_COORD;
-                
+
                 // Shows appropriate data for the Google Map
                 initMap(data.X_COORD, data.Y_COORD, data.NAME);
 
@@ -427,10 +427,12 @@
         var myLatLng = new google.maps.LatLng(parseFloat(inputLat), parseFloat(inputLng));
         var Options = {
             zoom: 10,
-            center: { myLatLng },
+            center: {
+                myLatLng
+            },
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
-        
+
         var map = new google.maps.Map(document.getElementById('map'), Options);
         var marker = new google.maps.Marker({
             position: myLatLng,
@@ -438,4 +440,10 @@
             title: inputName
         });
     }
+
+    window.onload = function () {
+        if (location.hash != '') {
+            populatePopup()
+        }
+    };
 </script>

@@ -63,7 +63,7 @@
                 top: 50%;
                 max-height: 70%;
             }
-
+            
             table.popupTable {
                 height: 100%;
                 border-collapse: collapse;
@@ -135,7 +135,7 @@
         </style>
 </head>
 
-<body onload="populatePopup()">
+<body>
     <div class="span9" />
     <div class="span2">
         <?php echo $this->element('sidebar'); ?>
@@ -255,7 +255,6 @@
 <script src='<?=$this->webroot?>js/bootstrap-tooltip.js' async></script>
 
 <script>
-
     function popupOpenClose(e) {
         0 == $(".wrapper").length && $(e).wrapInner("<div class='wrapper'></div>"), $(e).show(), $(e).click(function (n) {
                 n.target == this && $(e).is(":visible") && $(e).hide()
@@ -279,31 +278,30 @@
             url: "/cabect/SOAP/index.php/chemicals/view/" + location.hash.split("#")[1],
             type: 'POST',
             success: function (data) {
-                
+
                 // Clears hash
                 history.pushState('', document.title, window.location.pathname);
-                
+
                 // This data variable has ALL THE DATA TO POPULATE THE POPUP.
                 data = JSON.parse(data)
-                
+
                 //Recommendation: console.log(data) if you want to take a look at the data
-                
+
                 /* sets all the fields in the popup equal to the respective data */
                 document.getElementById('popName').innerHTML = data.NAME;
                 document.getElementById('popCar').innerHTML = "Carcinogenic: " + data.CAR;
                 document.getElementById('popAir').innerHTML = "Clean Air Act: " + data.CLEANAIR;
                 document.getElementById('popMet').innerHTML = "Metal: " + data.METAL;
                 document.getElementById('popP').innerHTML = "PBT: " + data.PBT;
-                
+
                 //popupTable
                 var temp = ''
-                for (var count = 0, size = data.FACILITY.length; count < size; count++)
-                {
+                for (var count = 0, size = data.FACILITY.length; count < size; count++) {
                     temp += '<tr><td>'
                     temp += '<a class="pageLink" href="/cabect/SOAP/index.php/facilities#' + data.FACILITY[count].id + '">' + data.FACILITY[count].name + '</a>'
                     temp += '</tr></td>'
                 }
-                
+
                 document.getElementById('popTable').innerHTML = temp;
             }
         });
@@ -321,4 +319,10 @@
             document.getElementById(id[Math.abs(eID - 1)]).style.display = 'none'
         }
     }
+
+    window.onload = function () {
+        if (location.hash != '') {
+            populatePopup()
+        }
+    };
 </script>
