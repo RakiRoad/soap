@@ -374,6 +374,7 @@
                                                                         chart.draw(data, options);
                                                                     }
                                                                 </script>
+						
 
                                                                 <div class="col-md-12" style="float: right; width: 95%; margin-right: 1%; margin-bottom: 0.5em;"></div>
                                                                 <div class="col-rt-12" style="float: right; width: 60%; margin-right: 1%; margin-bottom: 0.5em;">
@@ -404,16 +405,16 @@
                                                                         }
                                                                     </script>
 
-                                                                    <div id="donutchart" style="width: 128; height: 128;"></div>
+                                        
                                                                 </div>
                                                                 <div class="col-rt-12" style="float: left; width: 95%; margin-right: 1%; margin-bottom: 0.5em;">
                                                                 </div>
                                                             </div>
                                                         </right>
-                                                        <right>
-                                                            <div id="donutchart" style="width: 125%; height: 100%;"></div>
-                                                            <div id="donutchart2" style="width: 125%; height: 100%;"></div>
-                                                        </right>
+                                                        <center>
+                                                            <div id="donutchart" style="width: 100%; height: 50%;"></div>
+                                                            <div id="donutchart2" style="width: 100%; height: 50%;"></div>
+                                                        </center>
                                                     </div>
                                                 </div>
                                             </div>
