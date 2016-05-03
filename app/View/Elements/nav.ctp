@@ -97,7 +97,7 @@
                             <ul class="dropdown-menu">
                                 <li>'. $this->Html->link('Dashboard',array('controller' => 'users', 'action' => 'dashboard', 'full_base' => true)).' </li>';
                                 if ($facebook_id === null) echo '
-                                    <li>'. $this->Html->link('Log oout',array('controller' => 'users', 'action' => 'logout', 'full_base' => true)).' </li>';
+                                    <li>'. $this->Html->link('Log out',array('controller' => 'users', 'action' => 'logout', 'full_base' => true)).' </li>';
                                 else
                                     echo '<li>'. $this->Html->link('Log Out',array('controller' => 'users', 'action' => 'logout', 'full_base' => true)).' </li>';
 							echo '
