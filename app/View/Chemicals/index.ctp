@@ -265,6 +265,7 @@
             })
     }
 
+    /* populates all the data in the popup */
     function populatePopup() {
         if (!location.hash) {
             return
@@ -272,6 +273,7 @@
 
         popupOpenClose($(".popup"))
         switchDisplay(0)
+
 
         $.ajax({
             url: "/cabect/SOAP/index.php/chemicals/view/" + location.hash.split("#")[1],
@@ -286,6 +288,7 @@
                 
                 //Recommendation: console.log(data) if you want to take a look at the data
                 
+                /* sets all the fields in the popup equal to the respective data */
                 document.getElementById('popName').innerHTML = data.NAME;
                 document.getElementById('popCar').innerHTML = "Carcinogenic: " + data.CAR;
                 document.getElementById('popAir').innerHTML = "Clean Air Act: " + data.CLEANAIR;
@@ -306,8 +309,11 @@
         });
     }
 
+    /* displays the popup when a hash is added to the end of the URL */
     $(window).on('hashchange', populatePopup);
 
+    /* switches display between the chemicals info part of the popup and
+    the list of facilities with the chemicals contained in it */
     function switchDisplay(eID) {
         var id = ['chem-info', 'fac-list']
         if (document.getElementById(id[eID]).style.display == 'none') {

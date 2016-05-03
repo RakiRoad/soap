@@ -359,6 +359,7 @@
             })
     }
 
+    /* populates all the data in the popup */
     function populatePopup() {
         if (!location.hash) {
             return
@@ -380,6 +381,7 @@
 
                 //Recommendation: console.log(data) if you want to take a look at the data
 
+                /* sets all the fields in the popup equal to the respective data */
                 document.getElementById('facName').innerHTML = data.NAME;
                 document.getElementById('facPar').innerHTML = "Parent Company: " + data.PARENT;
                 document.getElementById('facDan').innerHTML = "Danger Level: " + data.DANGER + "/5";
@@ -408,8 +410,10 @@
         });
     }
 
+    /* displays the popup when a hash is added to the end of the URL */
     $(window).on('hashchange', populatePopup);
 
+    /* switches display between the pages of the popup */
     function switchDisplay(eID) {
         var id = ['build-info', 'build-chem']
         if (document.getElementById(id[eID]).style.display == 'none') {
@@ -418,6 +422,7 @@
         }
     }
 
+    /* initializes the map included in the popup */
     function initMap(inputLat, inputLng, inputName) {
         var myLatLng = new google.maps.LatLng(parseFloat(inputLat), parseFloat(inputLng));
         var Options = {
