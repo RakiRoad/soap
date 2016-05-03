@@ -126,8 +126,16 @@ class UsersController extends AppController {
       ///if this logs out everyone, look into if(isset($_SESSION['login_id']))unset($_SESSION['login_id'])
     unset($_SESSION['login_id']);
     unset($_SESSION['role']);
-    $_SESSION = array();
     unset($_SESSION);
+    $_SESSION = array();
+    if (ini_get("session.use_cookies")) {
+    $params = session_get_cookie_params();
+    setcookie(session_name(), '', time() - 42000,
+        $params["path"], $params["domain"],
+        $params["secure"], $params["httponly"]
+    );
+}
+
     session_destroy();
     return $this->redirect($this->Auth->logout());  //didn't try out yet
   	
