@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 
+<!--Facilities index.ctp-->
 <head>
     <?php $this->Html->script('jquery'); ?>
         <script src="<?php echo $this->webroot; ?>/js/userQuery.js"></script>
@@ -34,6 +35,7 @@
                 color: #037162;
             }
             
+            /* css for the popup function */
             .popup {
                 background: rgba(255, 255, 255, 0.8);
                 position: fixed;
@@ -74,6 +76,7 @@
         </style>
 </head>
 
+<!-- format facilities sidebar-->
 <body>
     <div class="span9" />
     <div class="span2">
@@ -116,7 +119,8 @@
                 <input class="filter" type="input">
                 <br>
             </div>
-
+            
+            <!-- build the table -->
             <table class="table table-striped" style="border-top: 0px;">
                 <thead>
                     <tr>
@@ -156,6 +160,7 @@
             <!-- row-fluid -->
         </div>
     </div>
+    <!-- initialize the popup -->
     <?php $this->Js->writeBuffer(); ?>
         <div class="popup">
             <div style="float:left; width: 85%;">
