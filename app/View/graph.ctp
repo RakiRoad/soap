@@ -4,6 +4,7 @@ This file retrieves information from the database on chemicals located in facili
 presents the queried results. These results will be used for the generation of pie charts for 
 visualization of chemical percentages and their potential health impacts. 
 -->
+<!--This file was also used as a reference for the chemical and facility files (index.ctp)-->
 
 <div class="section">
   	<div class="container">
