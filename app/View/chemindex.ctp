@@ -4,6 +4,7 @@ This file retreives information from the database on chemicals located in facili
 presents the queried results. These results will be used for the generation of pie charts visualization of chemical percentages
 and their potential health impacts, which does not work completly right now.  
 -->
+<!--This file was only used as a refernce to complete the pie chart files for chemical and facility pages-->
 
 <!--This creates the dividers for the page -->
 <div class="section">
