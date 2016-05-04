@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+<!-- chemicals index.ctp -->
 
 <head>
     <?php $this->Html->script('jquery'); ?>
@@ -135,6 +136,7 @@
         </style>
 </head>
 
+<!-- Format for the sidebar-->
 <body>
     <div class="span9" />
     <div class="span2">
@@ -217,6 +219,8 @@
         </div>
         <?php $this->Js->writeBuffer(); ?>
     </div>
+    
+    <!-- initializes the popup class-->
     <div class="popup">
         <div style="float:left; height: 50%;">
             <button class="btn btn-primary" style="float:right;" name="closePopup">Close</button>
@@ -254,6 +258,7 @@
 <script src='<?=$this->webroot?>js/bootstrap-transition.js' async></script>
 <script src='<?=$this->webroot?>js/bootstrap-tooltip.js' async></script>
 
+<!-- implements the open and close functions of the popup-->
 <script>
     function popupOpenClose(e) {
         0 == $(".wrapper").length && $(e).wrapInner("<div class='wrapper'></div>"), $(e).show(), $(e).click(function (n) {
