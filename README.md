@@ -7,3 +7,5 @@ submit articles to the reader to be displayed.
 
 
 You can view our page here: http://csc415-team02.tcnj.edu/cabect/SOAP/index.php/blogs
+
+We edited the index.ctp and view.ctp of Blogs, BlogsController, removed Post Model and Post Controller(because of issues with our page) and worked with Blogs Model.
