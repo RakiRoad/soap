@@ -5,7 +5,7 @@ html, body
 {
 	height: 100%;
 }
-
+.usersForm{padding-left:300px;}
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block;}
 audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}
 audio:not([controls]){display:none;}
@@ -116,7 +116,7 @@ footer
 	background: #013435;
 	padding: 18px 18px 18px 18px;
 	position: relative; /* Added this */
-	margin-top: -125px; /* Added this */
+	margin-top: 125px; /* Added this */
 	clear:both; /* Added this */
 	border-radius: 4px;
 }
@@ -135,7 +135,7 @@ ul.footer li
 .wrapper 
 {
 	min-height: 100%; /* changed from 95 to 100 */
-	padding-bottom: 150px;	/* from 60 to 150 and from top to bottom */
+/*	padding-bottom: 150px;	/* from 60 to 150 and from top to bottom */
 	overflow:auto; /* Added this */
 }
 
