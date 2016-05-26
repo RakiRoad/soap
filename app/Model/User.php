@@ -1,86 +1,34 @@
 <?php
-// Edited Spring 2016 - Andrew, Greg, Jon, Sean, Kim, Kevin - The Young and the Reckless
-// User.php: class to create users. This file is not used, as we are directly referencing the database in our view/controller classes.
-
-/*App::uses('AuthComponent', 'Controller/Component');
+App::uses('AuthComponent', 'Controller/Component');
+//User class that validates the user and password for them to log in and their role as admin or user. We might use this or work with 
+// the group with login permissions to handle that
 class User extends AppModel {
-    public $name = 'User'; //user variable; not present in online source
-    public $validate = array(   //validated through array
-        'username' => array(
-            'required' => array(
-                'rule' => array('notEmpty'),
-                'message' => 'A username is required'
-            )
-        ),
-        'password' => array(    //PW is validated through array
-            'required' => array(
-                'rule' => array('notEmpty'),
-                'message' => 'A password is required'
-            )
-        ),
-        'role' => array(    
-            'valid' => array(   //role is validated through array
-                'rule' => array('inList', array('admin', 'user')),      //add journalist
-                'message' => 'Please enter a valid role',
-                'allowEmpty' => false
-            )
-        )
-    );
-     //commented out to match online version, entered below
-    public function beforeSave($options = array()) {            //not in online source
-        if (isset($this->data[$this->alias]['password'])) {
-            $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']); //checks to see if credentials are correct
-        }
-        return true;
-    }
-    /* public function beforeSave($options = array()) {
-    if (isset($this->data[$this->alias]['password'])) {
-        $passwordHasher = new BlowfishPasswordHasher();
-        $this->data[$this->alias]['password'] = $passwordHasher->hash(
-            $this->data[$this->alias]['password']
-        );
-    }
-    return true;
-} */
-App::uses('AppModel', 'Model');
-class User extends AppModel {
-    //public $name = 'User'; ///just committed out
+    public $name = 'User';
     public $validate = array(
         'username' => array(
             'required' => array(
-                'rule' => 'notBlank',
+                'rule' => array('notEmpty'),
                 'message' => 'A username is required'
             )
         ),
         'password' => array(
             'required' => array(
-                'rule' => 'notBlank',
+                'rule' => array('notEmpty'),
                 'message' => 'A password is required'
             )
         ),
         'role' => array(
             'valid' => array(
-                'rule' => array('inList', array('admin', 'author')),            //need to add journalist type role here
+                'rule' => array('inList', array('admin', 'user')),
                 'message' => 'Please enter a valid role',
                 'allowEmpty' => false
             )
         )
     );
-    /*public function beforeSave($options = array()) {
-        if (isset($this->data[$this->alias]['password'])) {
-            //$passwordHasher = new BlowfishPasswordHasher();                   //commented out to avoid hashing
-            //$this->data[$this->alias]['password'] = $passwordHasher->hash(
-            //$this->data[$this->alias]['password']
-            //);
-        }
-    return true;
-    }*/
-    /*   /////just commented this out
     public function beforeSave($options = array()) {
-    if (isset($this->data['User']['password'])) {
-        $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);  
+        if (isset($this->data[$this->alias]['password'])) {
+            $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
+        }
+        return true;
     }
-    return true;
-    }
-    */
 }

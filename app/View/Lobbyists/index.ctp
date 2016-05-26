@@ -16,6 +16,7 @@
         <h1>Lobbyists</h1></div>
             <div style="text-align:center;"><input style="width:70%; padding-left:18px; background: white no-repeat scroll left center url('<?php echo $this->webroot; ?>img/icon_search.png');" id="mainSearchBar" type="text" placeholder="Search by senator's name or click 'options' for more advanced searching."><a title="Options" id="select_cog" href="#"><img style="position:relative; z-index:100; margin-left:-60px; margin-top:-7px;" src="<?php echo $this->webroot; ?>img/icon_cog.png"></a></div>
             <div id="options" style="display:none; color:white; margin-bottom:20px;">
+                <!-- Labels for the politicians with their name, party, year elected, and their district number -->
                 <label class="filterLabel">Filters:</label><br>
                 <label class="filterLabel">Name</label><input class="filter" type="input"><br>
                 <label class="filterLabel">Party</label><input class="filter" type="input"><br>
@@ -28,7 +29,7 @@
             <style>
                 .thumbnails > li{
                 }
-                .thumbnails .caption{
+                .thumbnails .caption{ 
                     overflow:hidden;
                     text-overflow:ellipsis;
                     white-space:nowrap;
@@ -53,7 +54,7 @@
                     <a href="#" class="limit">90</a>
                 </div>
                 <script>
-                   bindEventsPoliticians("senators", "district_no");
+                   bindEventsPoliticians("senators", "district_no"); // calls function passing in senators and district_no
                 </script>
             </div> <!-- row-fluid -->
             <!-- <?php echo $this->Facebook->comments(); ?> -->

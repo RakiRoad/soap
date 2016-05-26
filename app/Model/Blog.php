@@ -1,28 +1,24 @@
 <?php
-
+// Blog class that will extend the AppModel class
 class Blog extends AppModel {
- 
-// Name of the Blog model
+
+// Name of the Feed Model
  public $name = 'Blog';
 
-// Ensures that no null blog entries are added to the database
+
+
+/*
+ public $useTable = 'blogs';
+ public $useTable = 'categories';
+ public $useTable = 'comments';
+ public $useTable = 'feeds';
+// Ensures that no null feed entries are added to the database
  public $validate = array(
-        'title' => array(
-            'rule' => 'notEmpty'
-        ),
-        'body' => array(
+        'feeds' => array(
             'rule' => 'notEmpty'
         )
-    );
-// THis is not used 
-
- public function isOwnedBy($blog_info) { //$user
-     return $this->field('id', array('id' => $blog_info)) === $blog_info;
-//'user_id' => $user
-	}
-
+    ); 
+*/
 
 }
 ?>
-
-
