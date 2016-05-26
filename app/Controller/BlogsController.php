@@ -1,5 +1,5 @@
-<?php 
 
+<?php 
 /* Static content controller.
  *
  * This file will render views from views/pages/
@@ -19,6 +19,8 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+
+//THE BLOG WILL NOT WORK TEAM 3 OF SPRING 2016 EDIT THE DATABASE IN ORDER FOR THIS TO WORK 
 class BlogsController extends AppController {
 /*
 	This controller class was created by the Blog team 
