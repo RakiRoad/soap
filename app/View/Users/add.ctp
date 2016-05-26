@@ -6,7 +6,7 @@
 	 <?php echo $this->element('sidebar'); ?>			<!-- creates the sidebar-->
 </div>
 
-<div class="users form">
+<div class="usersForm">
 <?php echo $this->Form->create('User'); ?>
     <fieldset>
         <legend><?php echo __('Add User'); ?></legend>
