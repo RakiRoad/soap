@@ -1,8 +1,57 @@
-<!-- Adding functionality to the front page on About Us, Data Sources, and Contribute, linking to different areas of the site. This is the main page of SOAP and how the information is displayed. (11/12/14) Written in HTML. ED -->
+<!-- Adding functionality to the front page on About Us, Data Sources, and Contribute, linking to different areas of the site. This is the main page of SOAP and how the system works -->
 <div class="container">
-	<?php echo $this->Session->flash(); ?>
-	<div class="hero-unit" style="text-align: center;" >
-		<h1>Students Organizing Against Pollution</h1>
+
+        <?php echo $this->Session->flash(); ?>
+        <div class="hero-unit" style="text-align: center;" >
+                <h1>Students Organizing Against Pollution
+			<!--	<script>
+					function callScript(){
+					 <?php script(); ?>
+					 }
+				</script>
+
+					<?php
+					FUNCTION script(){
+						exec("scripts/Scrapetest.rb");
+					}
+					 
+				?>
+
+
+                        <input type="button" value="Update Politicians"
+
+                        onclick="callScript()"/>
+
+                        <input type="button" value="Update Chemicals and Facilities"
+                        onclick="return confirm('Are you sure you want to update the chemicals and facilities?')"/>
+				-->
+				
+				<a href="scripts/Scrapetest.rb">Politicians<a>
+
+
+
+
+                </h1>
+                
+			
+                <!-- <script language="javascript" type="text/javascript">
+                //         function runScript1(){
+                //                 window.alert("I got to step 1");
+                //         var w = new ActiveXObject("WScript.Shell");
+                //                 window.alert("I got to step 2");
+                //                 w.run('/var/www/html/cabect/SOAP/app/View/Pages/scripts/Scrapetest.rb');
+                //                 window.alert("i got here");
+                //                 }
+                // </script> -->
+
+        </div>
+
+
+
+
+                </h1>
+                <script language="javascript" type="text/javascript">
+
 	</div>
 	<div class="row-fluid">
 		<div class="span4 alert alert-success">
@@ -37,10 +86,15 @@ Our pollution data comes directly from the<a href="http://www.epa.gov/"> US Envi
 			<a class="addthis_button_preferred_4"></a>
 			<a class="addthis_button_compact"></a>
 			<a class="addthis_counter addthis_bubble_style"></a>
+			
 		</div>
 	</div>
 	<!-- <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script> -->
 	<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4fe8fc260b784686"></script>
+
+
+
+
 <!-- 
 <br>
 <br>
@@ -54,7 +108,11 @@ Our pollution data comes directly from the<a href="http://www.epa.gov/"> US Envi
     customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
     customSearchControl.draw('cse');
   }, true);
+
+
 </script>
  -->
 
 </div>
+
+

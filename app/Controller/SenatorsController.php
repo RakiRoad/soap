@@ -1,16 +1,17 @@
 <?php
 
 App::uses('FB', 'Facebook.Lib');
-
+// The AppController class creates the framework for the SenatorsController class and controls how applications interact. 
 class SenatorsController extends AppController {
-
+// Creates new arrays 
     public $helpers = array('GoogleMapV3', 'Js');
     
     public $components = array('RequestHandler');
-    
+    //The index function will need to be filled in. 
     public function index() {
     }
-    
+    //Outputs data that returns name, party, date elected and district number from the new soap and politicians tables with 
+    //the chamber value equal to upper.  
     public function loadTable(){
         $this->autoRender = false;
         $data = $this->request->data;
@@ -26,6 +27,8 @@ class SenatorsController extends AppController {
         $sql = 'SELECT image_link, name, party, date_elected, district_no 
                 FROM "newsoap"."politicians"
                 WHERE chamber=\'upper\' AND ';
+       //This block of code does not seem to provide value to the overall program, as it only concatenates meaningless words to 
+       //the output from the search query. 
         for($i = 0; $i < 4; $i++){
             $sql .= '(';
             for($j = 0; $j < count($filters[$i]); $j++){
@@ -41,6 +44,7 @@ class SenatorsController extends AppController {
                 $sql.= ' AND ';
             }
         }
+        //This block of code orders the data from the search query based on its location in the database. 
         $sql .= ' ORDER BY ' . $order;
         $count = count($this->Senator->query($sql));
         $sql .=' LIMIT ' . $limit . ' OFFSET ' . $offset . ';';
