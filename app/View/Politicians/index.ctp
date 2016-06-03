@@ -7,7 +7,10 @@
     <body>
 <div class ="span2">
             <?php echo $this->element('sidebar'); ?>
-        </div>
+<!--Script needs to be added to run the actually script -->
+<input class="well sidebar-nav" type="button" value="Update Politicians" style="position:fixed;  width:180px; bottom:.5%;  left:30px;" onclick="callScript()">
+</input>
+</div>
         <div class="span10" style="text-align:center;">
             <style>
                 .pol_link{
@@ -18,7 +21,8 @@
                 }
             </style>
             <h2>Explore the NJ State Legislature and Lobbyists:</h2>
-			<!--This is where the user can click the Senator link/image to view the Senators, the year they were elected, their political party, and the disrtic number they represent.-->  
+
+	<!--This is where the user can click the Senator link/image to view the Senators, the year they were elected, their political party, and the disrtic number they represent.-->  
 	        <?php echo $this->Html->image("senate_link.jpg", array( 'class'=>'pol_link',  "alt" =>  "Image Not available", 'url' => array('controller' => 'Senators'))); ?>
 		<!--//This is where the user can click the Assembly link/image to view the Assembly, the year they were elected, their political party, and the disrtic number they represent.-->
 		<?php echo $this->Html->image("rep_link.jpg", array( 'class'=>'pol_link',  "alt" =>  "Image Not available", 'url' => array('controller' => 'Representatives'))); ?>
