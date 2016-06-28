@@ -1,8 +1,4 @@
-#Name: Team Shampoo
-#Course: CSC415
-#Semester: Spring 2016
-#Instructor: Dr. Pulimood
-#Project Name: Web Scrape and Update
+
 #Description: Our team will write scripts to update the chemicals, facilities, and politicians for SOAP. This will be avaliable to the admin and will provide SOAP with the most up to date data.
 #Filename: ScrapeTest.rb
 #Description: This file is used to scrape the information for the website that supplies the politicians based on districts in New Jersey. The data collected is sent to a text file. -- It will be imporoved upon to parse the data and update the database for the second round of implementation.
