@@ -1,10 +1,6 @@
 //
 //  Facility.h
 //  
-//
-//  Created by Thomas Borgia on 5/18/15.
-//
-//
 
 #ifndef ____Facility__
 #define ____Facility__
