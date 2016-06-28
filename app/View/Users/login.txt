@@ -1,5 +1,5 @@
-<!-- Again, Derek D and Kevin tryed to get Hybridauth working, no success - Kevin Bohinski 12/1/14-->
-<!-- Spring 2016 - Andrew, Greg, Jon, Sean, Kim, Kevin - The Young and the Reckless
+
+<!-- 
      We referenced this page in an attempt to learn how to take in user input from text fields.
      The specific code referenced was on or about line 29. We applied a variation of this in UsersController.
      This page was formerly used for hybrid auth; we changed the extention to .txt and made our own login file.
