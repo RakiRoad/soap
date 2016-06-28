@@ -1,8 +1,4 @@
-#Team Name: Team 1
-#Course: CSC 415
-#Semester: Spring 2016
-#Instructor: Dr. Pulimood 
-#Project name: SOAP Data Update Module
+
 #Description: The module uses scraped data to update the data on the SOAP system.
 #Filename: Excel_scraper_csv.rb
 #Description: The Excel scraper file scrapes, processes and outputs data from an EPA csv file
@@ -448,7 +444,7 @@ File.open("updatesoap.sql", "a+") do |f|
 	
 #The below puts statement is responsible for outputting the sql file. Most of the below 
 #content was copied and pasted from the original copy of SOAP's sql. However, 
-#Team Shampoo made two major modifications to the sql file. First, this script includes 
+#two major modifications were made to the sql file. First, this script includes 
 #DROP TABLE [table name] CASCADE commands, which were necessary to ensure that the new upload 
 #did not encounter errors caused by previously established constraints in the system. 
 #Second, the COPY commands for the tables this script updates utilizes data from the consolidated
