@@ -1,4 +1,4 @@
-<!-- Edited Spring 2016 - Andrew, Greg, Jon, Sean, Kim, Kevin - The Young and the Reckless
+<!-- 
      index.ctp: this is the index file for users view. 
      This currently is not referenced anywhere; we discovered this file's functionality in AppController, experimenting with loginAction.
      This line is currently commented out in AppController (line 52).
