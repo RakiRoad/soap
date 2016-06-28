@@ -1,5 +1,4 @@
 <!-- File: /app/View/Posts/add.ctp -->
-<!-- This file was made in the Fall 2014 Semester of CSC 415 (Software Engineering) for the Blogging in the Deep Group (12/1/14) -->
 <!-- Submit a Post -->
 
 <!-- We could look at what the group here did and maybe take some ideas from them for our blog idea. We might not allow users
