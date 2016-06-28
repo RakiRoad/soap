@@ -1,10 +1,7 @@
 //
 //  Chemical.h
 //
-//
-//  Created by Thomas Borgia on 6/13/15.
-//
-//
+
 
 #ifndef ____Chemical__
 #define ____Chemical__
