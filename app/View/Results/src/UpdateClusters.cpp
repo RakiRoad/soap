@@ -1,10 +1,4 @@
-// Name: Created by Thomas Borgia on 5/19/15
 
-// Name: Zachary Nelson
-// Course: CSC 415
-// Semester: Fall 2015
-// Instructor: Dr. Pulimood
-// Project Name: Pollution Prognosticators
 // Description: Read data in from facilities.csv and contains.csv and use the clustering
 // algorithm on this data.
 // Filename: UpdateClusters.cpp
