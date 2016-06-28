@@ -1,10 +1,6 @@
 //
 //  Facility.cpp
 //  
-//
-//  Created by Thomas Borgia on 5/18/15.
-//
-//
 
 #include "Facility.h"
 
