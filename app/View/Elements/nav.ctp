@@ -58,7 +58,6 @@
 						<li><?php echo $this->Html->link('Documentation',array('controller' => 'pages', 'action' => 'docs', 'full_base' => true)); ?> </li>
 					    </ul>
 				  	</li>
-<!-- This file was edited in the Fall 2014 Semester of CSC 415 (Software Engineering) for the Blogging in the Deep Group -->
 				<li class="dropdown" id="menu4">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#menu4">
 					Blog
