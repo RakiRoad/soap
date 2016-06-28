@@ -1,14 +1,10 @@
 <?php 
-// Created by: Vitor Machado, Nathan Gould, and Curran Prassad
-//
 // index/ctp represents the main view file for the Map page. It is here that the information sent from the database
 // by MapController.php is formatted for presentation to the user. it is also here that map.js is utilized in conjunction
 // with the Google Maps API to generate the map itself. Certain considerations were made to ensure that coordinates
 // retrieved from the database properly align with corresponding locations on the map.
 //
 /*
-* Modified by: Angela Huang, Graham Robers, Dylan Wulf, and Trevor Fullman
-* SE: Spring 2015
 * Modified the layout of the search bar to include fields allowing users to filter by danger level (checkboxes),
 * county (drop-down bar), and search by any address (search bar)
 */
