@@ -1,5 +1,4 @@
 <?php
-//Created by Team 4 CSC315-Database Systems Fall 2015
 //This file Queries the database for info on chemicals/carcingens present at facilities/counties. 
 //The results are sent to graph.js
 Class ChemPieController extends AppController {
