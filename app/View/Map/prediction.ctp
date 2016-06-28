@@ -1,7 +1,6 @@
 <!--
 	Description: Represents the html code for the prediction popup on custom coordinates.
 	Filename: prediction.ctp
-	Last Modified On: 12/3/15 by Evan Melquist, Jeremy Leon, Zach Nelson, and Richard Levenson
 
 	INFORMATION FOR FUTURE SOAP TEAMS:
 	This file contains HTML code for the modal that pops up for the prediction algorithm.
