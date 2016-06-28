@@ -1,6 +1,4 @@
-<!-- //Edited Spring 2016 - Andrew, Greg, Jon, Sean, Kim, Kevin - The Young and the Reckless.
-     // add.ctp: this file creates the form used to add new users, utilizing the add method in UsersController.php
--->
+
 <!-- Display Sidebar -->
 <div class="span2">
 	 <?php echo $this->element('sidebar'); ?>			<!-- creates the sidebar-->
