@@ -1,17 +1,8 @@
 //
 //  Clustering.cpp
-//
-//
-//  Created by Thomas Borgia on 6/13/15.
-//
-// Name: Richard Levenson
-// Course: CSC 415
-// Semester: Fall 2015
-// Instructor: Dr. Pulimood
-// Project Name: Pollution Prediction
 // Description: Clustering class which maintains a vector of clusters and handles writing the cluster information to files.
 // Filename: Clustering.cpp
-// Last Modified On: 11/9/15 by Richard Levenson
+// Last Modified On: 11/9/15 
 
 #include "Clustering.h"
 
