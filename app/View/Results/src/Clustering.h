@@ -2,16 +2,10 @@
 //  Clustering.h
 //  
 //
-//  Created by Thomas Borgia on 6/13/15.
 //
-// Name: Richard Levenson
-// Course: CSC 415
-// Semester: Fall 2015
-// Instructor: Dr. Pulimood
-// Project Name: Pollution Prediction
 // Description: D\Header file to define the Clustering class.
 // Filename: Clustering.h
-// Last Modified On: 11/9/15 by Richard Levenson
+// Last Modified On: 11/9/15 
 
 /* Preprocessor Directives */
 #ifndef ____Clustering__ //Run other preprocessor directives only if ____Clustering__ has not already been defined
