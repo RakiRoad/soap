@@ -1,10 +1,6 @@
 //
 //  Chemical.cpp
-//
-//
-//  Created by Thomas Borgia on 6/13/15.
-//
-//
+
 
 #include "Chemical.h"
 
