@@ -1,7 +1,4 @@
-<!-- Team 2 Soap Buddies
-     Ricardo, Nate, Ryan, Meghan, Sean 
-     Spring 2016 
-     -->
+
 
 <html>
 <head>     
