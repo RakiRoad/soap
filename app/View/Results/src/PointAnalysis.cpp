@@ -1,15 +1,9 @@
-//  Created by Thomas Borgia on 6/14/15.
 
-// Name: Evan Melquist, Zachary Nelson, Richard Levenson, Jeremy Leon and Hunter Dubel
-// Course: CSC 415
-// Semester: Fall 2015
-// Instructor: Dr. Pulimood
-// Project Name: Pollution Prediction
 // Description: Takes a latitude and a longitude point and finds what cluster it belongs
 // to. If it finds a cluster, all the chemicals for that cluster are accessed and pollution
 // prediction information is displayed. 
 // Filename: PointAnalysis.cpp
-// Last Modified On: 11/23/15 by Richard Levenson
+// Last Modified On: 11/23/15 
 
 #include <stdio.h>
 #include <iostream>
