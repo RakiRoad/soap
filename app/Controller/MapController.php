@@ -1,6 +1,4 @@
 <?php
-// Created by: Nathan Gould
-// 
 // The MapController class primarily is responsible for queries to the database on 
 // behalf of the Map page's view. Appropriate
 // information is retrieved from the database and sent to the view (index.ctp located in .../app/View/Map/). This same process
@@ -8,20 +6,16 @@
 //
 
 /**
- * Modified by: Angela Huang, Dylan Wulf, Trevor Fullman, and Graham Roberts to include the retrieval of demographic information 
+ * Modified to include the retrieval of demographic information 
  * to be displayed within the details box. 
  * 
  */
 
 /**
- * Modified by: Evan Melquist, Zachary Nelson, Richard Levenson, Jeremy Leon and Hunter Dubel
- * Course: CSC 415
- * Semester: Fall 2015
- * Instructor: Dr. Pulimood
- * Project Name: Pollution Prediction
+ *
  * Commented out percent_minority field to prevent error in SOAP server integration.
  * Filename: MapController.php
- * Last Modified On: 12/3/15 by Richard Levenson, Jeremy Leon, Zach Nelson, and Evan Melquist
+ * Last Modified On: 12/3/15
  * 
  *
  * INFORMATION FOR FUTURE SOAP TEAMS:
