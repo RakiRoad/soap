@@ -1,7 +1,5 @@
 <!-- 
 	Description: Represents the html code for the prediction popup on custom coordinates.
-	Filename: prediction.ctp
-	Last Modified On: 12/3/15 by Evan Melquist, Jeremy Leon, Zach Nelson, and Richard Levenson
 
  	INFORMATION FOR FUTURE SOAP TEAMS:
 	This file contains a sample of code that could potentially run the PointAnalysis c++ executable file which analyzes the 
