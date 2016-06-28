@@ -1,20 +1,15 @@
 <!--
-Created by: Vitor Machado
 File detail.ctp represents the html code which formats the details pop-up (the pop-up that is shown when a marker is clicked).
 Information set by function detail() in MapController.php through database calls are formatted here for presentation to the user -
 specific variables which are sent from the controller to detail.ctp include the $facility_info[] array as well as the $chem[] array.
 -->
 
-<!--
-Modified by Angela Huang, Graham Roberts, and Dylan Wulf to include Demographics Information. 
--->
 
 <div class="facility-details">
 	<h3>Facility Details:</h3>
 	<hr>
 	<span><strong>Name:</strong> <?php echo $facility_info[0][0]['facility_name']; ?><br/></span>
 	<span><strong>Parent Company:</strong> <?php echo $facility_info[0][0]['owner_name']; ?><br/></span>
-	<!--Modified by Yilin Yang - Fall 2015 CSC415-->
 	<!--"float: left;" was removed from span style to turn two columns into one. This format better suits mobile. -->
 	<span style="width: 50%;"><strong>Danger Level:</strong><?php echo $facility_info[0][0]['dangerous_state']; ?> (out of 5)<br/></span>
 	<span><strong>Brownfield:</strong> <?php echo $facility_info[0][0]['is_brownfield']; ?><br/></span>
@@ -24,7 +19,6 @@ Modified by Angela Huang, Graham Roberts, and Dylan Wulf to include Demographics
 	<h3>Location details:</h3>
 	<hr>
 	<span><strong>Street Address:</strong> <?php echo $facility_info[0][0]['location_id']; ?><br/></span>
-	<!--Modified by Yilin Yang - Fall 2015 CSC415-->
 	<!--"float: left;" was removed from span style to turn two columns into one. This format better suits mobile. -->
 	<span style="width: 50%;"><strong>County:</strong> <?php echo $facility_info[0][0]['county']; ?><br/></span>
 	<span><strong>Municipality:</strong> <?php if($facility_info[0][0]['municipality'] == null) echo "N/A"; else echo $facility_info[0][0]['municipality']; ?><br/></span>
