@@ -75,14 +75,14 @@ You can search any facility name to find the facility. The facility will list th
 </html>
 
 
-<!-- Function to call to enable tooltip feature - Joie Murphy -->
+<!-- Function to call to enable tooltip feature -->
 <script type = "text/javascript">
 	$(function(){
 		$("[rel='tooltip']").tooltip()
 	});
 </script>
 
-<!-- Including necessary javascript for bootstrap tooltip - Joie Murphy -->
+<!-- Including necessary javascript for bootstrap tooltip -->
 <script language='javascript' src='<?=$this->webroot?>js/jquery.js'></script>
 <script language='javascript' src='<?=$this->webroot?>js/bootstrap-alert.js'></script>
 <script language='javascript' src='<?=$this->webroot?>js/bootstrap-modal.js'></script>
