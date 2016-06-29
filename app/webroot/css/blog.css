@@ -1,6 +1,5 @@
 /* Blog CSS */
 
-
 /* Back to top button */
 .cd-top {
 z-index: 999;
@@ -155,11 +154,7 @@ a.pageLink{
 /* Layout Styles */
 #twitterSidebar {
 	float: right;
-<<<<<<< HEAD
-	margin-left: 25px;
-=======
 	margin-left: -10px;
->>>>>>> 4df02f52e194229dcab9cfe9608adce6a5c09ff2
 	margin-right: 25px;
 }
 .twitter-timeline {
