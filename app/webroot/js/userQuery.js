@@ -1,6 +1,4 @@
-//   Alana Huszar
-//   CSC415
-//   The Tables Have Turned -->
+
 
 function bindEvents(modelName, orderBy){
     filterSearch(0, modelName, orderBy, 0, 25);
