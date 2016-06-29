@@ -1,4 +1,4 @@
-/* Created by: Vitor Machado
+/* 
  *
  * map.js represents the code reponsible for generating the map seen on the Map page. The map is initialized at the current 
  * latitude and logitude of the user's location. Information regarding the x and y coordinates necessary for creating the markers
@@ -7,9 +7,9 @@
 */
 
 /*
- * Modified by: Dylan Wulf, Graham Roberts, Angela Huang, and Trevor Fullman 
+ * 
  *
- * SE: Spring 2015
+ * Spring 2015
  *
  * map.js now includes a function filterbyCounty() that allow users to filter the map by selecting a County. Once a County is selected,
  * the map will pan and zoom into the corresponding county. Only markers associated with the County selected will be displayed.
@@ -20,11 +20,7 @@
 */
 
 /*
- * Name: Evan Melquist, Zachary Nelson, Richard Levenson, Jeremy Leon and Hunter Dubel
- * Course: CSC 415
- * Semester: Fall 2015
- * Instructor: Dr. Pulimood
- * Project Name: Pollution Prediction
+ *  Fall 2015
  * Description: Added function nonSitePredictor() to make an action when the latitude/longitude search button is pressed.
  * Filename: map.js
  * Last Modified On: 12/3/15 by Jeremy Leon, Zach Nelson, Evan Melquist, and Richard Levenson
