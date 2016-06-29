@@ -18,7 +18,6 @@
 
 $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
 ?>
-<!-- This file was edited in the Fall 2014 Semester of CSC 415 (Software Engineering) for the Blogging in the Deep Group -->
 
 <!DOCTYPE html> <!-- This shows that this site is HTML5 based. -->
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
