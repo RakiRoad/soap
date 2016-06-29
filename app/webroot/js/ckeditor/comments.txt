@@ -1,4 +1,4 @@
-This file was made in the Fall 2014 Semester of CSC 415 (Software Engineering) for the Blogging in the Deep Group 
+
 The files in this ckeditor folder are all used for ckeditor to render onto the app/View/Blogs/add page 
 
 
