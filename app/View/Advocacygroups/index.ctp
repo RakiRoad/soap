@@ -71,7 +71,7 @@ a background for each picture. The flex container also helps to adjust the pictu
                 <img src="<?php echo $this->webroot; ?>img/image4.jpg">
         <!-- Aligning the text -->
                 <div class="caption" style="text-align:center;">
-        <!-- Providing the link >>
+        <!-- Providing the link -->
                 <a href= "http://www.littoralsociety.org/" target="_blank"><h3 style="color:#F5F3DC;">American Littoral<br>Society</h3>
 </a>
 	</li>

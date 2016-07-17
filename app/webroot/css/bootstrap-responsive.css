@@ -507,6 +507,8 @@
     width: 1070px;
   }
   .span10 {
+/*added to space the site from the green box*/
+    margin-left:100px;
     width: 970px;
   }
   .span9 {
