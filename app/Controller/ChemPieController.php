@@ -43,7 +43,7 @@ Class ChemPieController extends AppController {
                             $myrow[1]=(float)$myrow[1];
                             array_push($chemArray, $myrow);
                 }
-                //query 2
+                //query 2: Gets all carcinogenic facilities
             $query = "SELECT chemical_name, to_number(SPLIT_PART(total_amount, ' ',1),'999999.99')
                         FROM newsoap.facilities
                         JOIN (newsoap.contains JOIN newsoap.chemicals ON newsoap.contains.chemical_id = newsoap.chemicals.id) as facility 
