@@ -104,7 +104,7 @@ function codeAddress(address) {
       }
     });
   }
-
+// adds a marker at the users current position
 function setInitialPosition(mapOptions) {
   
   var infowindow = new google.maps.InfoWindow({
@@ -119,7 +119,8 @@ function setInitialPosition(mapOptions) {
   });
   
 }
-
+// Sets the marker based on the facilityInfo and adds it to the map
+// the icon location is not the same due to the cabect folder
 function setFacilityMarker(facilityInfo) {
   var facilityPosition = new google.maps.LatLng(facilityInfo.x_coor, facilityInfo.y_coor)
   
@@ -221,6 +222,8 @@ function filterByCounty(county){
         map.setZoom(11);
     }
     else {
+        // Fix this as intialPosition is all the way in the bottom right corner
+        // and zoom 8 might be too much
         map.setCenter(mapOptions.initialPosition);
         map.setZoom(8);   //set new zoom level
     }
@@ -235,6 +238,8 @@ function goToAddress(){
         map.setZoom(15);
     }
     else{
+        // Fix this as intialPosition is all the way in the bottom right corner
+        // and zoom 8 might be too much
         map.setCenter(mapOptions.initialPosition);
         map.setZoom(8);
     }
