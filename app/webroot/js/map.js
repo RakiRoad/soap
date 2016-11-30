@@ -68,6 +68,8 @@ function initialize(wrapperId, mapOptions) {
    else {
     handleNoGeolocation(mapOptions);
   }
+  // TODO just for phase A, loading this here. should be hooked to UI later.
+  createHeatmapLayer(heatmaps["carcinogen"], true);
 }
 
 function handleNoGeolocation(mapOptions) { 
@@ -75,7 +77,100 @@ function handleNoGeolocation(mapOptions) {
   map.setZoom(8);
 }
 
+// google maps API callback method
+function initMap() {
+}
 
+/**
+ * Specifies all the inbuilt heatmaps that are available for display.
+ * Each heatmap is defined by a sql query to execute on the fusion table,
+ * and a function that processes the data query into a lat/long, and weight
+ * to make a WeightedLocation. These locations are then loaded into a
+ * Google Maps HeatMapLayer object and displayed on the browser's map.
+ *
+ * Team Turing, Fall 2016
+ */
+var heatmaps = {
+    "carcinogens": {
+        name: "Carcinogens",
+        query: "SELECT LATITUDE,LONGITUDE,'ON-SITE_RELEASE_TOTAL' from 1qPK9ER5-xtqYWX5A_TmHeVsmlUtDpHWjhFH61HDE where CARCINOGEN='YES' and 'ON-SITE_RELEASE_TOTAL'>0",
+        process: threeIndexRow,
+        layer: null
+    },
+    // TODO add more heatmaps for things that might be useful/look good
+};
+
+/**
+ * map() callback to create a weighted location using
+ *  * array index 0 and 1 as the lat/long
+ *  * array index 2 as the weight
+ *
+ * Team Turing, Fall 2016
+ */
+function threeIndexRow(row) {
+    return {
+        location: new google.maps.LatLng(row[0], row[1]),
+        weight: Number(row[2])
+    }
+}
+
+/**
+ * Creates a google HeatmapLayer from data pulled from
+ * a fusion table and processed into weighted locations.
+ * This only creates a layer, unless "add" is true, which will also add it to the page.
+ *
+ * Team Turing, Fall 2016
+ */
+function createHeatmapLayer(heatmapInfo, add) {
+    if (heatmapInfo == null || heatmapInfo.layer != null) return;
+    $.ajax({
+        dataType: 'jsonp',
+        url: 'https://www.googleapis.com/fusiontables/v1/query',
+        data: {
+            sql: heatmapInfo.query,
+            key:'AIzaSyBv2FzPm4yBsnT_50cCOyufvs5YQl1LNtk'
+        },
+        success:  function(data) {
+            // process the data into a location and weight
+            var heatmapData = $.map(data.rows, heatmapInfo.process);
+            // create the weighted heatmap
+            heatmapInfo.layer = new google.maps.visualization.HeatmapLayer({
+                data: heatmapData, dissipating: false, radius: 0.1
+            });
+	    if (add) {
+	      addHeatmapLayer(heatmaps["carcinogens"]);
+	    }
+        },
+        error: function() {
+            alert("Failed to create heatmap " + heatMapInfo.name);
+        }
+   });
+}
+
+/**
+ * Adds a heatmap object (with a layer) to the page's map object.
+ *
+ * Team Turing, Fall 2016
+ */
+function addHeatmapLayer(heatmapInfo) {
+    if (heatmapInfo == null) return;
+    if (heatmapInfo.layer == null) {
+      console.log("Heatmap " + heatmapInfo.name + " layer not initialized yet.");
+      return;
+    }      
+    heatmapInfo.layer.setMap(map);
+}
+
+/**
+ * Removes a heatmap object (with a layer) from the page's map object.
+ * This causes it to stop rendering.
+ *
+ * Team Turing, Fall 2016
+ */
+function removeHeatmapLayer(heatmapInfo) {
+    if (heatmapInfo == null || heatmapInfo.layer == null) return;
+    heatmapInfo.layer.setMap(null);
+}
 //Centers the map on the user's current location.
 //If nothing is entered, zooms out and centers on initial position (Trenton, NJ)
 //SE Fall 2015
