@@ -10,7 +10,7 @@
 */
 	$this->Html->css('map', null, array('inline' => false));
 	
-	$this->Html->script('http://maps.googleapis.com/maps/api/js?sensor=true', array('inline' => false));
+	$this->Html->script('http://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization&key=AIzaSyBv2FzPm4yBsnT_50cCOyufvs5YQl1LNtk&callback=initMap', array('inline' => false, 'async' => true, 'defer' => true));
 	$this->Html->script('map', array('inline' => false));
 	
 	
@@ -25,7 +25,7 @@
 			'x_coor' => floatval($facility[0]['x_coor']),
 			'y_coor' => -1*floatval($facility[0]['y_coor']),
 			'dg_level' =>	$facility[0]['dangerous_state'],
-			'county' => $facility[0]['county'] //added this so we can search by county in the JS file --Dylan
+			'county' => $facility[0]['county'], //added this so we can search by county in the JS file --Dylana
 			);
 		}
 	}
@@ -34,10 +34,8 @@
 	$this->Js->set('facilities', $facilities);
 	echo $this->Js->writeBuffer(array('inline' => false, 'onDomReady' => false, 'safe' => false));
 ?>
-<head>
 <!-- Sidebar content and Map page layout created by: Nathan Gould-->
 <!--Modified by Angela Huang, Dylan Wulf, Graham Roberts to display extra search features and messaging-->
-</head>
 
 <!--Added a section for the map page messaging written by Devon, Steph A., and Steph V. (Journalism Class)-->
         <div class="section">
