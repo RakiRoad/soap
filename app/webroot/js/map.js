@@ -138,7 +138,7 @@ var heatmaps = {
 	query: "SELECT LATITUDE,LONGITUDE,'5.3_WATER' from 1qPK9ER5-xtqYWX5A_TmHeVsmlUtDpHWjhFH61HDE WHERE '5.3_WATER'>0 ORDER BY '5.3_WATER' DESC",
 	layer: null
     }
-    "metals":
+
 };
 
 /**
