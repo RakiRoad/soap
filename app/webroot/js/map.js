@@ -174,7 +174,7 @@ function createHeatmapLayer(heatmapInfo, add) {
         success:  function(data) {   
 	    // offset all data points by the first gradient width, ensuring they show up
 	    // even when there are large outliers
-	    var max = heatmapInfo.process(data.rows[0]).weight;
+	    var max = (heatmapInfo.process ? heatmapInfo.process(data.rows[0]).weight : thirdIndexWeight(data.rows[0]).weight);
 	    var offset = max / 11;
 	    var offsetRows = $.map(data.rows, function(row) {
 	       // explicit cast so no str concat,
@@ -183,7 +183,7 @@ function createHeatmapLayer(heatmapInfo, add) {
 	    });
 
             // process the data into a location and weight
-            var heatmapData = $.map(offsetRows, (heatmapInfo.process ? heatmapInfo.process : thirdIndexWeight);
+            var heatmapData = $.map(offsetRows, (heatmapInfo.process ? heatmapInfo.process : thirdIndexWeight));
             // create the weighted heatmap
             heatmapInfo.layer = new google.maps.visualization.HeatmapLayer({
                 data: heatmapData, dissipating: false, radius: 0.1
