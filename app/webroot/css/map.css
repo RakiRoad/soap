@@ -19,6 +19,21 @@ footer {
     /* border: 1px solid blue; */
 }
 
+.panel-title {
+  text-align: center;
+}
+
+.btn-collapse {
+  margin: 10px 25%; /* 10px top/bottom, */
+  width: 50%;       /* 25 - 50 -25 centering */
+  padding: 10px; /* internal text padding */
+}
+
+.btn-heatmap {
+  margin: 5px 40%;
+  width: 30%;
+  padding: 5px;
+}
 
 @media (min-width: 768px) {
     

@@ -6,6 +6,30 @@
  * $(document).ready block seen at the bottom of the file. 
 */
 
+/**
+ * Fall 2016 - Team Turing
+ * Jan-Lucas Ott, Raphael Rezkalla, Bryan Jimenez, Robert Mannuzza, Rocky Quinto, Spencer Viviano
+ * 
+ * Add a heatmap feature and created collapsible sidebar panels.
+ * 
+ * Heatmaps are done almost entirely in this file. In the ready function, each heatmap is initialized
+ * from an "SQL" query to a Google Fusion table, and then a button is added to the heatmaps panel that
+ * will toggle that heatmap layer on or off for the map.
+ * 
+ * The fusion table can be found here: https://fusiontables.google.com/data?docid=1qPK9ER5-xtqYWX5A_TmHeVsmlUtDpHWjhFH61HDE
+ * It is an exact upload of the TRI_NJ_2014.csv file in the 'UpdateScripts' directory of the repo.
+ * In the future, this table should be synced with the SQL database somehow, or the data should be
+ * inserted into the page via PHP (although this is not preferred because it's a lot of data).
+ * 
+ * Aside from the small snippet in the ready method, we also added a handful of methods for working
+ * with the data and heatmaps, and one variable containing the heatmap objects.
+ * The methods are all individually documented and marked with "Team Turing".
+ *
+ * We also modified the map.css file (added panel-title, btn-collapse, and btn-heatmap classes),
+ * and most of the UI work is in the View/Map/index.ctp file.
+ * 
+ */
+
 /*
  * 
  *
@@ -68,8 +92,6 @@ function initialize(wrapperId, mapOptions) {
    else {
     handleNoGeolocation(mapOptions);
   }
-  // TODO just for phase A, loading this here. should be hooked to UI later.
-  createHeatmapLayer(heatmaps["carcinogen"], true);
 }
 
 function handleNoGeolocation(mapOptions) { 
@@ -88,26 +110,45 @@ function initMap() {
  * to make a WeightedLocation. These locations are then loaded into a
  * Google Maps HeatMapLayer object and displayed on the browser's map.
  *
+ * Note:
+ *  every query should be ordered by whichever column will be the weight, descending.
+ *  this is because the heatmap gradient will display very faint/nonexistant values
+ *  for very low data point, so the data is pre-processed by shifting it all up by
+ *  one gradient value for existing points. for this reason, each query should also filter
+ *  out (ignore) 0 values.
+ *  the above two things can be accomplished by using the following clause:
+ * 	WHERE 'column'>0 ORDER BY 'column' DESC
+ *  as seen in the heatmaps below
+ * 
  * Team Turing, Fall 2016
  */
 var heatmaps = {
     "carcinogens": {
         name: "Carcinogens",
-        query: "SELECT LATITUDE,LONGITUDE,'ON-SITE_RELEASE_TOTAL' from 1qPK9ER5-xtqYWX5A_TmHeVsmlUtDpHWjhFH61HDE where CARCINOGEN='YES' and 'ON-SITE_RELEASE_TOTAL'>0",
-        process: threeIndexRow,
+        query: "SELECT LATITUDE,LONGITUDE,'ON-SITE_RELEASE_TOTAL' from 1qPK9ER5-xtqYWX5A_TmHeVsmlUtDpHWjhFH61HDE where CARCINOGEN='YES' and 'ON-SITE_RELEASE_TOTAL'>0 ORDER BY 'ON-SITE_RELEASE_TOTAL' DESC",
         layer: null
     },
-    // TODO add more heatmaps for things that might be useful/look good
+    "lead": {
+        name: "Lead",
+        query: "SELECT LATITUDE,LONGITUDE,'ON-SITE_RELEASE_TOTAL' from 1qPK9ER5-xtqYWX5A_TmHeVsmlUtDpHWjhFH61HDE where CHEMICAL IN ('LEAD', 'LEAD COMPOUNDS') and 'ON-SITE_RELEASE_TOTAL'>0 ORDER BY 'ON-SITE_RELEASE_TOTAL' DESC",
+        layer: null
+    },
+    "water": {
+	name: "Release into Water",
+	query: "SELECT LATITUDE,LONGITUDE,'5.3_WATER' from 1qPK9ER5-xtqYWX5A_TmHeVsmlUtDpHWjhFH61HDE WHERE '5.3_WATER'>0 ORDER BY '5.3_WATER' DESC",
+	layer: null
+    }
+    "metals":
 };
 
 /**
- * map() callback to create a weighted location using
+ * $.map() callback used to create a weighted location using
  *  * array index 0 and 1 as the lat/long
  *  * array index 2 as the weight
  *
  * Team Turing, Fall 2016
  */
-function threeIndexRow(row) {
+function thirdIndexWeight(row) {
     return {
         location: new google.maps.LatLng(row[0], row[1]),
         weight: Number(row[2])
@@ -130,34 +171,51 @@ function createHeatmapLayer(heatmapInfo, add) {
             sql: heatmapInfo.query,
             key:'AIzaSyBv2FzPm4yBsnT_50cCOyufvs5YQl1LNtk'
         },
-        success:  function(data) {
+        success:  function(data) {   
+	    // offset all data points by the first gradient width, ensuring they show up
+	    // even when there are large outliers
+	    var max = heatmapInfo.process(data.rows[0]).weight;
+	    var offset = max / 11;
+	    var offsetRows = $.map(data.rows, function(row) {
+	       // explicit cast so no str concat,
+	       // and double [[]] so it appends array instead of flattening
+	      return [[ row[0], row[1], Number(row[2]) + Number(offset) ]];
+	    });
+
             // process the data into a location and weight
-            var heatmapData = $.map(data.rows, heatmapInfo.process);
+            var heatmapData = $.map(offsetRows, (heatmapInfo.process ? heatmapInfo.process : thirdIndexWeight);
             // create the weighted heatmap
             heatmapInfo.layer = new google.maps.visualization.HeatmapLayer({
                 data: heatmapData, dissipating: false, radius: 0.1
             });
 	    if (add) {
-	      addHeatmapLayer(heatmaps["carcinogens"]);
+	      addHeatmapLayer(heatmapInfo);
 	    }
         },
         error: function() {
-            alert("Failed to create heatmap " + heatMapInfo.name);
+            alert("Failed to get heatmap " + heatmapInfo.name);
         }
    });
 }
 
+/**
+ * Quick method to toggle (either add or remove) heatmap depending on current state.
+ */
+function toggleHeatmapLayer(heatmapInfo) {
+  if (heatmapInfo == null || heatmapInfo.layer == null) return;
+  if (heatmapInfo.layer.getMap() == null) {
+    addHeatmapLayer(heatmapInfo);
+  } else {
+    removeHeatmapLayer(heatmapInfo);
+  }
+}
 /**
  * Adds a heatmap object (with a layer) to the page's map object.
  *
  * Team Turing, Fall 2016
  */
 function addHeatmapLayer(heatmapInfo) {
-    if (heatmapInfo == null) return;
-    if (heatmapInfo.layer == null) {
-      console.log("Heatmap " + heatmapInfo.name + " layer not initialized yet.");
-      return;
-    }      
+    if (heatmapInfo == null || heatmapInfo.layer == null) return;
     heatmapInfo.layer.setMap(map);
 }
 
@@ -171,6 +229,7 @@ function removeHeatmapLayer(heatmapInfo) {
     if (heatmapInfo == null || heatmapInfo.layer == null) return;
     heatmapInfo.layer.setMap(null);
 }
+
 //Centers the map on the user's current location.
 //If nothing is entered, zooms out and centers on initial position (Trenton, NJ)
 //SE Fall 2015
@@ -443,6 +502,23 @@ $(document).ready(function(e){
       new google.maps.event.trigger(markers[facilityId], 'click');
     });
 
+  // Team Turing Fall 2016 - initialize heatmaps, adding a button for each
+  $.each(heatmaps, function(key, heatmap) {
+    createHeatmapLayer(heatmap, false); // this maybe should be deferred until first time press
+    var hmbtn = $('<button/>', {
+      // creates a button that will toggle the respective heatmap
+        text: heatmap.name,
+        click: function (e) { 
+	  toggleHeatmapLayer(heatmaps[$(this).data('heatmap')]);
+	  $(this).toggleClass('btn-primary');
+	},
+        'data-heatmap': key,
+        class: 'btn btn-primary btn-heatmap',
+	'autocomplete': "off"
+    });
+    hmbtn.appendTo('#heatmaplist'); // adds the button to the section
+  });
+  
   //Set up checkboxes to be checked when the page loads
   //And set up event handlers for checkboxes
   checkboxSetup();

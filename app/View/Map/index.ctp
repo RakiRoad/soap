@@ -10,7 +10,7 @@
 */
 	$this->Html->css('map', null, array('inline' => false));
 	
-	$this->Html->script('http://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization&key=AIzaSyBv2FzPm4yBsnT_50cCOyufvs5YQl1LNtk&callback=initMap', array('inline' => false, 'async' => true, 'defer' => true));
+	$this->Html->script('http://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyBv2FzPm4yBsnT_50cCOyufvs5YQl1LNtk&callback=initMap', array('inline' => false, 'async' => true, 'defer' => true));
 	$this->Html->script('map', array('inline' => false));
 	
 	
@@ -25,7 +25,7 @@
 			'x_coor' => floatval($facility[0]['x_coor']),
 			'y_coor' => -1*floatval($facility[0]['y_coor']),
 			'dg_level' =>	$facility[0]['dangerous_state'],
-			'county' => $facility[0]['county'], //added this so we can search by county in the JS file --Dylana
+			'county' => $facility[0]['county'] //added this so we can search by county in the JS file --Dylan
 			);
 		}
 	}
@@ -60,8 +60,13 @@
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="span3 search-wrapper" >
-    			
-			<div class="search-filter">
+		  <!-- Team Turing, Fall 2016 - added panel group with collapsible headers to cleanup the various elements being added to this sidebar. Also added the heatmap section for displaying heatmaps. See webroot/js/map.js for more info-->
+		  <div class="panel-group">
+		    <div class="panel panel-default">
+		      <a class="btn btn-collapse" data-toggle="collapse" href="#collapse_search">Search or Filter</a>
+		      <div id="collapse_search" class="panel-collapse collapse">
+			<div class="panel-body">
+			  <div class="search-filter">
 				<h2>Go to Address:</h2>
 					<input class="search-field" id="addressSearchBar" type="text" placeholder="Go to address...">
 					<input type="button" class="btn address-btn" value="Go"><br><br>
@@ -117,8 +122,21 @@
 					</div>
 				</form></center>
 			</div>
-			
-			<h2 align="center">Facilities List:</h2>
+			</div>
+		      </div>
+		    </div>
+		    <div class="panel panel-default">
+		      <a class="btn btn-collapse" data-toggle="collapse" href="#collapse_heatmaps">Heatmap Overlays</a>
+		      <div id="collapse_heatmaps" class="panel-collapse collapse in">
+			<div class="panel-body" id="heatmaplist">
+			  <!-- Team Turing, Fall 2016 - filled by JS -->
+			</div>
+		      </div>
+		    </div>
+		    <div class="panel panel-default">
+		      <a class="btn btn-collapse" data-toggle="collapse" href="#collapse_list">List of Facilities</a>
+		      <div id="collapse_list" class="panel-collapse collapse">
+			<div class="panel-body">
 			<ul>
 			<?php 
 				foreach($facilities as $facility):
@@ -146,6 +164,10 @@
 				<li id="<?php echo $facility['id']; ?>" class="facility-list-item"><img src="/SOAP/app/webroot/img/map/<?php echo $imgType; ?>" class="dg-level"><?php echo $facility['facility_name']; ?></li>
 			<?php endforeach;	?>
 			</ul>
+			</div>
+		      </div>
+		    </div>
+		  </div> 
     		</div>
     		<div class="span9 map-wrapper">
 			<div id="map_canvas" style="width:100%; height:80vh"></div>
