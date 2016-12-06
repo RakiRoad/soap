@@ -350,9 +350,10 @@ function checkboxSetup() {
     
     // set handler function for clicks on danger level checkboxes
     for (var i=0; i<dgCheckboxes.length; i++) {
-        dgCheckboxes[i].checked = true;
+        dgCheckboxes[i].checked = false;
         dgCheckboxes[i].onclick = function() {updateMapDangerLevel()};
     }
+    updateMapDangerLevel();
 }
 
 //Looks at danger level checkboxes and filters map according
