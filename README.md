@@ -21,4 +21,4 @@ provided so that users are able to report any contamination to the EPA along wit
 2. Login in system is inconsistent
 
 ## License
-See License for Details
+All source code in this app is released under the MIT license. See License for Details
